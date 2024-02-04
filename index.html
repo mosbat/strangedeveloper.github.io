@@ -322,6 +322,17 @@
     <hr>
     <h2><b>For Donations!</b></h2>
     <p><b>Crypto Donations</b></p>
+    <script>
+      function copyToClipboard(text) {
+        const tempInput = document.createElement('textarea');
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        alert('Address copied to clipboard: ' + text);
+      }
+    </script>
     <table class="center">
       <tr>
         <td>
@@ -329,6 +340,10 @@
         </td>
         <td><input type="image" src="solana-icon.png" title="Donata Solana!" id="showQRButtonSOL"
             style="height: 50px; width: 50px;"></td>
+        <td>
+          <img style="height: 50px; width: 50px;" src="copy-icon.png" alt="Copy to clipboard"
+            onclick="copyToClipboard('8NnWSKx7fvgwPtGn9mU8uMhFVQtt3iwYRR2sEN51LZkt')">
+        </td>
       </tr>
       <tr>
         <td>
@@ -336,6 +351,21 @@
         </td>
         <td><input type="image" src="doge-icon.png" title="Donata Dogecoin!" id="showQRButtonDOGE"
             style="height: 50px; width: 50px;"></td>
+        <td>
+          <img style="height: 50px; width: 50px;" src="copy-icon.png" alt="Copy to clipboard"
+            onclick="copyToClipboard('DDNunTr1GsbE6W1Y9Pu68wK4xDuuKmh5de')">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><b>Polygon (MATIC)</b></p>
+        </td>
+        <td><input type="image" src="polygon-icon.png" title="Donata Polygon!" id="showQRButtonPolygon"
+            style="height: 50px; width: 50px;"></td>
+        <td>
+          <img style="height: 50px; width: 50px;" src="copy-icon.png" alt="Copy to clipboard"
+            onclick="copyToClipboard('0xF1Fba806fA04713C94d710F2fc077d9701BA8c25')">
+        </td>
       </tr>
     </table>
 
@@ -350,17 +380,22 @@
 
     <p><b>Other Donation Means</b></p>
 
-    <script async
-  src="https://js.stripe.com/v3/buy-button.js">
-</script>
+    <script async src="https://js.stripe.com/v3/buy-button.js">
+    </script>
 
-<stripe-buy-button
-  buy-button-id="buy_btn_1OfxiVGWK5rEE2rxNwEavTcb"
-  publishable-key="pk_live_51OfxG3GWK5rEE2rx1qylaYXj3pmrzwo0LFZpPhstQZYzI1BVQUcfyPeZjbEbSNUHhfTH06uxs1NbsmW2b722mykt007dDhKZSJ"
->
-</stripe-buy-button>
+    <table class="center">
+      <td>
+        <stripe-buy-button buy-button-id="buy_btn_1Og7h8GWK5rEE2rxU0TnjwTe"
+          publishable-key="pk_live_51OfxG3GWK5rEE2rx1qylaYXj3pmrzwo0LFZpPhstQZYzI1BVQUcfyPeZjbEbSNUHhfTH06uxs1NbsmW2b722mykt007dDhKZSJ">
+        </stripe-buy-button>
 
+      </td>
+      <td>
+        <p style="font-size: large;"><b>OR Scan QR Code</b></p>
 
+        <img src="qr_28o03teV71iL6tifYZ.png" style="width: 200px; height: 200px;">
+      </td>
+    </table>
 </body>
 
 <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
@@ -407,20 +442,40 @@
     modalContent.style.width = qrcodeImage.width + 'px';
   });
 
+  document.getElementById('showQRButtonPolygon').addEventListener('click', function () {
+    // Show the modal
+    var modalContainer = document.getElementById('modalContainer');
+    modalContainer.style.display = 'flex';
+
+    // clear existing container
+    var qrcodeContainer = document.getElementById('qrcodeContainer');
+    qrcodeContainer.innerHTML = '';
+
+    // Create a QR code
+    var qrcode = new QRCode(document.getElementById('qrcodeContainer'), {
+      text: '0xF1Fba806fA04713C94d710F2fc077d9701BA8c25', // Replace with your URL or data
+    });
+
+    // Dynamically set the width of the modal content based on the QR code's image size
+    var qrcodeImage = document.getElementById('qrcodeContainer').getElementsByTagName('img')[1];
+    var modalContent = document.querySelector('.modal-content');
+    modalContent.style.width = qrcodeImage.width + 'px';
+  });
+
   // Function to close the modal
   function closeModal() {
-  var modalContainer = document.getElementById('modalContainer');
-  modalContainer.style.display = 'none';
+    var modalContainer = document.getElementById('modalContainer');
+    modalContainer.style.display = 'none';
 
-  var qrcodeContainer = document.getElementById('qrcodeContainer');
-  qrcodeContainer.innerHTML = '';
-}
+    var qrcodeContainer = document.getElementById('qrcodeContainer');
+    qrcodeContainer.innerHTML = '';
+  }
 
   document.getElementById('modalContainer').addEventListener('click', function (event) {
-  if (event.target === this) {
-    closeModal();
-  }
-});
+    if (event.target === this) {
+      closeModal();
+    }
+  });
 
 </script>
 

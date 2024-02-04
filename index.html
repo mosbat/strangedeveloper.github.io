@@ -409,8 +409,18 @@
 
   // Function to close the modal
   function closeModal() {
-    document.getElementById('modalContainer').style.display = 'none';
+  var modalContainer = document.getElementById('modalContainer');
+  modalContainer.style.display = 'none';
+
+  var qrcodeContainer = document.getElementById('qrcodeContainer');
+  qrcodeContainer.innerHTML = '';
+}
+
+  document.getElementById('modalContainer').addEventListener('click', function (event) {
+  if (event.target === this) {
+    closeModal();
   }
+});
 
 </script>
 

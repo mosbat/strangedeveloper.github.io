@@ -40,6 +40,17 @@
       /* Adjust the margin as needed */
     }
 
+    #site-qr {
+      width: 100%;
+      /* Make the image responsive to its container */
+      max-width: 200px;
+      /* Set a maximum width to prevent excessive growth */
+      height: auto;
+      /* Maintain the aspect ratio */
+      margin-top: 20px;
+      /* Adjust the margin as needed */
+    }
+
     h1 {
       color: #007BFF;
       margin-bottom: 10px;
@@ -219,9 +230,32 @@
 
 <body>
   <div id="profile-container">
-    <img id="profile-picture" src="https://img-c.udemycdn.com/user/200_H/33334916_b69e.jpg" alt="Profile Picture">
+    <img id="profile-picture" src="https://img-c.udemycdn.com/user/200_H/33334916_b69e.jpg" alt="Profile Picture" />
+    <img id="site-qr" src="site-url-qr.png" alt="site-url-qr-code" />
     <h1>Mousa Al Bateh</h1>
     <p><b>Indie Developer, Instructor, and Photographer</b></p>
+    <p><b>
+        <ul>
+          <li>
+            Full Stack
+          </li>
+          <li>
+            Android
+          </li>
+          <li>
+            OpenNLP
+          </li>
+          <li>
+            MSSQL and MongoDB
+          </li>
+          <li>
+            Experience in building fault tolerant solutions
+          </li>
+          <li>
+            Experience in tweaking performance
+          </li>
+        </ul>
+      </b></p>
 
     <!-- Courses Section -->
     <div class="section">
@@ -317,6 +351,10 @@
       <a href="https://www.tiktok.com/@strange.developer" target="_blank">
         <img class="social-icon" src="tiktok-icon.png" alt="TikTok" style="width: 50px; height: 50px;">
       </a>
+
+      <a href="https://twitter.com/StrangeDev20" target="_blank">
+        <img class="social-icon" src="x-icon.png" alt="X" style="width: 50px; height: 50px;">
+      </a>
     </div>
 
     <hr>
@@ -352,8 +390,8 @@
         <td><input type="image" src="solana-icon.png" title="Donata Solana!" id="showQRButtonSOL"
             style="height: 50px; width: 50px;"></td>
         <td>
-          <img onmouseover="this.style.cursor='pointer';" style="height: 50px; width: 50px;" src="copy-icon.png" alt="Copy to clipboard"
-            onclick="copyToClipboard('8NnWSKx7fvgwPtGn9mU8uMhFVQtt3iwYRR2sEN51LZkt')">
+          <img onmouseover="this.style.cursor='pointer';" style="height: 50px; width: 50px;" src="copy-icon.png"
+            alt="Copy to clipboard" onclick="copyToClipboard('8NnWSKx7fvgwPtGn9mU8uMhFVQtt3iwYRR2sEN51LZkt')">
         </td>
       </tr>
       <tr>
@@ -363,8 +401,8 @@
         <td><input type="image" src="doge-icon.png" title="Donata Dogecoin!" id="showQRButtonDOGE"
             style="height: 50px; width: 50px;"></td>
         <td>
-          <img onmouseover="this.style.cursor='pointer';" style="height: 50px; width: 50px;" src="copy-icon.png" alt="Copy to clipboard"
-            onclick="copyToClipboard('DDNunTr1GsbE6W1Y9Pu68wK4xDuuKmh5de')">
+          <img onmouseover="this.style.cursor='pointer';" style="height: 50px; width: 50px;" src="copy-icon.png"
+            alt="Copy to clipboard" onclick="copyToClipboard('DDNunTr1GsbE6W1Y9Pu68wK4xDuuKmh5de')">
         </td>
       </tr>
       <tr>
@@ -374,8 +412,8 @@
         <td><input type="image" src="polygon-icon.png" title="Donata Polygon!" id="showQRButtonPolygon"
             style="height: 50px; width: 50px;"></td>
         <td>
-          <img onmouseover="this.style.cursor='pointer';" style="height: 50px; width: 50px;" src="copy-icon.png" alt="Copy to clipboard"
-            onclick="copyToClipboard('0xF1Fba806fA04713C94d710F2fc077d9701BA8c25')">
+          <img onmouseover="this.style.cursor='pointer';" style="height: 50px; width: 50px;" src="copy-icon.png"
+            alt="Copy to clipboard" onclick="copyToClipboard('0xF1Fba806fA04713C94d710F2fc077d9701BA8c25')">
         </td>
       </tr>
     </table>
@@ -407,6 +445,12 @@
         <img src="qr_28o03teV71iL6tifYZ.png" style="width: 200px; height: 200px;">
       </td>
     </table>
+    <hr>
+    <h2><b>To get in touch</b></h2>
+    <b>
+      <a href="mailto:info.strange.developer@gmail.com">info.strange.developer@gmail.com</a>
+    </b>
+    </p>
 </body>
 
 <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>

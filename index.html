@@ -465,10 +465,13 @@
         <img class="social-icon" src="x-icon.png" alt="X" style="width: 50px; height: 50px;">
       </a>
     </div>
+    <!-- <hr> -->
 
-    <hr>
-    <h2><b>For Donations!</b></h2>
+    <!--
+        <h2><b>For Donations!</b></h2>
     <p><b>Crypto Donations</b></p>
+    -->
+
     <script>
       function copyToClipboard(text) {
         const tempInput = document.createElement('textarea');
@@ -480,7 +483,7 @@
         alert('Address copied to clipboard: ' + text);
       }
     </script>
-    <table class="center">
+<!--     <table class="center">
       <tr>
         <th>
           <p><b>Crypto</b></p>
@@ -525,7 +528,7 @@
             alt="Copy to clipboard" onclick="copyToClipboard('0xF1Fba806fA04713C94d710F2fc077d9701BA8c25')">
         </td>
       </tr>
-    </table>
+    </table> -->
 
     <!-- Modal Container -->
     <div id="modalContainer" class="modal" style="display: none;">
@@ -546,7 +549,7 @@
 <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
 <script>
-  document.getElementById('showQRButtonSOL').addEventListener('click', function () {
+    /* document.getElementById('showQRButtonSOL').addEventListener('click', function () {
     // Show the modal
     var modalContainer = document.getElementById('modalContainer');
     modalContainer.style.display = 'flex';
@@ -605,7 +608,7 @@
     var qrcodeImage = document.getElementById('qrcodeContainer').getElementsByTagName('img')[1];
     var modalContent = document.querySelector('.modal-content');
     modalContent.style.width = qrcodeImage.width + 'px';
-  });
+  }); */
 
   // Function to close the modal
   function closeModal() {

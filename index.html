@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -228,77 +229,87 @@
 
 
     ul {
-            
-            list-style-type: none;
-            padding: 0;
-        }
 
-        li {
-            opacity: 0;
-            transform: translateX(100px); /* Move the item to the right initially */
-            transition: opacity 1s ease, transform 1s ease;
-            margin-bottom: 10px;
-        }
+      list-style-type: none;
+      padding: 0;
+    }
 
-        .show-item {
-            opacity: 1;
-            transform: translateX(0); /* Move to original position */
-        }
+    li {
+      opacity: 0;
+      transform: translateX(100px);
+      /* Move the item to the right initially */
+      transition: opacity 1s ease, transform 1s ease;
+      margin-bottom: 10px;
+    }
 
-        /* Optional: Add a delay between each item */
-        li:nth-child(1) {
-            transition-delay: 0s;
-        }
+    .show-item {
+      opacity: 1;
+      transform: translateX(0);
+      /* Move to original position */
+    }
 
-        li:nth-child(2) {
-            transition-delay: 0.3s;
-        }
+    /* Optional: Add a delay between each item */
+    li:nth-child(1) {
+      transition-delay: 0s;
+    }
 
-        li:nth-child(3) {
-            transition-delay: 0.6s;
-        }
+    li:nth-child(2) {
+      transition-delay: 0.3s;
+    }
 
-        li:nth-child(4) {
-            transition-delay: 0.9s;
-        }
+    li:nth-child(3) {
+      transition-delay: 0.6s;
+    }
 
-        li:nth-child(5) {
-            transition-delay: 1.2s;
-        }
+    li:nth-child(4) {
+      transition-delay: 0.9s;
+    }
 
-        .faq-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
+    li:nth-child(5) {
+      transition-delay: 1.2s;
+    }
 
-        .faq-question {
-            background-color: #007BFF;
-            color: white;
-            padding: 15px;
-            margin: 5px 0;
-            cursor: pointer;
-            border: 1px solid #007BFF;
-            border-radius: 5px;
-            font-size: 16px;
-        }
+    .faq-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
-        .faq-answer {
-            background-color: #f1f1f1;
-            padding: 10px 15px;
-            margin: 0 0 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            display: none; /* Hide the answer by default */
-        }
+    .faq-question {
+      background-color: #007BFF;
+      color: white;
+      padding: 15px;
+      margin: 5px 0;
+      cursor: pointer;
+      border: 1px solid #007BFF;
+      border-radius: 5px;
+      font-size: 16px;
+    }
 
-        .faq-question:hover {
-            background-color: #0056b3;
-        }
+    .faq-answer {
+      background-color: #f1f1f1;
+      padding: 10px 15px;
+      margin: 0 0 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      display: none;
+      /* Hide the answer by default */
+    }
+
+    .faq-question:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 
 <body>
-  <div id="profile-container">
+  <noscript>
+    <div
+      style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(233, 7, 7, 0.7); color: white; padding: 20px; border-radius: 10px;">
+      <p><strong>JavaScript is disabled in your browser.</strong></p>
+      <p>Please enable JavaScript to view this page correctly.</p>
+    </div>
+  </noscript>
+  <div id="profile-container" style="width:fit-content;">
     <img id="profile-picture" src="https://img-c.udemycdn.com/user/200_H/33334916_b69e.jpg" alt="Profile Picture" />
     <img id="site-qr" src="site-url-qr.png" alt="site-url-qr-code" />
     <h1>Mousa Al Bateh</h1>
@@ -329,122 +340,151 @@
           </li>
         </ul>
       </b></p>
-<hr>
-<h1>Services</h1>
-      <p>
-        <ul id="services-list" title="Services Offered" style="list-style-type: disc;"><b>
-          <li>
-            Building new websites for small to medium sized businesses
-          </li>
-          <li>
-            Building webstores for small businesses or startups
-          </li>
-          <li>
-            Building custom software solutions for all businesses' needs
-          </li>
-          <li>
-            Building Android app and managing it on Play Store
-          </li>
-          <li>
-            Helping with mass data analyses and metrics
-          </li>
-          <li>
-            Setting up cloud servers
-          </li>
-          <li>
-            Fixing old/legacy software
-          </li>
-          <li>
-            Tweaking or improving current software performance
-          </li>
-          <li>
-            Helping with building database solutions for storing data securely
-          </li>
-          <li>
-            Security assessment of software and improving it's security
-          </li>
-        </ul>
-      </b>
-      </p>
-
     <hr>
-      <h1>Prices</h1>
-      <p style="color: #121212;"><b>Prices of all services are quoted on a case by case basis depending on the scale and begins from EUR 1,600 and above per project.</b></p>
+    <h1>Services</h1>
+    <p>
+    <ul id="services-list" title="Services Offered" style="list-style-type: disc; text-align: start; padding-left: 10%;"><b>
+        <li>
+          Building new websites for small to medium sized businesses
+        </li>
+        <li>
+          Building webstores for small businesses or startups
+        </li>
+        <li>
+          Building custom software solutions for all businesses' needs
+        </li>
+        <li>
+          Building Android app and managing it on Play Store
+        </li>
+        <li>
+          Helping with mass data analyses and metrics
+        </li>
+        <li>
+          Setting up cloud servers
+        </li>
+        <li>
+          Fixing old/legacy software
+        </li>
+        <li>
+          Tweaking or improving current software performance
+        </li>
+        <li>
+          Helping with building database solutions for storing data securely
+        </li>
+        <li>
+          Security assessment of software and improving it's security
+        </li>
+    </ul>
+    </b>
+    </p>
     <hr>
-
-
+    <h1>Prices</h1>
+    <p style="color: #121212; padding-left: 10%;"><b>Prices of all services are quoted on a case by case basis depending on the scale.</b></p>
+    <p style="color: #121212; padding-left: 10%;"><b>Minimum: <i>EUR 1,600</i></b></p>
+    <hr>
     <div class="faq-container">
       <div class="faq-item">
         <div class="faq-question">What is escrow and how does it work?</div>
-        <div class="faq-answer">Escrow is a secure payment method where the client funds a project in advance, but the money is held by a third party until agreed-upon milestones or the final project is completed. This ensures both parties are protected: the client is assured the work will be done before payment is released, and the freelancer is assured they will be paid once the work is completed to satisfaction.</div>
-    </div>
-    
-    <div class="faq-item">
+        <div class="faq-answer">Escrow is a secure payment method where the client funds a project in advance, but the
+          money is held by a third party until agreed-upon milestones or the final project is completed. This ensures
+          both parties are protected: the client is assured the work will be done before payment is released, and the
+          freelancer is assured they will be paid once the work is completed to satisfaction.</div>
+      </div>
+
+      <div class="faq-item">
         <div class="faq-question">What happens if there is a dispute over the work completed?</div>
-        <div class="faq-answer">If a dispute arises, both the client and the freelancer can present their case to the escrow service or a neutral mediator (if applicable). The funds will be held in escrow until the issue is resolved, ensuring fair treatment for both sides. We will aim for clear communication and regular updates to avoid misunderstandings and resolve issues quickly.</div>
-    </div>
-    
-    <div class="faq-item">
+        <div class="faq-answer">If a dispute arises, both the client and the freelancer can present their case to the
+          escrow service or a neutral mediator (if applicable). The funds will be held in escrow until the issue is
+          resolved, ensuring fair treatment for both sides. We will aim for clear communication and regular updates to
+          avoid misunderstandings and resolve issues quickly.</div>
+      </div>
+
+      <div class="faq-item">
         <div class="faq-question">How do we ensure the project is completed on time?</div>
-        <div class="faq-answer">We agree on clear project milestones and deadlines before starting the work. Regular progress updates will be shared throughout the development process, and if any delays are anticipated, I’ll notify you well in advance. This keeps the project on track and allows for adjustments if needed.</div>
-    </div>
-    
-    <div class="faq-item">
+        <div class="faq-answer">We agree on clear project milestones and deadlines before starting the work. Regular
+          progress updates will be shared throughout the development process, and if any delays are anticipated, I’ll
+          notify you well in advance. This keeps the project on track and allows for adjustments if needed.</div>
+      </div>
+
+      <div class="faq-item">
         <div class="faq-question">What happens if the project requirements change mid-way?</div>
-        <div class="faq-answer">If the scope of the project changes, I will provide an updated estimate of the time and cost required. We can amend the project milestones accordingly. Any new requirements will be added to the escrow agreement to ensure clarity on both sides.</div>
-    </div>
-    
-    <div class="faq-item">
+        <div class="faq-answer">If the scope of the project changes, I will provide an updated estimate of the time and
+          cost required. We can amend the project milestones accordingly. Any new requirements will be added to the
+          escrow agreement to ensure clarity on both sides.</div>
+      </div>
+
+      <div class="faq-item">
         <div class="faq-question">How do you ensure the quality of the work?</div>
-        <div class="faq-answer">I follow industry best practices for coding, testing, and code reviews. Before delivering the final product, the work is thoroughly tested to ensure it meets the agreed-upon requirements. I also encourage regular feedback from you during the project to ensure the direction aligns with your expectations.</div>
-    </div>
-    
-    <div class="faq-item">
+        <div class="faq-answer">I follow industry best practices for coding, testing, and code reviews. Before
+          delivering the final product, the work is thoroughly tested to ensure it meets the agreed-upon requirements. I
+          also encourage regular feedback from you during the project to ensure the direction aligns with your
+          expectations.</div>
+      </div>
+
+      <div class="faq-item">
         <div class="faq-question">Can I see examples of your previous work?</div>
-        <div class="faq-answer">Yes, I can provide case studies, portfolio links, or GitHub repositories with relevant examples of similar projects I’ve completed. This will help you assess my technical abilities and see the quality of the work I deliver.</div>
-    </div>
-    
-    <div class="faq-item">
+        <div class="faq-answer">Yes, I can provide case studies, portfolio links, or GitHub repositories with relevant
+          examples of similar projects I’ve completed. This will help you assess my technical abilities and see the
+          quality of the work I deliver.</div>
+      </div>
+
+      <div class="faq-item">
         <div class="faq-question">What happens if the project takes longer than expected?</div>
-        <div class="faq-answer">We will set realistic timelines and define project milestones upfront. If any delays are foreseen, I will communicate this immediately and work with you to adjust timelines or expectations. If the delay is caused by me, I’ll make it a priority to complete the work as soon as possible.</div>
-    </div>
-    
-    <div class="faq-item">
+        <div class="faq-answer">We will set realistic timelines and define project milestones upfront. If any delays are
+          foreseen, I will communicate this immediately and work with you to adjust timelines or expectations. If the
+          delay is caused by me, I’ll make it a priority to complete the work as soon as possible.</div>
+      </div>
+
+      <div class="faq-item">
         <div class="faq-question">How do you handle intellectual property and confidentiality?</div>
-        <div class="faq-answer">I respect your privacy and the confidentiality of your project. Any intellectual property (IP) created during the course of our collaboration will be transferred to you once the project is complete and payment has been made. I’m happy to sign an NDA (Non-Disclosure Agreement) if necessary.</div>
-    </div>
-    
-    <div class="faq-item">
+        <div class="faq-answer">I respect your privacy and the confidentiality of your project. Any intellectual
+          property (IP) created during the course of our collaboration will be transferred to you once the project is
+          complete and payment has been made. I’m happy to sign an NDA (Non-Disclosure Agreement) if necessary.</div>
+      </div>
+
+      <div class="faq-item">
         <div class="faq-question">How do you charge for the project?</div>
-        <div class="faq-answer">I offer both hourly rates and fixed-price project rates, depending on your preferences and the scope of the project. For large or long-term projects, I recommend a milestone-based approach with payments released through escrow as key deliverables are completed.</div>
-    </div>
-    
-    <div class="faq-item">
+        <div class="faq-answer">I offer both hourly rates and fixed-price project rates, depending on your preferences
+          and the scope of the project. For large or long-term projects, I recommend a milestone-based approach with
+          payments released through escrow as key deliverables are completed.</div>
+      </div>
+
+      <div class="faq-item">
         <div class="faq-question">Do you offer support after the project is completed?</div>
-        <div class="faq-answer">Yes, I offer post-project support. This can include bug fixes, performance optimizations, or small updates, depending on the project agreement. Ongoing support can be arranged on a retainer basis or as an hourly rate for any additional work that arises after the project is finished.</div>
-    </div>
-    
-    <div class="faq-item">
+        <div class="faq-answer">Yes, I offer post-project support. This can include bug fixes, performance
+          optimizations, or small updates, depending on the project agreement. Ongoing support can be arranged on a
+          retainer basis or as an hourly rate for any additional work that arises after the project is finished.</div>
+      </div>
+
+      <div class="faq-item">
         <div class="faq-question">How do we communicate during the project?</div>
-        <div class="faq-answer">I prefer to maintain open lines of communication through your preferred channels, whether that's email, Slack, or project management tools like Trello or Jira. I ensure timely responses to any inquiries or feedback. Regular check-ins and progress reports can be scheduled to keep you updated.</div>
-    </div>
-    
-    <div class="faq-item">
+        <div class="faq-answer">I prefer to maintain open lines of communication through your preferred channels,
+          whether that's email, Slack, or project management tools like Trello or Jira. I ensure timely responses to any
+          inquiries or feedback. Regular check-ins and progress reports can be scheduled to keep you updated.</div>
+      </div>
+
+      <div class="faq-item">
         <div class="faq-question">What if I’m not satisfied with the work?</div>
-        <div class="faq-answer">Your satisfaction is my priority. If you're not happy with the work at any point, we can discuss your concerns, make revisions, or clarify any misunderstandings. If the issue cannot be resolved, funds in escrow will be returned to you (as per the agreement terms), ensuring fair treatment for both sides.</div>
-    </div>
-    
-    <div class="faq-item">
+        <div class="faq-answer">Your satisfaction is my priority. If you're not happy with the work at any point, we can
+          discuss your concerns, make revisions, or clarify any misunderstandings. If the issue cannot be resolved,
+          funds in escrow will be returned to you (as per the agreement terms), ensuring fair treatment for both sides.
+        </div>
+      </div>
+
+      <div class="faq-item">
         <div class="faq-question">Can I terminate the project early?</div>
-        <div class="faq-answer">Yes, if you need to terminate the project early, we can do so. However, any completed work will be delivered, and payment will be made for the milestones that have been met. If the termination is due to non-performance or issues on my end, we can discuss a fair resolution through the escrow process.</div>
-    </div>
-    
-    <div class="faq-item">
+        <div class="faq-answer">Yes, if you need to terminate the project early, we can do so. However, any completed
+          work will be delivered, and payment will be made for the milestones that have been met. If the termination is
+          due to non-performance or issues on my end, we can discuss a fair resolution through the escrow process.</div>
+      </div>
+
+      <div class="faq-item">
         <div class="faq-question">Do you work with clients in different time zones?</div>
-        <div class="faq-answer">Yes, I am flexible and can accommodate different time zones. I strive to maintain clear communication and will adjust my working hours to ensure that deadlines and milestones are met.</div>
+        <div class="faq-answer">Yes, I am flexible and can accommodate different time zones. I strive to maintain clear
+          communication and will adjust my working hours to ensure that deadlines and milestones are met.</div>
+      </div>
+
     </div>
-    
-  </div>
 
 
 
@@ -483,7 +523,7 @@
         alert('Address copied to clipboard: ' + text);
       }
     </script>
-<!--     <table class="center">
+    <!--     <table class="center">
       <tr>
         <th>
           <p><b>Crypto</b></p>
@@ -549,66 +589,66 @@
 <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
 <script>
-    /* document.getElementById('showQRButtonSOL').addEventListener('click', function () {
-    // Show the modal
-    var modalContainer = document.getElementById('modalContainer');
-    modalContainer.style.display = 'flex';
+  /* document.getElementById('showQRButtonSOL').addEventListener('click', function () {
+  // Show the modal
+  var modalContainer = document.getElementById('modalContainer');
+  modalContainer.style.display = 'flex';
 
-    // clear existing container
-    var qrcodeContainer = document.getElementById('qrcodeContainer');
-    qrcodeContainer.innerHTML = '';
+  // clear existing container
+  var qrcodeContainer = document.getElementById('qrcodeContainer');
+  qrcodeContainer.innerHTML = '';
 
-    // Create a QR code
-    var qrcode = new QRCode(document.getElementById('qrcodeContainer'), {
-      text: '8NnWSKx7fvgwPtGn9mU8uMhFVQtt3iwYRR2sEN51LZkt', // Replace with your URL or data
+  // Create a QR code
+  var qrcode = new QRCode(document.getElementById('qrcodeContainer'), {
+    text: '8NnWSKx7fvgwPtGn9mU8uMhFVQtt3iwYRR2sEN51LZkt', // Replace with your URL or data
 
-    });
-
-    // Dynamically set the width of the modal content based on the QR code's image size
-    var qrcodeImage = document.getElementById('qrcodeContainer').getElementsByTagName('img')[1];
-    var modalContent = document.querySelector('.modal-content');
-    modalContent.style.width = qrcodeImage.width + 'px';
   });
 
-  document.getElementById('showQRButtonDOGE').addEventListener('click', function () {
-    // Show the modal
-    var modalContainer = document.getElementById('modalContainer');
-    modalContainer.style.display = 'flex';
+  // Dynamically set the width of the modal content based on the QR code's image size
+  var qrcodeImage = document.getElementById('qrcodeContainer').getElementsByTagName('img')[1];
+  var modalContent = document.querySelector('.modal-content');
+  modalContent.style.width = qrcodeImage.width + 'px';
+});
 
-    // clear existing container
-    var qrcodeContainer = document.getElementById('qrcodeContainer');
-    qrcodeContainer.innerHTML = '';
+document.getElementById('showQRButtonDOGE').addEventListener('click', function () {
+  // Show the modal
+  var modalContainer = document.getElementById('modalContainer');
+  modalContainer.style.display = 'flex';
 
-    // Create a QR code
-    var qrcode = new QRCode(document.getElementById('qrcodeContainer'), {
-      text: 'DDNunTr1GsbE6W1Y9Pu68wK4xDuuKmh5de', // Replace with your URL or data
-    });
+  // clear existing container
+  var qrcodeContainer = document.getElementById('qrcodeContainer');
+  qrcodeContainer.innerHTML = '';
 
-    // Dynamically set the width of the modal content based on the QR code's image size
-    var qrcodeImage = document.getElementById('qrcodeContainer').getElementsByTagName('img')[1];
-    var modalContent = document.querySelector('.modal-content');
-    modalContent.style.width = qrcodeImage.width + 'px';
+  // Create a QR code
+  var qrcode = new QRCode(document.getElementById('qrcodeContainer'), {
+    text: 'DDNunTr1GsbE6W1Y9Pu68wK4xDuuKmh5de', // Replace with your URL or data
   });
 
-  document.getElementById('showQRButtonPolygon').addEventListener('click', function () {
-    // Show the modal
-    var modalContainer = document.getElementById('modalContainer');
-    modalContainer.style.display = 'flex';
+  // Dynamically set the width of the modal content based on the QR code's image size
+  var qrcodeImage = document.getElementById('qrcodeContainer').getElementsByTagName('img')[1];
+  var modalContent = document.querySelector('.modal-content');
+  modalContent.style.width = qrcodeImage.width + 'px';
+});
 
-    // clear existing container
-    var qrcodeContainer = document.getElementById('qrcodeContainer');
-    qrcodeContainer.innerHTML = '';
+document.getElementById('showQRButtonPolygon').addEventListener('click', function () {
+  // Show the modal
+  var modalContainer = document.getElementById('modalContainer');
+  modalContainer.style.display = 'flex';
 
-    // Create a QR code
-    var qrcode = new QRCode(document.getElementById('qrcodeContainer'), {
-      text: '0xF1Fba806fA04713C94d710F2fc077d9701BA8c25', // Replace with your URL or data
-    });
+  // clear existing container
+  var qrcodeContainer = document.getElementById('qrcodeContainer');
+  qrcodeContainer.innerHTML = '';
 
-    // Dynamically set the width of the modal content based on the QR code's image size
-    var qrcodeImage = document.getElementById('qrcodeContainer').getElementsByTagName('img')[1];
-    var modalContent = document.querySelector('.modal-content');
-    modalContent.style.width = qrcodeImage.width + 'px';
-  }); */
+  // Create a QR code
+  var qrcode = new QRCode(document.getElementById('qrcodeContainer'), {
+    text: '0xF1Fba806fA04713C94d710F2fc077d9701BA8c25', // Replace with your URL or data
+  });
+
+  // Dynamically set the width of the modal content based on the QR code's image size
+  var qrcodeImage = document.getElementById('qrcodeContainer').getElementsByTagName('img')[1];
+  var modalContent = document.querySelector('.modal-content');
+  modalContent.style.width = qrcodeImage.width + 'px';
+}); */
 
   // Function to close the modal
   function closeModal() {
@@ -625,46 +665,46 @@
     }
   });
 
-    // When the page loads, make the list items fade in one by one
-    window.onload = function() {
-
-
-            
-            const items = document.querySelectorAll('#professions-list li');
-            items.forEach((item, index) => {
-                setTimeout(() => {
-                    item.classList.add('show-item');
-                }, index * 300); // Add a delay for each item
-            });
-
-            const services = document.querySelectorAll('#services-list li');
-            services.forEach((item, index) => {
-                setTimeout(() => {
-                    item.classList.add('show-item');
-                }, index * 300); // Add a delay for each item
-            });
-        };
+  // When the page loads, make the list items fade in one by one
+  window.onload = function () {
 
 
 
-    </script>
+    const items = document.querySelectorAll('#professions-list li');
+    items.forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.add('show-item');
+      }, index * 300); // Add a delay for each item
+    });
+
+    const services = document.querySelectorAll('#services-list li');
+    services.forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.add('show-item');
+      }, index * 300); // Add a delay for each item
+    });
+  };
+
+
+
+</script>
 
 <script>
-// Select all FAQ question elements
-const faqQuestions = document.querySelectorAll('.faq-question');
+  // Select all FAQ question elements
+  const faqQuestions = document.querySelectorAll('.faq-question');
 
-// Add click event listeners to each question
-faqQuestions.forEach(question => {
+  // Add click event listeners to each question
+  faqQuestions.forEach(question => {
     question.addEventListener('click', () => {
-        // Toggle the visibility of the associated answer
-        const answer = question.nextElementSibling;
-        if (answer.style.display === 'block') {
-            answer.style.display = 'none';
-        } else {
-            answer.style.display = 'block';
-        }
+      // Toggle the visibility of the associated answer
+      const answer = question.nextElementSibling;
+      if (answer.style.display === 'block') {
+        answer.style.display = 'none';
+      } else {
+        answer.style.display = 'block';
+      }
     });
-});
+  });
 </script>
 
 </script>

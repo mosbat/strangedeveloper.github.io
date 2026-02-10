@@ -117,6 +117,20 @@
         </div>
     </div>
 
+    <div class="section">
+    <h2>Section 4: Cloud Cost Leaks (Bonus)</h2>
+    <div class="question">
+        <h3>9. Do dev/test environments run 24/7?</h3>
+        <label><input type="radio" name="q9" value="1"> Yes</label>
+        <label><input type="radio" name="q9" value="0"> No</label>
+    </div>
+    <div class="question">
+        <h3>10. Are there unused snapshots/volumes >90 days old?</h3>
+        <label><input type="radio" name="q10" value="1"> Yes</label>
+        <label><input type="radio" name="q10" value="0"> No</label>
+    </div>
+</div>
+
     <button onclick="calculateScore()" id="submitBtn">Get My Risk Score & Fixes</button>
 
     <div id="results" class="results">
@@ -139,7 +153,7 @@
 
     <script>
         function calculateScore() {
-            const answers = ['q1','q2','q3','q4','q5','q6','q7','q8'];
+            const answers = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10'];
             let score = 0;
             let answered = 0;
 

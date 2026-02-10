@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Security Quick Assessment - Mousa Al Bateh</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8fafc;
+            line-height: 1.6;
+            color: #1e293b;
+        }
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #0f766e, #115e59);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .header h1 { font-size: 2.2em; margin-bottom: 10px; }
+        .header p { font-size: 1.1em; opacity: 0.95; }
+        .section { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 25px; }
+        .question { margin-bottom: 20px; }
+        .question h3 { color: #1e293b; margin-bottom: 8px; font-size: 1.1em; }
+        label { display: block; margin: 8px 0; cursor: pointer; padding: 12px 16px; border: 2px solid #e2e8f0; border-radius: 8px; transition: all 0.2s; }
+        label:hover { border-color: #0f766e; background: #f0fdfa; }
+        input[type="radio"] { margin-right: 10px; transform: scale(1.2); }
+        input[type="radio"]:checked + label { background: #ecfdf5; border-color: #10b981; }
+        button {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.1em;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        button:hover { transform: translateY(-2px); }
+        button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .results { display: none; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .risk-badge { padding: 12px 24px; border-radius: 50px; font-size: 1.2em; font-weight: bold; text-align: center; margin: 20px 0; }
+        .risk-low { background: #ecfdf5; color: #166534; border: 2px solid #10b981; }
+        .risk-medium { background: #fef3c7; color: #92400e; border: 2px solid #f59e0b; }
+        .risk-high { background: #fee2e2; color: #991b1b; border: 2px solid #ef4444; }
+        .fixes { background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 5px solid #10b981; margin-top: 20px; }
+        .cta { background: linear-gradient(135deg, #0f766e, #115e59); color: white; padding: 24px; border-radius: 12px; text-align: center; margin-top: 30px; }
+        .cta a { color: #ecfdf5; text-decoration: none; font-weight: 600; }
+        .footer { text-align: center; padding: 30px 0; color: #64748b; font-size: 0.9em; }
+        @media (max-width: 600px) { .header h1 { font-size: 1.8em; } body { padding: 15px; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🛡️ Cloud Security Quick Assessment</h1>
+        <p>Answer 8 simple questions. Get your risk score + 3 priority fixes.<br><strong>Takes 2 minutes.</strong></p>
+    </div>
+
+    <div class="section">
+        <h2>Section 1: IAM & Access</h2>
+        <div class="question">
+            <h3>1. Do you have IAM roles/users with wildcard permissions (*)?</h3>
+            <label><input type="radio" name="q1" value="1"> Yes</label>
+            <label><input type="radio" name="q1" value="0"> No</label>
+        </div>
+        <div class="question">
+            <h3>2. Are there AWS service accounts >90 days old that haven't been used?</h3>
+            <label><input type="radio" name="q2" value="1"> Yes</label>
+            <label><input type="radio" name="q2" value="0"> No</label>
+        </div>
+        <div class="question">
+            <h3>3. Is MFA enforced for all users with admin privileges?</h3>
+            <label><input type="radio" name="q3" value="0"> Yes</label>
+            <label><input type="radio" name="q3" value="1"> No</label>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Section 2: Infrastructure Security</h2>
+        <div class="question">
+            <h3>4. Do you have public S3 buckets containing sensitive data?</h3>
+            <label><input type="radio" name="q4" value="1"> Yes</label>
+            <label><input type="radio" name="q4" value="0"> No</label>
+        </div>
+        <div class="question">
+            <h3>5. Are all EC2 security groups allowing 0.0.0.0/0 inbound?</h3>
+            <label><input type="radio" name="q5" value="1"> Yes</label>
+            <label><input type="radio" name="q5" value="0"> No</label>
+        </div>
+        <div class="question">
+            <h3>6. Is CloudTrail logging enabled across ALL regions?</h3>
+            <label><input type="radio" name="q6" value="0"> Yes</label>
+            <label><input type="radio" name="q6" value="1"> No</label>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Section 3: Compliance & Operations</h2>
+        <div class="question">
+            <h3>7. Do you conduct quarterly access reviews for privileged accounts?</h3>
+            <label><input type="radio" name="q7" value="0"> Yes</label>
+            <label><input type="radio" name="q7" value="1"> No</label>
+        </div>
+        <div class="question">
+            <h3>8. Are all production databases encrypted at rest AND in transit?</h3>
+            <label><input type="radio" name="q8" value="0"> Yes</label>
+            <label><input type="radio" name="q8" value="1"> No</label>
+        </div>
+    </div>
+
+    <button onclick="calculateScore()" id="submitBtn">Get My Risk Score & Fixes</button>
+
+    <div id="results" class="results">
+        <div class="risk-badge" id="riskBadge"></div>
+        <h2 id="riskTitle"></h2>
+        <p id="riskDesc"></p>
+        <div class="fixes">
+            <h3>Your 3 Priority Fixes:</h3>
+            <ol id="priorityFixes"></ol>
+        </div>
+        <div class="cta">
+            <p><strong>Want personalized fixes for YOUR environment?</strong></p>
+            <p>Contact me at <a href="mailto:contact@mousa-cloud.com" onclick="onMailToClick(event)">contact@mousa-cloud.com</a> to book a quick meeting!</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 Mousa Al Bateh | Cloud Consultant</p>
+    </div>
+
+    <script>
+        function calculateScore() {
+            const answers = ['q1','q2','q3','q4','q5','q6','q7','q8'];
+            let score = 0;
+            let answered = 0;
+
+            for (let q of answers) {
+                const selected = document.querySelector(`input[name="${q}"]:checked`);
+                if (selected) {
+                    score += parseInt(selected.value);
+                    answered++;
+                }
+            }
+
+            if (answered < 8) {
+                alert('Please answer all questions for accurate results.');
+                return;
+            }
+
+            const submitBtn = document.getElementById('submitBtn');
+            const results = document.getElementById('results');
+
+            submitBtn.style.display = 'none';
+            results.style.display = 'block';
+
+            let riskClass, riskTitle, riskDesc, fixes;
+
+            if (score <= 2) {
+                riskClass = 'risk-low';
+                riskTitle = '🟢 Low Risk';
+                riskDesc = 'Solid foundation. Keep up basic hygiene.';
+                fixes = [
+                    '1. Schedule quarterly access reviews',
+                    '2. Verify MFA everywhere',
+                    '3. Test your incident response once/year'
+                ];
+            } else if (score <= 5) {
+                riskClass = 'risk-medium';
+                riskTitle = '🟡 Medium Risk';
+                riskDesc = '3-5 gaps to address. Fix these within 30 days.';
+                fixes = [
+                    '1. Remove wildcard IAM permissions (*)',
+                    '2. Enable CloudTrail across ALL regions',
+                    '3. Tighten Security Groups (no 0.0.0.0/0)'
+                ];
+            } else {
+                riskClass = 'risk-high';
+                riskTitle = '🔴 High Risk';
+                riskDesc = 'Immediate action required. 6+ critical gaps.';
+                fixes = [
+                    '1. Audit ALL IAM roles for wildcards immediately',
+                    '2. Enable MFA + delete dormant accounts',
+                    '3. Fix public S3 buckets + enable full logging'
+                ];
+            }
+
+            document.getElementById('riskBadge').className = `risk-badge ${riskClass}`;
+            document.getElementById('riskBadge').textContent = riskTitle;
+            document.getElementById('riskTitle').textContent = riskTitle;
+            document.getElementById('riskDesc').textContent = riskDesc;
+
+            const fixesList = document.getElementById('priorityFixes');
+            fixesList.innerHTML = fixes.map(fix => `<li>${fix}</li>`).join('');
+        }
+    </script>
+</body>
+</html>

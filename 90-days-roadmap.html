@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>90‑Day Security Roadmap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0f1c;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: #61dafb;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #aaaaaa;
+            font-size: 1rem;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #61dafb 0%, #3065e0 100%);
+            transform: translateX(-50%);
+            border-radius: 999px;
+        }
+
+        .timeline-item {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-item::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 16px;
+            height: 16px;
+            background: #202c40;
+            border: 3px solid #61dafb;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(97, 218, 251, 0.3);
+        }
+
+        .timeline-item.hovered::after {
+            transform: translate(-50%, -50%) scale(1.3);
+            box-shadow: 0 0 15px rgba(97, 218, 251, 0.6);
+        }
+
+        .timeline-item.hovered .timeline-content {
+            box-shadow: 0 0 20px rgba(97, 218, 251, 0.25);
+        }
+
+        .timeline-item.hovered .timeline-content::before {
+            background-color: #61dafb;
+        }
+
+        .timeline-content {
+            position: relative;
+            width: 45%;
+            padding: 1rem 1.2rem;
+            background: #141c2c;
+            border: 1px solid #2a3750;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content::before {
+            content: "";
+            position: absolute;
+            top: 1.5rem;
+            right: -10px;
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            background-color: #2a3750;
+            transform: rotate(45deg);
+            transition: background-color 0.3s ease;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            right: auto;
+            left: -10px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            text-align: left;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            left: -10px;
+        }
+
+        .timeline-period {
+            font-size: 0.9rem;
+            color: #61dafb;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e0e0e0;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            font-size: 0.95rem;
+            color: #bbbbbb;
+        }
+
+        .timeline-phase {
+            display: block;
+            margin-top: 0.4rem;
+            font-size: 0.85rem;
+            color: #61dafb;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Call‑to‑action section (gradient style) */
+        .cta {
+            background: linear-gradient(135deg, #0f766e, #115e59);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .cta a {
+            color: #ecfdf5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cta a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+                transform: translateX(0);
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                flex-direction: row;
+            }
+
+            .timeline-item {
+                margin-left: 40px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 40px);
+            }
+
+            .timeline-content::before {
+                top: 1.5rem;
+                left: -10px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                text-align: left;
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+    <!-- TikTok Pixel Code Start -->
+    <script>
+        !function (w, d, t) {
+            w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.instance = function (t) {
+                for (
+                    var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)ttq.setAndDefer(e, ttq.methods[n]); return e
+            }, ttq.load = function (e, n) {
+                var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner; ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {}; n = document.createElement("script")
+                    ; n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t; e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e)
+            };
+
+
+            ttq.load('D66AHC3C77U3N79ELEQG');
+            ttq.page();
+        }(window, document, 'ttq');
+    </script>
+    <!-- TikTok Pixel Code End -->
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>90‑Day Security Roadmap</h1>
+            <p>Three‑phase plan for companies to strengthen Identity, Logging/Monitoring, and Networking.</p>
+        </header>
+
+        <div class="timeline">
+            <!-- Phase 1: IAM (Days 1–30) -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-period">Days 1–10</span>
+                    <h2 class="timeline-title">Foundation & Assessment</h2>
+                    <span class="timeline-phase">Phase 1: IAM</span>
+                    <p class="timeline-desc">
+                        Review current identities, access policies, and roles. Identify gaps in least‑privilege,
+                        privileged accounts, and user lifecycle management.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-period">Days 11–20</span>
+                    <h2 class="timeline-title">IAM Hardening</h2>
+                    <span class="timeline-phase">Phase 1: IAM</span>
+                    <p class="timeline-desc">
+                        Implement least‑privilege permissions, centralize identities, enforce MFA,
+                        and define roles instead of long‑term access keys.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-period">Days 21–30</span>
+                    <h2 class="timeline-title">Automation & Governance</h2>
+                    <span class="timeline-phase">Phase 1: IAM</span>
+                    <p class="timeline-desc">
+                        Automate access reviews, role rotations, and on‑/off‑boarding. Introduce
+                        audit trails for all identity‑related changes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Phase 2: Logging & Monitoring (Days 31–60) -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-period">Days 31–40</span>
+                    <h2 class="timeline-title">Logging Infrastructure</h2>
+                    <span class="timeline-phase">Phase 2: Logging & Monitoring</span>
+                    <p class="timeline-desc">
+                        Centralize logs from IAM, workload, and network services. Enable audit trails and activity logs
+                        in the cloud.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-period">Days 41–50</span>
+                    <h2 class="timeline-title">Alerting & Baselines</h2>
+                    <span class="timeline-phase">Phase 2: Logging & Monitoring</span>
+                    <p class="timeline-desc">
+                        Configure security‑relevant alerts and performance baselines. Define SLOs for log retention and
+                        query latency.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-period">Days 51–60</span>
+                    <h2 class="timeline-title">SIEM & Dashboards</h2>
+                    <span class="timeline-phase">Phase 2: Logging & Monitoring</span>
+                    <p class="timeline-desc">
+                        Integrate key logs into a SIEM or managed security service. Build dashboards for IAM activity,
+                        failed logins, and resource changes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Phase 3: Networking & Monitoring (Days 61–90) -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-period">Days 61–70</span>
+                    <h2 class="timeline-title">Secure Networking Design</h2>
+                    <span class="timeline-phase">Phase 3: Networking & Monitoring</span>
+                    <p class="timeline-desc">
+                        Review VPCs, subnets, firewalls, and routing. Enforce micro‑segmentation and least‑privilege
+                        access between services.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-period">Days 71–80</span>
+                    <h2 class="timeline-title">Traffic Monitoring & Inspection</h2>
+                    <span class="timeline-phase">Phase 3: Networking & Monitoring</span>
+                    <p class="timeline-desc">
+                        Enable flow logs, packet inspection, and WAF/CDN security controls. Correlate traffic anomalies
+                        with user and resource activity.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-period">Days 81–90</span>
+                    <h2 class="timeline-title">End‑to‑End Security Review</h2>
+                    <span class="timeline-phase">Phase 3: Networking & Monitoring</span>
+                    <p class="timeline-desc">
+                        Run penetration tests, security reviews, and incident response drills. Refine policies, alerts,
+                        and playbooks.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to action (same style as your example) -->
+        <div class="cta">
+            <p><strong>Want to apply this roadmap to YOUR environment?</strong></p>
+            <a href="https://tally.so/r/7R2PPZ">
+                <h3>Click here 👉 to submit your contact details via form to book a quick meeting!</h3>
+            </a>
+        </div>
+
+        <footer>
+            <p>90‑Day Security Roadmap – IAM, Logging &amp; Monitoring, Networking &amp; Monitoring</p>
+        </footer>
+    </div>
+</body>
+
+</html>

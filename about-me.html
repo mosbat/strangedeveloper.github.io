@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me – Mousa Al Bateh | Cloud Security Consultant</title>
+  <meta name="description"
+    content="Independent cloud security consultant specializing in cloud security, compliance, migrations, and architecture.">
+  <style>
+    :root {
+      --bg: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --border: #e2e8f0;
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding: 4rem 2rem;
+      }
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border-radius: var(--radius);
+      padding: 3rem 2.5rem;
+      margin-bottom: 3rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin: 0 0 0.5rem 0;
+      background: linear-gradient(135deg, var(--accent), #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .tagline {
+      font-size: 1.25rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin: 0 0 1rem 0;
+    }
+
+    .faq-section {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border-radius: var(--radius);
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question {
+      font-size: 1.125rem;
+      font-weight: 700;
+      padding: 1.75rem 2rem;
+      margin: 0;
+      cursor: pointer;
+      background: linear-gradient(90deg, transparent 0%, #eff6ff 100%);
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: linear-gradient(90deg, transparent 0%, var(--accent-hover) 10%);
+      color: white;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    }
+
+    .faq-answer.expanded {
+      max-height: 800px;
+      padding: 0 2rem 2rem 2rem;
+    }
+
+    .faq-answer p,
+    .faq-answer ul {
+      margin: 0 0 1rem 0;
+    }
+
+    .faq-answer ul {
+      padding-left: 1.5rem;
+    }
+
+    .faq-answer a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .faq-answer a:hover {
+      text-decoration: underline;
+    }
+
+    .credly-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .contact-cta {
+      background: var(--accent);
+      color: white;
+      padding: 2rem;
+      border-radius: var(--radius);
+      text-align: center;
+      font-weight: 600;
+      margin-top: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-cta a {
+      color: white;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 768px) {
+
+      .faq-question,
+      .faq-answer.expanded {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Hero -->
+    <div class="hero">
+      <h1>About Mousa Al Bateh</h1>
+      <p class="tagline">Independent Cloud Consultant</p>
+    </div>
+
+    <!-- FAQ Sections - YOUR EXACT CONTENT -->
+    <div class="faq-section">
+      <button class="faq-question"
+        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+        What services do you offer?
+      </button>
+      <div class="faq-answer">
+        <p>I'm an independent Cloud Consultant specializing in solving problems related to the following
+          (non-exhaustive):</p>
+        <ul>
+          <li>Cloud security</li>
+          <li>Cloud solutions architecture optimizations and cost reduction</li>
+          <li>Helping with compliance gaps via technical implementations e.g. GDPR, PCI, HIPPA, etc.</li>
+          <li>Cloud migrations</li>
+          <li>Business continuity and disaster recovery</li>
+          <li>Efficient data backup and recovery</li>
+          <li>Database solutions and optimizations</li>
+          <li>Custom software development solutions</li>
+          <li>AI Security and AI governance (coming soon)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <button class="faq-question"
+        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+        My Background
+      </button>
+      <div class="faq-answer">
+        <p>I have over 7 years of experience in Backend Development with global companies. During my career development,
+          I managed to obtain very valuable skills that helped me be not just a consultant but someone who has been on
+          the frontlines and understand the pain areas of my clients and their Dev teams.</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <button class="faq-question"
+        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+        My Qualifications
+      </button>
+      <div class="faq-answer">
+        <ul>
+          <li>Certified Cloud Security Professional by ISC2</li>
+          <li>AWS Solutions Architect Associate by AWS</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <button class="faq-question"
+        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+        How much do you charge for each project?
+      </button>
+      <div class="faq-answer">
+        <p>Unfortunately, its hard to tell at the beginning how much I'd charge as each project differs in scope and
+          scale. During discovery phase, I'll have a deep look at the current setup and determine first if there are any
+          solutions that are realistic, achievable and provides you with meaningful positive change. After that, I'll
+          make a proposal with milestones and deliverables including payments. The first consultation and discovery are
+          for free!</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <button class="faq-question"
+        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+        How to verify my skills?
+      </button>
+      <div class="faq-answer">
+        <p>Credly is an international platform that documents the qualifications of each individual directly from the
+          certification providers providing a reliable public and convenient method to verify claimed
+          qualifications/credentials. You can view all of them below:</p>
+        <p><a href="https://www.credly.com/users/mousa-al-bateh.88d2f3ce" target="_blank" class="credly-badge"
+            style="color: rgb(252, 3, 3);">View on
+            Credly</a></p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <button class="faq-question"
+        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+        How would you describe yourself?
+      </button>
+      <div class="faq-answer">
+        <p>I like to describe myself as a pragmatic problems solver. I utilize all the tools and knowledge available to
+          solve complex problems both in IT and real life. I also put huge emphasis on being people oriented or agile
+          since I truly believe that any success whether in professional or real life relies nowadays on people
+          relationships.</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <button class="faq-question"
+        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+        Do you have LinkedIn?
+      </button>
+      <div class="faq-answer">
+        <p>In short, <b>NO</b>. LinkedIn became almost a basic for every professional, the equivalent of Facebook but
+          for
+          professionals. Unfortunately, LinkedIn, like many centralized platforms around the world is plagued with all
+          sort of problems and its centralized nature doesnt help at all. Recently, LinkedIn began requiring our
+          passports and other sensitive information to use the platform. Even then, this wouldnt protect you from bans
+          or account restrictions without explanations! The lack of transparency raises serious questions about whether
+          or not we should depend on such organizations that could on the long-run be unpredictable and cost us both
+          time and money! Identity verification providers generally are not immune to data breaches that would lead to
+          data theft and other serious security concerns. While identity verification required by LinkedIn may provide
+          some benefits of reducing fake accounts or scam, it raises a lot of questions about why I need to send my
+          passport to a corporation just to have a page like the one you see here?! This is why, I decided to take
+          ownership of my own data and as an engineer, I created my own website instead. I do not need a corporation to
+          have my profile online! Before LinkedIn, this is how professionals presented themselves!</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <button class="faq-question"
+        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+        What are you passionate about?
+      </button>
+      <div class="faq-answer">
+        <p>I'm passionate about digital transformation that helps and empowers communities and people all over the world
+          for sustainable growth.</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <button class="faq-question"
+        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+        What is your stance towards AI?
+      </button>
+      <div class="faq-answer">
+        <p>Despite the fact that I disagree strongly when companies today describe their solutions as AI, I do believe
+          that there are many benefits of their artificial narrow intelligence solutions that can be utilized as a tool
+          to improve productivity and make optimized decisions. A secure and well implemented solution can help enhance
+          many services specially for clients facing organizations and even B2B! In the soon future, I'll be providing
+          services to help companies implement guardrails to create security aware ANI solutions.</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <button class="faq-question"
+        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+        Do you operate internationally?
+      </button>
+      <div class="faq-answer">
+        <p>Yes, I work with companies all over the world including Asia, Europe, Africa and America. However, if there
+          will be any legal challenges, for your region, I'll let you know in advance.</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <button class="faq-question"
+        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+        What are your hobbies?
+      </button>
+      <div class="faq-answer">
+        <p>I like attending tech conferences and meeting always new people. I enjoy reading news and keeping up with
+          latest trends. Outside work, I like gaming with friends, building tools (robots) and going to beach.</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <button class="faq-question"
+        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+        What are your socials?
+      </button>
+      <div class="faq-answer">
+        <a href="https://www.tiktok.com/@strange.developer" >My TikTok channel <img class="social-icon" src="tiktok-icon.png" alt="TikTok" style="width: 50px; height: 50px;"></a>
+      </div>
+    </div>
+
+    <!-- Contact CTA -->
+    <div class="contact-cta">
+      <h3 style="color: #000000;">Ready to talk cloud?</h3>
+      <div id="tally-form">
+        <iframe
+          data-tally-src="https://tally.so/embed/7R2PPZ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          loading="lazy" width="100%" height="100" frameborder="0" marginheight="0" marginwidth="0"
+          title="Contact Details"></iframe>
+        <script>var d = document, w = "https://tally.so/widgets/embed.js", v = function () { "undefined" != typeof Tally ? Tally.loadEmbeds() : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function (e) { e.src = e.dataset.tallySrc })) }; if ("undefined" != typeof Tally) v(); else if (d.querySelector('script[src="' + w + '"]') == null) { var s = d.createElement("script"); s.src = w, s.onload = v, s.onerror = v, d.body.appendChild(s); }</script>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2026 Mousa Al Bateh | Independent Cloud Security Consultant</p>
+    </footer>
+  </div>
+
+  <script>
+    // Simple toggle for accessibility (keyboard support)
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

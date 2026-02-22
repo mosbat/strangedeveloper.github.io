@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Security Quick Assessment - Mousa Al Bateh</title>
+    <title>Cloud Security Quick Assessment - Mousa Cloud Consulting</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             max-width: 800px;
@@ -15,6 +21,7 @@
             line-height: 1.6;
             color: #1e293b;
         }
+
         .header {
             text-align: center;
             padding: 40px 20px;
@@ -23,15 +30,60 @@
             border-radius: 12px;
             margin-bottom: 30px;
         }
-        .header h1 { font-size: 2.2em; margin-bottom: 10px; }
-        .header p { font-size: 1.1em; opacity: 0.95; }
-        .section { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 25px; }
-        .question { margin-bottom: 20px; }
-        .question h3 { color: #1e293b; margin-bottom: 8px; font-size: 1.1em; }
-        label { display: block; margin: 8px 0; cursor: pointer; padding: 12px 16px; border: 2px solid #e2e8f0; border-radius: 8px; transition: all 0.2s; }
-        label:hover { border-color: #0f766e; background: #f0fdfa; }
-        input[type="radio"] { margin-right: 10px; transform: scale(1.2); }
-        input[type="radio"]:checked + label { background: #ecfdf5; border-color: #10b981; }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question h3 {
+            color: #1e293b;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0;
+            cursor: pointer;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        label:hover {
+            border-color: #0f766e;
+            background: #f0fdfa;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        input[type="radio"]:checked+label {
+            background: #ecfdf5;
+            border-color: #10b981;
+        }
+
         button {
             background: linear-gradient(135deg, #10b981, #059669);
             color: white;
@@ -44,47 +96,152 @@
             font-weight: 600;
             transition: transform 0.2s;
         }
-        button:hover { transform: translateY(-2px); }
-        button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-        .results { display: none; animation: fadeIn 0.5s; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .risk-badge { padding: 12px 24px; border-radius: 50px; font-size: 1.2em; font-weight: bold; text-align: center; margin: 20px 0; }
-        .risk-low { background: #ecfdf5; color: #166534; border: 2px solid #10b981; }
-        .risk-medium { background: #fef3c7; color: #92400e; border: 2px solid #f59e0b; }
-        .risk-high { background: #fee2e2; color: #991b1b; border: 2px solid #ef4444; }
-        .fixes { background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 5px solid #10b981; margin-top: 20px; }
-        .cta { background: linear-gradient(135deg, #0f766e, #115e59); color: white; padding: 24px; border-radius: 12px; text-align: center; margin-top: 30px; }
-        .cta a { color: #ecfdf5; text-decoration: none; font-weight: 600; }
-        .footer { text-align: center; padding: 30px 0; color: #64748b; font-size: 0.9em; }
-        @media (max-width: 600px) { .header h1 { font-size: 1.8em; } body { padding: 15px; } }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .results {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .risk-badge {
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .risk-low {
+            background: #ecfdf5;
+            color: #166534;
+            border: 2px solid #10b981;
+        }
+
+        .risk-medium {
+            background: #fef3c7;
+            color: #92400e;
+            border: 2px solid #f59e0b;
+        }
+
+        .risk-high {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 2px solid #ef4444;
+        }
+
+        .fixes {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #10b981;
+            margin-top: 20px;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #0f766e, #115e59);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .cta a {
+            color: #ecfdf5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #64748b;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            body {
+                padding: 15px;
+            }
+        }
+
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            /* Horizontal */
+            align-items: center;
+            /* Vertical */
+            min-height: 200px;
+            /* Container height */
+        }
     </style>
 
-    <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="13svyJ0aec5qHxzuY" data-version="062024"></script>
-<!-- TikTok Pixel Code Start -->
-<script>
-!function (w, d, t) {
-  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+    <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="13svyJ0aec5qHxzuY"
+        data-version="062024"></script>
+    <!-- TikTok Pixel Code Start -->
+    <script>
+        !function (w, d, t) {
+            w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.instance = function (t) {
+                for (
+                    var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)ttq.setAndDefer(e, ttq.methods[n]); return e
+            }, ttq.load = function (e, n) {
+                var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner; ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {}; n = document.createElement("script")
+                    ; n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t; e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e)
+            };
 
 
-  ttq.load('D66AHC3C77U3N79ELEQG');
-  ttq.page();
-}(window, document, 'ttq');
-</script>
-<!-- TikTok Pixel Code End -->
+            ttq.load('D66AHC3C77U3N79ELEQG');
+            ttq.page();
+        }(window, document, 'ttq');
+    </script>
+    <!-- TikTok Pixel Code End -->
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17948694584"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17948694584"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'AW-17948694584');
-</script>
+        gtag('config', 'AW-17948694584');
+    </script>
 </head>
+
 <body>
+    <header class="flex-center">
+        <div>
+            <video autoplay muted>
+                <source src="resized-logo.mp4" type='video/mp4'>
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </header>
     <div class="header">
         <h1>🛡️ Cloud Security Quick Assessment</h1>
         <p>Answer 8 simple questions. Get your risk score + 3 priority fixes.<br><strong>Takes 2 minutes.</strong></p>
@@ -143,18 +300,18 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     </div>
 
     <div class="section">
-    <h2>Section 4: Cloud Cost Leaks (Bonus)</h2>
-    <div class="question">
-        <h3>9. Do dev/test environments run 24/7?</h3>
-        <label><input type="radio" name="q9" value="1"> Yes</label>
-        <label><input type="radio" name="q9" value="0"> No</label>
+        <h2>Section 4: Cloud Cost Leaks (Bonus)</h2>
+        <div class="question">
+            <h3>9. Do dev/test environments run 24/7?</h3>
+            <label><input type="radio" name="q9" value="1"> Yes</label>
+            <label><input type="radio" name="q9" value="0"> No</label>
+        </div>
+        <div class="question">
+            <h3>10. Are there unused snapshots/volumes >90 days old?</h3>
+            <label><input type="radio" name="q10" value="1"> Yes</label>
+            <label><input type="radio" name="q10" value="0"> No</label>
+        </div>
     </div>
-    <div class="question">
-        <h3>10. Are there unused snapshots/volumes >90 days old?</h3>
-        <label><input type="radio" name="q10" value="1"> Yes</label>
-        <label><input type="radio" name="q10" value="0"> No</label>
-    </div>
-</div>
 
     <button onclick="calculateScore()" id="submitBtn">Get My Risk Score & Fixes</button>
 
@@ -168,17 +325,20 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         </div>
         <div class="cta">
             <p><strong>Want personalized fixes for YOUR environment?</strong></p>
-            <a href="https://tally.so/r/7R2PPZ"><h3>Click here 👉 to submit your contact details via form to book a quick meeting!</h3></a>
+            <a href="https://tally.so/r/7R2PPZ">
+                <h3>Click here 👉 to submit your contact details via form to book a quick meeting!</h3>
+            </a>
         </div>
     </div>
 
     <div class="footer">
-        <p>© 2026 Mousa Al Bateh | Cloud Consultant</p>
+        <p>© 2026 Mousa Cloud Consulting | <a href="about-me.html" style="color: #007BFF;" target="_blank">About Me <i
+                    class="fas fa-external-link-alt"></i></a></p>
     </div>
 
     <script>
         function calculateScore() {
-            const answers = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10'];
+            const answers = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10'];
             let score = 0;
             let answered = 0;
 
@@ -242,4 +402,5 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         }
     </script>
 </body>
+
 </html>

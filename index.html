@@ -354,7 +354,42 @@
     .carousel-controls button:hover {
       background: rgba(0, 0, 0, 0.8);
     }
+
+    .scenario-box {
+      margin: 1rem 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .scenario-title {
+      padding: 1rem;
+      background: #f8f9fa;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    .scenario-title:hover {
+      background: #e9ecef;
+    }
+
+    .scenario-content {
+      padding: 1rem;
+    }
+
+    .scenario-content h4 {
+      color: #007bff;
+      margin-top: 0.5rem;
+    }
+
+    .scenario-content p {
+      line-height: 1.5;
+    }
   </style>
+
+
+
 
   <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="13svyJ0aec5qHxzuY"
     data-version="062024"></script>
@@ -430,52 +465,110 @@
         <br>
       </b></p>
     <hr>
-    <section id="results" style="background: #f8f9fa; padding: 40px 20px; margin: 30px 0; border-radius: 12px; border-left: 5px solid #007BFF;">
-  <div style="max-width: 800px; margin: 0 auto;">
-    <h2 style="color: #121212; text-align: center; margin-bottom: 10px;">Real Results for Cloud Security Teams</h2>
-    <p style="color: #666; text-align: center; font-size: 18px; margin-bottom: 40px;">Proven outcomes from enterprise-scale cloud security projects</p>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin-bottom: 30px;">
-      
-      <!-- PCI Compliance -->
-      <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid #28a745;">
-        <h3 style="color: #28a745; margin: 0 0 12px 0; font-size: 20px;">PCI Compliance Achieved</h3>
-        <p style="color: #333; line-height: 1.6; margin: 0;">Led PCI-DSS compliance program for high-volume payments platform, implementing controls and monitoring that maintained continuous compliance through multiple audits.</p>
+    <section id="results"
+      style="background: #f8f9fa; padding: 40px 20px; margin: 30px 0; border-radius: 12px; border-left: 5px solid #007BFF;">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h2 style="color: #121212; text-align: center; margin-bottom: 10px;">Real Results for Cloud Security Teams</h2>
+        <p style="color: #666; text-align: center; font-size: 18px; margin-bottom: 40px;">Proven outcomes from
+          enterprise-scale cloud security projects</p>
+
+        <div
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin-bottom: 30px;">
+
+          <!-- PCI Compliance -->
+          <div
+            style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid #28a745;">
+            <h3 style="color: #28a745; margin: 0 0 12px 0; font-size: 20px;">PCI Compliance Achieved</h3>
+            <p style="color: #333; line-height: 1.6; margin: 0;">Led PCI-DSS compliance program for high-volume payments
+              platform, implementing controls and monitoring that maintained continuous compliance through multiple
+              audits.</p>
+          </div>
+
+          <!-- IAM Migration -->
+          <div
+            style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid #007BFF;">
+            <h3 style="color: #007BFF; margin: 0 0 12px 0; font-size: 20px;">50K+ Account IAM Migration</h3>
+            <p style="color: #333; line-height: 1.6; margin: 0;">Engineered custom migration tools that transferred
+              50,000+ user accounts to new SaaS IAM platform in production environment—completed under aggressive
+              timeline with zero downtime.</p>
+          </div>
+
+          <!-- Alerts & Monitoring -->
+          <div
+            style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid #17a2b8;">
+            <h3 style="color: #17a2b8; margin: 0 0 12px 0; font-size: 20px;">Proactive Error Detection</h3>
+            <p style="color: #333; line-height: 1.6; margin: 0;">Built real-time alerting system on new SaaS IAM
+              platform to automatically detect and prioritize missing/problematic accounts, reducing manual remediation
+              by 70%.</p>
+          </div>
+
+          <!-- SOC2 Controls -->
+          <div
+            style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid #ffc107;">
+            <h3 style="color: #ffc107; margin: 0 0 12px 0; font-size: 20px;">SOC 2 Controls Designed</h3>
+            <p style="color: #333; line-height: 1.6; margin: 0;">Authored and proposed targeted SOC 2 controls
+              addressing critical gaps in access management and monitoring, adopted into compliance roadmap.</p>
+          </div>
+
+          <!-- API Key Security -->
+          <div
+            style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid #dc3545;">
+            <h3 style="color: #dc3545; margin: 0 0 12px 0; font-size: 20px;">API Key Risk Reduction</h3>
+            <p style="color: #333; line-height: 1.6; margin: 0;">Implemented automated API key governance reducing
+              unauthorized access risk across 200+ services—cut exposure surface by 85%.</p>
+          </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="#tally-form"
+            style="background: linear-gradient(135deg, #007BFF, #0056b3); color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 18px; box-shadow: 0 6px 20px rgba(0,123,255,0.3); display: inline-block; transition: all 0.3s;">
+            Book Free Discovery Call → See Your Risk Reduction Path
+          </a>
+        </div>
       </div>
-      
-      <!-- IAM Migration -->
-      <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid #007BFF;">
-        <h3 style="color: #007BFF; margin: 0 0 12px 0; font-size: 20px;">50K+ Account IAM Migration</h3>
-        <p style="color: #333; line-height: 1.6; margin: 0;">Engineered custom migration tools that transferred 50,000+ user accounts to new SaaS IAM platform in production environment—completed under aggressive timeline with zero downtime.</p>
+    </section>
+
+    <details class="scenario-box">
+      <summary class="scenario-title">Lengthy, Painful Access Audits</summary>
+      <div class="scenario-content">
+        <h4>Problem</h4>
+        <p>Security teams waste hours collecting evidence on provisioning/de-provisioning permissions and justifying PAM
+          actions—especially for privileged accounts—leading to compliance delays and breach risks.</p>
+
+        <h4>Solution</h4>
+        <p>Shift from Discretionary Access Control (DAC) to Role-Based Access Control (RBAC) with structured logging.
+          Initial effort yields massive long-term savings (e.g., 50% audit time) and prevents breaches via automated
+          justification reports.</p>
       </div>
-      
-      <!-- Alerts & Monitoring -->
-      <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid #17a2b8;">
-        <h3 style="color: #17a2b8; margin: 0 0 12px 0; font-size: 20px;">Proactive Error Detection</h3>
-        <p style="color: #333; line-height: 1.6; margin: 0;">Built real-time alerting system on new SaaS IAM platform to automatically detect and prioritize missing/problematic accounts, reducing manual remediation by 70%.</p>
+    </details>
+
+    <details class="scenario-box">
+      <summary class="scenario-title">Skyrocketing AWS Bills from 24/7 Compute</summary>
+      <div class="scenario-content">
+        <h4>Problem</h4>
+        <p>Unpredictable transaction volumes tempt over-provisioning EC2 instances that run 24/7, inflating costs far
+          beyond ROI—while still risking crashes from sudden spikes.</p>
+
+        <h4>Solution</h4>
+        <p>Migrate to serverless (Lambda/Fargate) for on-demand scaling during peaks. Collect usage data in parallel to
+          forecast patterns, then optimize for 30-50% further savings without downtime.</p>
       </div>
-      
-      <!-- SOC2 Controls -->
-      <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid #ffc107;">
-        <h3 style="color: #ffc107; margin: 0 0 12px 0; font-size: 20px;">SOC 2 Controls Designed</h3>
-        <p style="color: #333; line-height: 1.6; margin: 0;">Authored and proposed targeted SOC 2 controls addressing critical gaps in access management and monitoring, adopted into compliance roadmap.</p>
+    </details>
+
+    <details class="scenario-box">
+      <summary class="scenario-title">Multi-Jurisdiction Compliance Nightmares</summary>
+      <div class="scenario-content">
+        <h4>Problem</h4>
+        <p>Software-level granularity fails when regulations (e.g., GDPR) demand data residency in specific
+          jurisdictions, causing scalability issues, high costs, and dev team overload.</p>
+
+        <h4>Solution</h4>
+        <p>Architect via Availability Zones grouped by rules (e.g., EU-only zones). Build jurisdiction-agnostic apps
+          with infrastructure-level controls—no code changes needed per region.</p>
       </div>
-      
-      <!-- API Key Security -->
-      <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid #dc3545;">
-        <h3 style="color: #dc3545; margin: 0 0 12px 0; font-size: 20px;">API Key Risk Reduction</h3>
-        <p style="color: #333; line-height: 1.6; margin: 0;">Implemented automated API key governance reducing unauthorized access risk across 200+ services—cut exposure surface by 85%.</p>
-      </div>
-      
-    </div>
-    
-    <div style="text-align: center; margin-top: 30px;">
-      <a href="#tally-form" style="background: linear-gradient(135deg, #007BFF, #0056b3); color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 18px; box-shadow: 0 6px 20px rgba(0,123,255,0.3); display: inline-block; transition: all 0.3s;">
-        Book Free Discovery Call → See Your Risk Reduction Path
-      </a>
-    </div>
-  </div>
-</section>
+    </details>
+
 
     <h1>Services</h1>
     <p>

@@ -60,6 +60,22 @@
     .back-link:hover {
       background-color: #3367d6;
     }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      flex: 1;
+    }
+
+    #footer-placeholder {
+      margin-top: auto;
+      width: 100%;
+    }
+    
   </style>
 
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -135,6 +151,18 @@
     <p>In the meantime, feel free to explore my services or contact me directly.</p>
     <a href="index.html" class="back-link">Go back to home</a>
   </div>
+
+  <br>
+
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').outerHTML = data;
+      });
+  </script>
+
+  <div id="footer-placeholder"></div>
 </body>
 
 </html>

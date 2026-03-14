@@ -145,10 +145,18 @@
         </blockquote>
     </section>
 
-    <footer>
-        <p>© 2026 Mousa Cloud Consulting | <a href="about-me.html" style="color: #007BFF;" target="_blank">About Me <i
-                    class="fas fa-external-link-alt"></i></a></p>
-    </footer>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').outerHTML = data;
+            });
+    </script>
+
+
+
+    <div id="footer-placeholder"></div>
 
 </body>
 

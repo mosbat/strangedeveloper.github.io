@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Threat Teaser - Mousa Cloud Consulting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8fafc;
+            line-height: 1.6;
+            color: #1e293b;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #0f766e, #115e59);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question h3 {
+            color: #1e293b;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0;
+            cursor: pointer;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        label:hover {
+            border-color: #0f766e;
+            background: #f0fdfa;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        input[type="radio"]:checked+label {
+            background: #ecfdf5;
+            border-color: #10b981;
+        }
+
+        button {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.1em;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .results {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .risk-badge {
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .risk-low {
+            background: #ecfdf5;
+            color: #166534;
+            border: 2px solid #10b981;
+        }
+
+        .risk-medium {
+            background: #fef3c7;
+            color: #92400e;
+            border: 2px solid #f59e0b;
+        }
+
+        .risk-high {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 2px solid #ef4444;
+        }
+
+        .fixes {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #10b981;
+            margin-top: 20px;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #0f766e, #115e59);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 30px;
+            display: none;
+        }
+
+        .cta a {
+            color: #ecfdf5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #64748b;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            body {
+                padding: 15px;
+            }
+        }
+
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="flex-center">
+        <div>
+            <video autoplay muted>
+                <source src="resized-logo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </header>
+
+    <div class="header">
+        <h1>Quantum Threat Teaser</h1>
+        <p>Is your crypto quantum-safe?<br><strong>3 quick questions • 60 seconds • Instant risk score</strong></p>
+    </div>
+
+    <div class="section">
+        <h2>Quantum Crypto Risk</h2>
+        <div class="question">
+            <h3>1. Are you using RSA/ECC encryption anywhere?</h3>
+            <label><input type="radio" name="q1" value="0"> No - all quantum-safe</label>
+            <label><input type="radio" name="q1" value="1"> Yes, but planning migration</label>
+            <label><input type="radio" name="q1" value="2"> Yes, no migration plan</label>
+        </div>
+        <div class="question">
+            <h3>2. "Harvest Now, Decrypt Later" threat assessed?</h3>
+            <label><input type="radio" name="q2" value="0"> Yes, mitigated</label>
+            <label><input type="radio" name="q2" value="1"> Aware, not addressed</label>
+            <label><input type="radio" name="q2" value="2"> Never considered</label>
+        </div>
+        <div class="question">
+            <h3>3. NIST post-quantum crypto tested?</h3>
+            <label><input type="radio" name="q3" value="0"> Yes, in production/pilot</label>
+            <label><input type="radio" name="q3" value="1"> Research phase</label>
+            <label><input type="radio" name="q3" value="2"> No testing done</label>
+        </div>
+    </div>
+
+    <button onclick="calculateScore()" id="submitBtn">Show My Quantum Risk →</button>
+
+    <div id="results" class="results">
+        <div class="risk-badge" id="riskBadge"></div>
+        <h2 id="riskTitle"></h2>
+        <p id="riskDesc"></p>
+        <div class="fixes">
+            <h3>Fix This First</h3>
+            <ol id="priorityFixes"></ol>
+        </div>
+    </div>
+
+    <div id="ctaSection" class="cta">
+        <p><strong>Quantum security emergency?</strong></p>
+        <a href="https://tally.so/r/7R2PPZ">Book 30-min quantum assessment call</a>
+    </div>
+
+    <script>
+        function calculateScore() {
+            const answers = ['q1', 'q2', 'q3'];
+            let score = 0;
+            let answered = 0;
+
+            for (let q of answers) {
+                const selected = document.querySelector(`input[name="${q}"]:checked`);
+                if (selected) {
+                    score += parseInt(selected.value);
+                    answered++;
+                }
+            }
+
+            if (answered < 3) {
+                alert('Please answer all 3 questions.');
+                return;
+            }
+
+            const submitBtn = document.getElementById('submitBtn');
+            const results = document.getElementById('results');
+            const ctaSection = document.getElementById('ctaSection');
+
+            submitBtn.style.display = 'none';
+            results.style.display = 'block';
+            ctaSection.style.display = 'block';  // Show CTA only after calculation
+            results.scrollIntoView({ behavior: 'smooth' });
+
+            let riskClass, riskTitle, riskDesc, fixes;
+
+            if (score === 0) {
+                riskClass = 'risk-low';
+                riskTitle = 'Quantum-Safe';
+                riskDesc = 'Rare! You\'re ahead of 99% of companies.';
+                fixes = ['Monitor NIST standards', 'Document your approach'];
+            } else if (score <= 3) {
+                riskClass = 'risk-medium';
+                riskTitle = 'Moderate Risk';
+                riskDesc = 'Quantum threats 3-7 years away. Start now.';
+                fixes = [
+                    'Inventory ALL RSA/ECC usage',
+                    'Test Kyber/Dilithium crypto',
+                    'Assess HNDL data risks'
+                ];
+            } else {
+                riskClass = 'risk-high';
+                riskTitle = 'URGENT Quantum Risk';
+                riskDesc = 'Attackers could decrypt your data soon.';
+                fixes = [
+                    'EMERGENCY: Map all classical crypto NOW',
+                    'EMERGENCY: HNDL risk assessment',
+                    'Pilot NIST PQC algorithms this quarter'
+                ];
+            }
+
+            document.getElementById('riskBadge').className = `risk-badge ${riskClass}`;
+            document.getElementById('riskBadge').textContent = riskTitle;
+            document.getElementById('riskTitle').textContent = riskTitle;
+            document.getElementById('riskDesc').textContent = riskDesc;
+
+            const fixesList = document.getElementById('priorityFixes');
+            fixesList.innerHTML = fixes.map(fix => `<li>${fix}</li>`).join('');
+        }
+    </script>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').outerHTML = data;
+            });
+    </script>
+
+
+
+    <div id="footer-placeholder"></div>
+</body>
+
+</html>

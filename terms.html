@@ -140,6 +140,30 @@
             });
     </script>
 
+    <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;
+            padding:1rem;z-index:9999;display:none;font-size:0.9rem;">
+        <div style="max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;
+              gap:0.75rem;align-items:center;">
+            <p style="flex:1;margin:0;">
+                This site uses essential cookies and optional analytics/marketing tags
+                (Google Ads, TikTok, lead tracking) to understand visits and improve
+                services. You can accept or reject non-essential tags. See our
+                <a href="privacy-policy.html" style="color:#4ea3ff;">Privacy Policy</a>.
+            </p>
+            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+                <button id="cookie-reject" style="background:#444;color:#fff;border:none;padding:0.5rem 1rem;
+                     border-radius:4px;cursor:pointer;">
+                    Reject non‑essential
+                </button>
+                <button id="cookie-accept" style="background:#007bff;color:#fff;border:none;padding:0.5rem 1rem;
+                     border-radius:4px;cursor:pointer;">
+                    Accept all
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="cookie-consent.js"></script>
 
     <div id="footer-placeholder"></div>
 </body>

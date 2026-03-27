@@ -118,9 +118,36 @@
     <p>Exercise via contact@mousa-cloud.com. Verification required. CCPA: Right to know, delete, opt-out of sale (no
         sales). Appeals process available. Canada/Australia similar rights. No discrimination. [web:1][web:10]</p>
 
-    ## 7. Cookies and Tracking
-    <p>We use essential cookies for site function and analytics cookies (Google Analytics, opt-out available).
-        Third-party cookies for marketing. Manage via browser or consent banner. No Do Not Track response. [web:1]</p>
+    <h2>7. Cookies and Tracking Technologies</h2>
+    <p>
+        We use cookies and similar technologies on this website. Some are essential for security and basic
+        functionality (for example, to load forms or prevent abuse). Others are optional analytics or
+        marketing tools that help us understand how visitors use the site and measure the performance of our
+        advertising campaigns.
+    </p>
+    <ul>
+        >
+        <strong>Essential cookies and scripts (no consent required):</strong> basic site operation,
+        load‑balancing, and security features.
+        </li>
+        >
+        <strong>Analytics and advertising tags (consent‑based):</strong> Google tags used to measure ad
+        performance and conversions, TikTok pixel used for campaign measurement and remarketing, and lead
+        tracking tags used to attribute inquiries to campaigns.
+        </li>
+        >
+        <strong>Embedded forms and newsletter tools:</strong> Tally Forms (for contact and discovery‑call
+        forms) and our newsletter platform, which may use their own cookies or similar technologies. You can
+        review their privacy notices on their respective sites.
+        </li>
+    </ul>
+    <p>
+        When required by EU/UK law, these non‑essential tags are only activated after you provide consent via
+        the cookie banner. You can withdraw or change your consent at any time by adjusting your settings in
+        the banner (where available) or by contacting us. You can also control cookies via your browser
+        settings.
+    </p>
+
 
     ## 8. Children’s Privacy
     <p>Our services are B2B; not for children under 16 (or higher per local law). No knowing collection from children.
@@ -164,6 +191,30 @@
             });
     </script>
 
+    <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;
+            padding:1rem;z-index:9999;display:none;font-size:0.9rem;">
+        <div style="max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;
+              gap:0.75rem;align-items:center;">
+            <p style="flex:1;margin:0;">
+                This site uses essential cookies and optional analytics/marketing tags
+                (Google Ads, TikTok, lead tracking) to understand visits and improve
+                services. You can accept or reject non-essential tags. See our
+                <a href="privacy-policy.html" style="color:#4ea3ff;">Privacy Policy</a>.
+            </p>
+            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+                <button id="cookie-reject" style="background:#444;color:#fff;border:none;padding:0.5rem 1rem;
+                     border-radius:4px;cursor:pointer;">
+                    Reject non‑essential
+                </button>
+                <button id="cookie-accept" style="background:#007bff;color:#fff;border:none;padding:0.5rem 1rem;
+                     border-radius:4px;cursor:pointer;">
+                    Accept all
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="cookie-consent.js"></script>
 
     <div id="footer-placeholder"></div>
 </body>

@@ -28,14 +28,14 @@
 
       const gtagScript = document.createElement('script');
       gtagScript.async = true;
-      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17948694584';
+      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18022556253';
       document.head.appendChild(gtagScript);
 
       window.dataLayer = window.dataLayer || [];
       function gtag() { window.dataLayer.push(arguments); }
       window.gtag = gtag;
       gtag('js', new Date());
-      gtag('config', 'AW-17948694584');
+      gtag('config', 'AW-18022556253');
     })();
 
     // TIKTOK PIXEL

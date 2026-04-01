@@ -44,7 +44,7 @@
       const gtagScript = document.createElement('script');
       gtagScript.async = true;
       gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18022556253';
-      (document.head || document.documentElement).appendChild(gtagScript);
+      appendScript(gtagScript);
 
       window.gtag('js', new Date());
       window.gtag('config', 'AW-18022556253');
@@ -57,6 +57,7 @@
 
       w.TiktokAnalyticsObject = t;
       var ttq = (w[t] = w[t] || []);
+
       ttq.methods = [
         'page', 'track', 'identify', 'instances', 'debug',
         'on', 'off', 'once', 'ready', 'alias', 'group',
@@ -88,6 +89,9 @@
         script.type = 'text/javascript';
         script.async = true;
         script.src = url + '?sdkid=' + pixelId + '&lib=' + t;
+        script.onerror = function () {
+          console.warn('TikTok Pixel script failed to load:', script.src);
+        };
 
         var firstScript = d.getElementsByTagName('script')[0];
         if (firstScript && firstScript.parentNode) {

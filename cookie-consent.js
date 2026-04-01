@@ -113,21 +113,6 @@
       }
     })(window, document, 'ttq', 'D6ON94BC77U7PMTO33SG');
 
-    // LEAD / OTHER NON-ESSENTIAL TAGS
-    (function loadLeadTag() {
-      if (window.__mousaLeadTagLoaded) return;
-      window.__mousaLeadTagLoaded = true;
-
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://r2.leadsy.ai/tag.js';
-      s.id = 'vtag-ai-js';
-      s.dataset.pid = '13svyJ0aec5qHxzuY';
-      s.dataset.version = '062024';
-      appendScript(s);
-    })();
-
-    // NOTE: Tally is loaded when the user reaches the form; keep as-is.
   }
 
   function hideBanner() {

@@ -87,32 +87,14 @@
 
 
   <script>
-    (function () {
-
-      try {
-
-        if (!window.mousaCookieConsent || !window.mousaCookieConsent.get) return;
-
-        const consent = window.mousaCookieConsent.get();
-        if (!consent || consent.accepted !== true) return;
-
-        setTimeout(function () {
-          if (typeof window.gtag !== 'function') return;
-
-          window.gtag('event', 'conversion', {
-            send_to: 'AW-18022556253/REPLACE_WITH_REAL_LABEL'
-          });
-
-          console.log('Google Ads conversion sent');
-        }, 1000);
-
-      } catch {
-        console.log(e);
-      }
-
-    })();
-
-
+    console.log('mousaCookieConsent:', window.mousaCookieConsent);
+    console.log('consent value:', window.mousaCookieConsent && window.mousaCookieConsent.get ? window.mousaCookieConsent.get() : null);
+    try {
+      console.log('raw localStorage:', localStorage.getItem('mousaConsentV1'));
+    } catch (e) {
+      console.log('localStorage unavailable:', e);
+    }
+    console.log('gtag type:', typeof window.gtag);
   </script>
 
 

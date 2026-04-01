@@ -101,8 +101,12 @@
         }
       };
 
-      ttq.load(id);
-      ttq.page();
+      try {
+        ttq.load(id);
+        ttq.page();
+      } catch (e) {
+        console.warn('TikTok Pixel failed to initialize:', e);
+      }
     })(window, document, 'ttq', 'D6ON94BC77U7PMTO33SG');
 
     // LEAD / OTHER NON-ESSENTIAL TAGS

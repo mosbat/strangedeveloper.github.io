@@ -86,19 +86,17 @@
   <link rel="manifest" href="site.webmanifest">
 
 
-  <!-- Google tag (gtag.js) event -->
   <script>
     if (window.mousaCookieConsent && window.mousaCookieConsent.get) {
       const consent = window.mousaCookieConsent.get();
+
       if (consent && consent.accepted === true && typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion_event_submit_lead_form_1', {
-          // <event_parameters>
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-18022556253/REPLACE_WITH_YOUR_LABEL'
         });
-        console.log("event fired correctly!")
+        console.log('conversion event fired');
       }
     }
-
-
   </script>
 
 

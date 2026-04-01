@@ -88,21 +88,31 @@
 
   <script>
     (function () {
-      if (!window.mousaCookieConsent || !window.mousaCookieConsent.get) return;
 
-      const consent = window.mousaCookieConsent.get();
-      if (!consent || consent.accepted !== true) return;
+      try {
 
-      setTimeout(function () {
-        if (typeof window.gtag !== 'function') return;
+        if (!window.mousaCookieConsent || !window.mousaCookieConsent.get) return;
 
-        window.gtag('event', 'conversion', {
-          send_to: 'AW-18022556253/REPLACE_WITH_REAL_LABEL'
-        });
+        const consent = window.mousaCookieConsent.get();
+        if (!consent || consent.accepted !== true) return;
 
-        console.log('Google Ads conversion sent');
-      }, 1000);
+        setTimeout(function () {
+          if (typeof window.gtag !== 'function') return;
+
+          window.gtag('event', 'conversion', {
+            send_to: 'AW-18022556253/REPLACE_WITH_REAL_LABEL'
+          });
+
+          console.log('Google Ads conversion sent');
+        }, 1000);
+
+      } catch {
+        console.log(e);
+      }
+
     })();
+
+
   </script>
 
 

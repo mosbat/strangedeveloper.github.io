@@ -87,16 +87,22 @@
 
 
   <script>
-    if (window.mousaCookieConsent && window.mousaCookieConsent.get) {
-      const consent = window.mousaCookieConsent.get();
+    (function () {
+      if (!window.mousaCookieConsent || !window.mousaCookieConsent.get) return;
 
-      if (consent && consent.accepted === true && typeof window.gtag === 'function') {
+      const consent = window.mousaCookieConsent.get();
+      if (!consent || consent.accepted !== true) return;
+
+      setTimeout(function () {
+        if (typeof window.gtag !== 'function') return;
+
         window.gtag('event', 'conversion', {
-          send_to: 'AW-18022556253/REPLACE_WITH_YOUR_LABEL'
+          send_to: 'AW-18022556253/REPLACE_WITH_REAL_LABEL'
         });
-        console.log('conversion event fired');
-      }
-    }
+
+        console.log('Google Ads conversion sent');
+      }, 1000);
+    })();
   </script>
 
 

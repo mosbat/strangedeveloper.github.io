@@ -88,9 +88,16 @@
 
   <!-- Google tag (gtag.js) event -->
   <script>
-    gtag('event', 'conversion_event_submit_lead_form_1', {
-      // <event_parameters>
-    });
+    if (window.mousaCookieConsent && window.mousaCookieConsent.get) {
+      const consent = window.mousaCookieConsent.get();
+      if (consent && consent.accepted === true && typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion_event_submit_lead_form_1', {
+          // <event_parameters>
+        });
+      }
+    }
+
+
   </script>
 
 

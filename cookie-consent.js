@@ -3,6 +3,11 @@
 (function () {
   const CONSENT_KEY = 'mousaConsentV1';
 
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () {
+    window.dataLayer.push(arguments);
+  };
+
   function getConsent() {
     try {
       const raw = localStorage.getItem(CONSENT_KEY);
@@ -39,15 +44,10 @@
       const gtagScript = document.createElement('script');
       gtagScript.async = true;
       gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18022556253';
-      appendScript(gtagScript);
+      (document.head || document.documentElement).appendChild(gtagScript);
 
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'AW-18022556253');
+      window.gtag('js', new Date());
+      window.gtag('config', 'AW-18022556253');
     })();
 
     // TIKTOK PIXEL

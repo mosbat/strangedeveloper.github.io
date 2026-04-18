@@ -385,6 +385,7 @@
 
     .scenario-content p {
       line-height: 1.5;
+      color: #000;
     }
 
     .table-wrapper {
@@ -417,6 +418,38 @@
     .prices-table td:last-child {
       text-align: right;
       font-weight: 700;
+    }
+
+    .scenario-content ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin: 0.75rem 0 1rem;
+    }
+
+    .scenario-content li {
+      color: #000;
+      opacity: 1;
+      transform: none;
+      display: list-item;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    .badge-new {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      background: #e7f5ff;
+      color: #0b5cab;
+      line-height: 1;
     }
 
     @media (max-width: 480px) {
@@ -472,8 +505,92 @@
         <br>
         I help CTOs and security teams harden AWS, reduce cloud risk, and cut costs by 20-40%.<br>
         <br>
+        I align AI security work with NIST AI RMF and emerging AI regulations, including the EU AI Act where
+        applicable.<br>
+        <br>
       </b></p>
     <hr>
+    <details class="scenario-box">
+      <summary class="scenario-title" style="
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.15em;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 12px rgba(0,123,255,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(0,123,255,0.2)';"
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,123,255,0.1)';">
+        <span style="display: inline-block; margin-right: 0.5rem;">🔒</span>
+        Who is this for?
+      </summary>
+      <div class="scenario-content" style="
+    padding: 1.5rem;
+    border-top: 1px solid #dee2e6;
+    background: linear-gradient(135deg, #fdfefe 0%, #f8f9fa 100%);
+    border-radius: 0 0 12px 12px;
+  ">
+        <ul style="
+      margin: 0.5rem 0 0 0 !important;
+      padding: 0 !important;
+      list-style: none !important;
+      font-size: 0.98em;
+      color: #495057 !important;
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+      display: block !important;
+    ">
+          <li style="
+        opacity: 1 !important;
+        transform: translateX(0px) !important;
+        visibility: visible !important;
+        display: block !important;
+        margin-bottom: 0.75rem;
+        color: #495057 !important;
+        padding-left: 2rem;
+        position: relative;
+        background: linear-gradient(90deg, transparent 0%, transparent 1.5rem, #007bff 1.5rem, #007bff 1.8rem, transparent 1.8rem);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        font-weight: 500;
+      ">Teams preparing for SOC 2, ISO 27001, GDPR, or similar compliance requirements.</li>
+          <li style="
+        opacity: 1 !important;
+        transform: translateX(0px) !important;
+        visibility: visible !important;
+        display: block !important;
+        margin-bottom: 0.75rem;
+        color: #495057 !important;
+        padding-left: 2rem;
+        position: relative;
+        background: linear-gradient(90deg, transparent 0%, transparent 1.5rem, #28a745 1.5rem, #28a745 1.8rem, transparent 1.8rem);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        font-weight: 500;
+      ">Companies adopting GenAI and needing guardrails, secure architecture, and practical AI governance.</li>
+          <li style="
+        opacity: 1 !important;
+        transform: translateX(0px) !important;
+        visibility: visible !important;
+        display: block !important;
+        margin-bottom: 0;
+        color: #495057 !important;
+        padding-left: 2rem;
+        position: relative;
+        background: linear-gradient(90deg, transparent 0%, transparent 1.5rem, #17a2b8 1.5rem, #17a2b8 1.8rem, transparent 1.8rem);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        font-weight: 500;
+      ">Startups and growing businesses that want senior security expertise without big-firm overhead.</li>
+        </ul>
+      </div>
+    </details>
     <details class="scenario-box">
       <summary class="scenario-title" style="
     padding: 1.25rem 1.5rem;
@@ -505,7 +622,16 @@
       color: #495057;
       font-size: 1rem;
     ">
-          Hands-on AWS security expert (CCSP + 7+ years). Skip big-firm overhead:
+          Hands-on AWS security expert (CCSP + 7+ years)
+        </p>
+        <p style="
+      line-height: 1.6; 
+      margin-bottom: 1rem;
+      color: #495057;
+      font-size: 1rem;
+    ">
+          AI security training: ISC2 “AI Security: Managing Overconfidence”, “Planning for Secure by Design AI”, and
+          “Aligning with Global AI Regulations”. Skip big-firm overhead:
         </p>
         <ul style="
       margin: 0.5rem 0 0 0 !important;
@@ -673,12 +799,32 @@
       </div>
     </details>
 
+    <details class="scenario-box">
+      <summary class="scenario-title">Where AI goes wrong today</summary>
+      <div class="scenario-content">
+        <h4>Problem</h4>
+        <ul>
+          <li>Engineers paste code and customer data into GenAI tools with no guardrails.</li>
+          <li>No clear AI acceptable-use policy, leaving Legal and Security exposed.</li>
+          <li>New AI features ship without secure-by-design review of LLMs, data stores, and APIs.</li>
+        </ul>
+
+        <h4>Solution</h4>
+        <p>I help you put guardrails around GenAI, secure AI architectures, and align policies with global AI
+          regulations.</p>
+      </div>
+    </details>
+
 
     <h1>Services</h1>
     <p style="color:#495057; max-width:800px; line-height:1.6; margin:0 auto 1.5rem auto;">
       Focused cloud security and migration services for teams that need stronger AWS security, lower risk, and better
       architectural decisions.
     </p>
+
+    <h3 class="service-title">
+      AWS Security & Cloud Architecture
+    </h3>
 
     <div class="services-grid" style="
   display: grid;
@@ -781,7 +927,119 @@
     <p style="margin-top:1rem;">
       <a href="#tally-form"
         style="background:#007BFF; color:white; padding:12px 24px; border-radius:30px; text-decoration:none; font-weight:600; display:inline-block;">
-        Book Free Discovery Call
+        Book a free 30-minute discovery call
+      </a>
+    </p>
+
+    <h3 class="service-title">
+      AI Security & Governance
+      <span class="badge-new">Now available</span>
+    </h3>
+
+    <div class="services-grid" style="
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+">
+
+      <div class="service-card" style="
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-top: 4px solid #0749ff;
+    box-shadow: 0 4px 12px rgba(255,193,7,0.1);
+    transition: all 0.3s ease;
+  ">
+        <h3 style="color: #0749ff; margin: 0 0 0.75rem 0; font-size: 1.25rem;">GenAI Security &amp; Data Protection
+          Assessment</h3>
+        <p style="color: #495057; line-height: 1.6; margin-bottom: 1rem;">
+          Map GenAI usage, find data leaks &amp; prompt injection risks, deliver prioritized fixes aligned with NIST AI
+          RMF.
+        </p>
+        <div style="font-weight: 600; color: #0749ff; font-size: 1.1rem;">
+          From USD 6,000
+        </div>
+      </div>
+
+      <div class="service-card" style="
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-top: 4px solid #b907ff;
+    box-shadow: 0 4px 12px rgba(255,193,7,0.1);
+    transition: all 0.3s ease;
+  ">
+        <h3 style="color: #b907ff; margin: 0 0 0.75rem 0; font-size: 1.25rem;">AI Use Policy &amp; Governance Starter
+          Pack</h3>
+        <p style="color: #495057; line-height: 1.6; margin-bottom: 1rem;">
+          AI acceptable-use policy, vendor approval workflow, and ownership model aligned with global AI regulations.
+        </p>
+        <div style="font-weight: 600; color: #b907ff; font-size: 1.1rem;">
+          From USD 4,000
+        </div>
+      </div>
+
+      <div class="service-card" style="
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-top: 4px solid #ff0707;
+    box-shadow: 0 4px 12px rgba(255,193,7,0.1);
+    transition: all 0.3s ease;
+  ">
+        <h3 style="color: #ff0707; margin: 0 0 0.75rem 0; font-size: 1.25rem;">Cloud &amp; AI Architecture Hardening
+          Review</h3>
+        <p style="color: #495057; line-height: 1.6; margin-bottom: 1rem;">
+          Secure-by-design review of LLMs, vector stores, APIs, and data pipelines with IAM, encryption, and monitoring
+          controls.
+        </p>
+        <div style="font-weight: 600; color: #ff0707; font-size: 1.1rem;">
+          From USD 6,000
+        </div>
+      </div>
+
+      <div class="service-card" style="
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-top: 4px solid #ff078f;
+    box-shadow: 0 4px 12px rgba(255,193,7,0.1);
+    transition: all 0.3s ease;
+  ">
+        <h3 style="color: #ff078f; margin: 0 0 0.75rem 0; font-size: 1.25rem;">AI Security &amp; Governance Advisor
+          (Retainer)</h3>
+        <p style="color: #495057; line-height: 1.6; margin-bottom: 1rem;">
+          Monthly advisory for CTO/CISO/GC on new AI use cases, vendors, and regulations with policy updates.
+        </p>
+        <div style="font-weight: 600; color: #ff078f; font-size: 1.1rem;">
+          From USD 3,000/month
+        </div>
+      </div>
+
+      <div class="service-card" style="
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-top: 4px solid #053a10;
+    box-shadow: 0 4px 12px rgba(255,193,7,0.1);
+    transition: all 0.3s ease;
+  ">
+        <h3 style="color: #053a10; margin: 0 0 0.75rem 0; font-size: 1.25rem;">48-Hour GenAI Risk Snapshot</h3>
+        <p style="color: #495057; line-height: 1.6; margin-bottom: 1rem;">
+          Fast workshop + report with top 5 AI risks and 3 fastest fixes to kickstart your AI security program.
+        </p>
+        <div style="font-weight: 600; color: #053a10; font-size: 1.1rem;">
+          USD 1,500
+        </div>
+      </div>
+
+    </div>
+
+    <p style="margin-top:1rem;">
+      <a href="#tally-form"
+        style="background:#007BFF; color:white; padding:12px 24px; border-radius:30px; text-decoration:none; font-weight:600; display:inline-block;">
+        Book a free 30-minute discovery call
       </a>
     </p>
 
@@ -881,6 +1139,41 @@
                 <td>Monthly Cloud Security Advisory Retainer</td>
                 <td>Ongoing advisory and monitoring, up to 20 hrs/month</td>
                 <td>From USD 3,000/month</td>
+              </tr>
+              <tr>
+                <td colspan="3" style="padding-top: 1rem; font-weight: 700;">
+                  <b>AI Security &amp; Governance Services</b>
+                </td>
+              </tr>
+              <tr>
+                <td>GenAI Security & Data Protection Assessment</td>
+                <td>Map GenAI usage, find data leaks & prompt injection risks, deliver prioritized fixes aligned with
+                  NIST AI RMF</td>
+                <td>From USD 6,000</td>
+              </tr>
+              <tr>
+                <td>AI Use Policy & Governance Starter Pack</td>
+                <td>AI acceptable-use policy, vendor approval workflow, and ownership model aligned with global AI
+                  regulations</td>
+                <td>From USD 4,000</td>
+              </tr>
+              <tr>
+                <td>Cloud & AI Architecture Hardening Review</td>
+                <td>Secure-by-design review of LLMs, vector stores, APIs, and data pipelines with IAM, encryption, and
+                  monitoring controls</td>
+                <td>From USD 6,000</td>
+              </tr>
+              <tr>
+                <td>AI Security & Governance Advisor (Retainer)</td>
+                <td>Monthly advisory for CTO/CISO/GC on new AI use cases, vendors, and regulations with policy updates
+                </td>
+                <td>From USD 3,000/month</td>
+              </tr>
+              <tr>
+                <td>48-Hour GenAI Risk Snapshot</td>
+                <td>Fast workshop + report with top 5 AI risks and 3 fastest fixes to kickstart your AI security program
+                </td>
+                <td>USD 1,500</td>
               </tr>
             </tbody>
           </table>

@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
   <title>About Me - Mousa Cloud Consulting</title>
   <meta name="description"
     content="Independent cloud security consultant specializing in cloud security, compliance, migrations, and architecture.">
@@ -204,10 +205,12 @@
     <div class="hero">
       <header class="flex-center">
         <div>
-          <video autoplay muted>
-            <source src="resized-logo.mp4" type='video/mp4'>
-            Your browser does not support the video tag.
-          </video>
+          <a href="/">
+            <video autoplay muted>
+              <source src="resized-logo.mp4" type='video/mp4'>
+              Your browser does not support the video tag.
+            </video>
+          </a>
         </div>
       </header>
     </div>
@@ -267,7 +270,8 @@
         <ul>
           <li>Certified Cloud Security Professional by ISC2</li>
           <li>AWS Solutions Architect Associate by AWS</li>
-          <li>AI security training: ISC2 “AI Security: Managing Overconfidence”, “Planning for Secure by Design AI”, and “Aligning with Global AI Regulations”.</li>
+          <li>AI security training: ISC2 “AI Security: Managing Overconfidence”, “Planning for Secure by Design AI”, and
+            “Aligning with Global AI Regulations”.</li>
         </ul>
       </div>
     </div>
@@ -403,7 +407,8 @@
           data-tally-src="https://tally.so/embed/7R2PPZ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
           loading="lazy" width="100%" height="100" frameborder="0" marginheight="0" marginwidth="0"
           title="Contact Details"></iframe>
-        <script>var d = document, w = "https://tally.so/widgets/embed.js", v = function () { "undefined" != typeof Tally ? Tally.loadEmbeds() : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function (e) { e.src = e.dataset.tallySrc })) }; if ("undefined" != typeof Tally) v(); else if (d.querySelector('script[src="' + w + '"]') == null) { var s = d.createElement("script"); s.src = w, s.onload = v, s.onerror = v, d.body.appendChild(s); }</script>
+        <script>var d = document, w = "https://tally.so/widgets/embed.js", v = function () { "undefined" != typeof Tally ? Tally.loadEmbeds() : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function (e) { e.src = e.dataset.tallySrc })) }; if ("undefined" != typeof Tally) v(); else if (d.querySelector('script[src="' + w + '"]') == null) { var s = d.createElement("script"); s.src = w, s.onload = v, s.onerror = v, d.body.appendChild(s); }
+        </script>
       </div>
     </div>
 
@@ -439,36 +444,26 @@
       </div>
     </div>
 
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-      var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-      (function () {
-        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/69ca6af5ecf7021c366807d6/1jkvb3jop';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-      })();
-    </script>
-    <!--End of Tawk.to Script-->
+    <script src="common.js"></script>
 
     <script src="cookie-consent.js"></script>
 
     <div id="footer-placeholder"></div>
+
+    <script>
+      // Simple toggle for accessibility (keyboard support)
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            btn.click();
+          }
+        });
+      });
+    </script>
+
   </div>
 
-  <script>
-    // Simple toggle for accessibility (keyboard support)
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          btn.click();
-        }
-      });
-    });
-  </script>
 </body>
 
 </html>

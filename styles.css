@@ -1,0 +1,9 @@
+    .flex-center {
+      display: flex;
+      justify-content: center;
+      /* Horizontal */
+      align-items: center;
+      /* Vertical */
+      min-height: 200px;
+      /* Container height */
+    }

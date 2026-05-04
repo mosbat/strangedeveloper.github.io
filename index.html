@@ -495,6 +495,8 @@
 
   <script src="book-call.js" defer></script>
 
+  <script src="js/calendly-widget.js" defer></script>
+
 </head>
 
 <body>
@@ -549,7 +551,7 @@
     <p class="hero-trust-line">
       UK-based, serving US companies remotely with EST-friendly scheduling and USD pricing.
     </p>
-    <b><a class="book-call" href="#tally-form" target="_blank">👉 Book Free Discovery Call</a></b>
+    <b><a class="book-call" href="#calendly-book">👉 Book Free Discovery Call</a></b>
     <hr>
     <details class="scenario-box">
       <summary class="scenario-title" style="
@@ -787,9 +789,8 @@
         </div>
 
         <div style="text-align: center; margin-top: 30px;">
-          <a class="book-call" href="#tally-form"
-            style="background: linear-gradient(135deg, #007BFF, #0056b3); color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 18px; box-shadow: 0 6px 20px rgba(0,123,255,0.3); display: inline-block; transition: all 0.3s;"
-            target="_blank">
+          <a class="book-call" href="#calendly-book"
+            style="background: linear-gradient(135deg, #007BFF, #0056b3); color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 18px; box-shadow: 0 6px 20px rgba(0,123,255,0.3); display: inline-block; transition: all 0.3s;">
             Book Free Discovery Call → See Your Risk Reduction Path
           </a>
         </div>
@@ -979,9 +980,8 @@
     </div>
 
     <p style="margin-top:1rem;">
-      <a class="book-call" href="#tally-form"
-        style="background:#007BFF; color:white; padding:12px 24px; border-radius:30px; text-decoration:none; font-weight:600; display:inline-block;"
-        target="_blank">
+      <a class="book-call" href="#calendly-book"
+        style="background:#007BFF; color:white; padding:12px 24px; border-radius:30px; text-decoration:none; font-weight:600; display:inline-block;">
         Book a free 30-minute discovery call
       </a>
     </p>
@@ -1105,7 +1105,7 @@
     </div>
 
     <p style="margin-top:1rem;">
-      <a class="book-call" href="#tally-form"
+      <a class="book-call" href="#calendly-book"
         style="background:#007BFF; color:white; padding:12px 24px; border-radius:30px; text-decoration:none; font-weight:600; display:inline-block;">
         Book a free 30-minute discovery call
       </a>
@@ -1471,14 +1471,11 @@
     <hr>
     </p>
 
-    <div id="tally-form">
-      <h1><b>For general inquiries or a booking a free discovery call</b></h1>
-      <iframe
-        data-tally-src="https://tally.so/embed/7R2PPZ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-        loading="lazy" width="100%" height="100" frameborder="0" marginheight="0" marginwidth="0"
-        title="Contact Details"></iframe>
-      <script>var d = document, w = "https://tally.so/widgets/embed.js", v = function () { "undefined" != typeof Tally ? Tally.loadEmbeds() : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function (e) { e.src = e.dataset.tallySrc })) }; if ("undefined" != typeof Tally) v(); else if (d.querySelector('script[src="' + w + '"]') == null) { var s = d.createElement("script"); s.src = w, s.onload = v, s.onerror = v, d.body.appendChild(s); }</script>
-    </div>
+    <!-- Calendly inline widget begin -->
+    <div id="calendly-book" class="calendly-inline-widget"
+      data-url="https://calendly.com/contact-mousa-cloud-consulting/30min" style="min-width:320px;height:700px;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <!-- Calendly inline widget end -->
 
 
     <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;

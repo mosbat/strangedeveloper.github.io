@@ -56,6 +56,8 @@
 }
 </script>
 
+  <script src="book-call.js" defer></script>
+
   <style>
     :root,
     [data-theme="light"] {
@@ -745,10 +747,12 @@
           <!-- Calendly link widget begin -->
           <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
           <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-          <a class="btn btn-primary" href=""
-            onclick="Calendly.initPopupWidget({url: 'https://calendly.com/contact-mousa-cloud-consulting/30min'});return false;"><h3>Click here to book a quick meeting!</h3></a>
+          <a class="btn btn-primary book-call" href=""
+            onclick="Calendly.initPopupWidget({url: 'https://calendly.com/contact-mousa-cloud-consulting/30min'});return false;">
+            <h3>Click here to book a quick meeting!</h3>
+          </a>
           <!-- Calendly link widget end -->
-           <hr>
+          <hr>
           <a class="btn btn-primary" href="#top">Back to top</a>
         </div>
     </section>

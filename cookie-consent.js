@@ -8,6 +8,14 @@
     window.dataLayer.push(arguments);
   };
 
+  window.gtag('consent', 'default', {
+    'ad_storage': 'granted',
+    'analytics_storage': 'granted',
+    'ad_user_data': 'granted',
+    'ad_personalization': 'granted',
+    'wait_for_update': 500
+  });
+
   function getConsent() {
     try {
       const raw = localStorage.getItem(CONSENT_KEY);
@@ -23,6 +31,17 @@
     } catch (e) {
       // localStorage might be blocked; fail quietly
     }
+  }
+
+  function updateConsentSignals(accepted) {
+    if (!window.gtag) return;
+    const status = accepted ? 'granted' : 'denied';
+    window.gtag('consent', 'update', {
+      'ad_storage': status,
+      'analytics_storage': status,
+      'ad_user_data': status,
+      'ad_personalization': status
+    });
   }
 
   function appendScript(scriptEl) {
@@ -113,6 +132,31 @@
       }
     })(window, document, 'ttq', 'D6ON94BC77U7PMTO33SG');
 
+    (function loadTrafficGuard() {
+      if (window.__mousaTrafficGuardLoaded) return;
+      window.__mousaTrafficGuardLoaded = true;
+
+      var dataTrafficGuard = window.dataTrafficGuard = window.dataTrafficGuard || [];
+      dataTrafficGuard.push(['property_group_id', 'tg-g-024494-001']);
+      dataTrafficGuard.push(['event', 'pageview']);
+
+      var tg = document.createElement('script');
+      tg.type = 'text/javascript';
+      tg.async = true;
+      tg.src = '//tgtag.io/tg.js?pid=tg-g-024494-001';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(tg, s);
+
+      // Noscript fallback (always create for JS-disabled browsers)
+      var noscriptImg = document.createElement('img');
+      noscriptImg.src = '//p.tgtag.io/event?property_group_id=tg-g-024494-001&event=pageview&no_script=1';
+      noscriptImg.width = 1;
+      noscriptImg.height = 1;
+      noscriptImg.border = 0;
+      noscriptImg.style.display = 'none';
+      (document.body || document.documentElement).appendChild(noscriptImg);
+    })();
+
   }
 
   function hideBanner() {
@@ -123,19 +167,33 @@
   function showBanner() {
     var banner = document.getElementById('cookie-banner');
     if (banner) banner.style.display = 'block';
+    wireButtons();  // FIXED: Re-attach listeners
   }
 
   function applyConsent() {
     const consent = getConsent();
-
-    if (consent && consent.accepted === true) {
-      loadNonEssentialTags();
-      hideBanner();
-    } else if (consent && consent.accepted === false) {
-      hideBanner();
+    if (consent?.accepted === true) {
+      loadNonEssentialTags(); hideBanner();
+    } else if (consent?.accepted === false) {
+      unloadNonEssentialTags(); hideBanner();
     } else {
+      loadNonEssentialTags();  // CHANGED: Default load
       showBanner();
     }
+  }
+
+  function unloadTrafficGuard() {
+    // Remove main script
+    const tgEl = document.querySelector('script[src*="tgtag.io/tg.js"]');
+    if (tgEl) tgEl.remove();
+
+    // Clear data array & loaded flag to prevent reload
+    window.dataTrafficGuard = [];
+    window.__mousaTrafficGuardLoaded = false;
+
+    // Remove noscript fallback img
+    const noscriptImg = document.querySelector('img[src*="p.tgtag.io/event"]');
+    if (noscriptImg) noscriptImg.remove();
   }
 
   function wireButtons() {
@@ -145,14 +203,17 @@
     if (acceptBtn) {
       acceptBtn.addEventListener('click', function () {
         setConsent({ accepted: true, ts: new Date().toISOString() });
+        updateConsentSignals(true);
         loadNonEssentialTags();
         hideBanner();
       });
     }
 
     if (rejectBtn) {
-      rejectBtn.addEventListener('click', function () {
+      rejectBtn.addEventListener('click', () => {
         setConsent({ accepted: false, ts: new Date().toISOString() });
+        updateConsentSignals(false);
+        unloadNonEssentialTags();  // Immediate stop
         hideBanner();
       });
     }
@@ -180,4 +241,44 @@
     },
     get: getConsent
   };
+
+
+  function unloadNonEssentialTags() {
+    // Google
+    const gtagEl = document.querySelector('script[src*="googletagmanager.com/gtag"]');
+    if (gtagEl) gtagEl.remove(); delete window.gtag; window.mousaGoogleLoaded = false;
+
+    // TikTok  
+    const ttqEl = document.querySelector('script[src*="tiktok.com/i18n/pixel"]');
+    if (ttqEl) ttqEl.remove(); delete window.ttq; window.mousaTikTokLoaded = false;
+
+    // TrafficGuard (NEW)
+    unloadTrafficGuard();
+
+    window.dataLayer = [];  // Clear events
+
+    const commonDomain = window.location.hostname.replace(/^www\./, '');
+    const cookieExpire = 'Thu, 01 Jan 1970 00:00:00 GMT';
+
+    // Google Analytics/Ads (all variants)
+    ['_ga', '_gid', '_gat', '_gcl_au', '_gcl_aw'].forEach(name => {
+      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=${commonDomain}`;
+      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=.${commonDomain}`;
+      document.cookie = `${name}=; expires=${cookieExpire}; path=/`;
+    });
+
+    // TikTok Pixel
+    ['_tt_enable_cookie', '_ttp', 'tt_webid', 'tt_webid_v2', '_tth_s'].forEach(name => {
+      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=${commonDomain}`;
+      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=.${commonDomain}`;
+      document.cookie = `${name}=; expires=${cookieExpire}; path=/`;
+    });
+
+    // TrafficGuard (common patterns; verify in your Network tab)
+    ['tg_session', 'tg_visitor', '__tg'].forEach(name => {
+      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=${commonDomain}`;
+      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=.${commonDomain}`;
+      document.cookie = `${name}=; expires=${cookieExpire}; path=/`;
+    });
+  }
 })();

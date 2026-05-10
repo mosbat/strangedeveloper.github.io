@@ -44,14 +44,11 @@
     });
   }
 
-  function appendScript(scriptEl) {
-    if (document.head) {
-      document.head.appendChild(scriptEl);
-    } else if (document.body) {
-      document.body.appendChild(scriptEl);
-    } else {
-      document.documentElement.appendChild(scriptEl);
-    }
+  function appendScript(src) {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = src;
+    document.documentElement.appendChild(script);
   }
 
   function loadNonEssentialTags() {
@@ -63,7 +60,7 @@
       const gtagScript = document.createElement('script');
       gtagScript.async = true;
       gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18022556253';
-      appendScript(gtagScript);
+      appendScript(gtagScript.src);
 
       window.gtag('js', new Date());
       window.gtag('config', 'AW-18022556253');
@@ -132,31 +129,26 @@
       }
     })(window, document, 'ttq', 'D6ON94BC77U7PMTO33SG');
 
-    (function loadTrafficGuard() {
-      if (window.__mousaTrafficGuardLoaded) return;
-      window.__mousaTrafficGuardLoaded = true;
+  }
 
-      var dataTrafficGuard = window.dataTrafficGuard = window.dataTrafficGuard || [];
-      dataTrafficGuard.push(['property_group_id', 'tg-g-024494-001']);
-      dataTrafficGuard.push(['event', 'pageview']);
+  function loadTrafficGuard() {
+    if (window.__mousaTrafficGuardLoaded) return;
+    window.__mousaTrafficGuardLoaded = true;
 
-      var tg = document.createElement('script');
-      tg.type = 'text/javascript';
-      tg.async = true;
-      tg.src = '//tgtag.io/tg.js?pid=tg-g-024494-001';
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(tg, s);
+    var dataTrafficGuard = window.dataTrafficGuard = window.dataTrafficGuard || [];
+    dataTrafficGuard.push(['property_group_id', 'tg-g-024494-001']);
+    dataTrafficGuard.push(['event', 'pageview']);
 
-      // Noscript fallback (always create for JS-disabled browsers)
-      var noscriptImg = document.createElement('img');
-      noscriptImg.src = '//p.tgtag.io/event?property_group_id=tg-g-024494-001&event=pageview&no_script=1';
-      noscriptImg.width = 1;
-      noscriptImg.height = 1;
-      noscriptImg.border = 0;
-      noscriptImg.style.display = 'none';
-      (document.body || document.documentElement).appendChild(noscriptImg);
-    })();
+    appendScript('https://tgtag.io/tg.js?pid=tg-g-024494-001');
 
+    // Noscript fallback (always create for JS-disabled browsers)
+    var noscriptImg = document.createElement('img');
+    noscriptImg.src = 'https://p.tgtag.io/event?property\_group\_id=tg-g-024494-001&event=pageview&no\_script=1';
+    noscriptImg.width = 1;
+    noscriptImg.height = 1;
+    noscriptImg.border = 0;
+    noscriptImg.style.display = 'none';
+    (document.body || document.documentElement).appendChild(noscriptImg);
   }
 
   function hideBanner() {
@@ -175,25 +167,10 @@
     if (consent?.accepted === true) {
       loadNonEssentialTags(); hideBanner();
     } else if (consent?.accepted === false) {
-      unloadNonEssentialTags(); hideBanner();
+      hideBanner();
     } else {
-      loadNonEssentialTags();  // CHANGED: Default load
       showBanner();
     }
-  }
-
-  function unloadTrafficGuard() {
-    // Remove main script
-    const tgEl = document.querySelector('script[src*="tgtag.io/tg.js"]');
-    if (tgEl) tgEl.remove();
-
-    // Clear data array & loaded flag to prevent reload
-    window.dataTrafficGuard = [];
-    window.__mousaTrafficGuardLoaded = false;
-
-    // Remove noscript fallback img
-    const noscriptImg = document.querySelector('img[src*="p.tgtag.io/event"]');
-    if (noscriptImg) noscriptImg.remove();
   }
 
   function wireButtons() {
@@ -220,6 +197,7 @@
   }
 
   function init() {
+    loadTrafficGuard();
     wireButtons();
     applyConsent();
   }
@@ -252,9 +230,6 @@
     const ttqEl = document.querySelector('script[src*="tiktok.com/i18n/pixel"]');
     if (ttqEl) ttqEl.remove(); delete window.ttq; window.mousaTikTokLoaded = false;
 
-    // TrafficGuard (NEW)
-    unloadTrafficGuard();
-
     window.dataLayer = [];  // Clear events
 
     const commonDomain = window.location.hostname.replace(/^www\./, '');
@@ -274,11 +249,5 @@
       document.cookie = `${name}=; expires=${cookieExpire}; path=/`;
     });
 
-    // TrafficGuard (common patterns; verify in your Network tab)
-    ['tg_session', 'tg_visitor', '__tg'].forEach(name => {
-      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=${commonDomain}`;
-      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=.${commonDomain}`;
-      document.cookie = `${name}=; expires=${cookieExpire}; path=/`;
-    });
   }
 })();

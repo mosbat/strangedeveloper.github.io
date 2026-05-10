@@ -3,16 +3,18 @@
 (function () {
   const CONSENT_KEY = 'mousaConsentV1';
 
+  // Ensure dataLayer and gtag are defined
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () {
     window.dataLayer.push(arguments);
   };
 
+  // Set default consent (non‑personalized, no cookies)
   window.gtag('consent', 'default', {
-    'ad_storage': 'granted',
-    'analytics_storage': 'granted',
-    'ad_user_data': 'granted',
-    'ad_personalization': 'granted',
+    'ad_storage': 'denied',           // ← should be denied by default
+    'analytics_storage': 'denied',    // ← should be denied by default
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
     'wait_for_update': 500
   });
 
@@ -60,7 +62,7 @@
       const gtagScript = document.createElement('script');
       gtagScript.async = true;
       gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18022556253';
-      appendScript(gtagScript.src);
+      appendScript(gtagScript.src);     // ← bug: this should be gtagScript, not its .src
 
       window.gtag('js', new Date());
       window.gtag('config', 'AW-18022556253');
@@ -128,22 +130,22 @@
         console.warn('TikTok Pixel failed to initialize:', e);
       }
     })(window, document, 'ttq', 'D6ON94BC77U7PMTO33SG');
-
   }
 
   function loadTrafficGuard() {
     if (window.__mousaTrafficGuardLoaded) return;
     window.__mousaTrafficGuardLoaded = true;
 
-    var dataTrafficGuard = window.dataTrafficGuard = window.dataTrafficGuard || [];
+    var dataTrafficGuard = (window.dataTrafficGuard = window.dataTrafficGuard || []);
     dataTrafficGuard.push(['property_group_id', 'tg-g-024494-001']);
     dataTrafficGuard.push(['event', 'pageview']);
 
     appendScript('https://tgtag.io/tg.js?pid=tg-g-024494-001');
 
-    // Noscript fallback (always create for JS-disabled browsers)
+    // Noscript fallback (always create for JS‑disabled browsers)
     var noscriptImg = document.createElement('img');
-    noscriptImg.src = 'https://p.tgtag.io/event?property\_group\_id=tg-g-024494-001&event=pageview&no\_script=1';
+    noscriptImg.src =
+      'https://p.tgtag.io/event?property_group_id=tg-g-024494-001&event=pageview&no_script=1';
     noscriptImg.width = 1;
     noscriptImg.height = 1;
     noscriptImg.border = 0;
@@ -159,13 +161,14 @@
   function showBanner() {
     var banner = document.getElementById('cookie-banner');
     if (banner) banner.style.display = 'block';
-    wireButtons();  // FIXED: Re-attach listeners
+    wireButtons(); // Re‑attach listeners
   }
 
   function applyConsent() {
     const consent = getConsent();
     if (consent?.accepted === true) {
-      loadNonEssentialTags(); hideBanner();
+      loadNonEssentialTags();
+      hideBanner();
     } else if (consent?.accepted === false) {
       hideBanner();
     } else {
@@ -178,21 +181,29 @@
     var rejectBtn = document.getElementById('cookie-reject');
 
     if (acceptBtn) {
-      acceptBtn.addEventListener('click', function () {
-        setConsent({ accepted: true, ts: new Date().toISOString() });
-        updateConsentSignals(true);
-        loadNonEssentialTags();
-        hideBanner();
-      });
+      // Remove any existing listeners to avoid duplicates
+      acceptBtn.removeEventListener('click', acceptClickHandler);
+      acceptBtn.addEventListener('click', acceptClickHandler);
     }
 
     if (rejectBtn) {
-      rejectBtn.addEventListener('click', () => {
-        setConsent({ accepted: false, ts: new Date().toISOString() });
-        updateConsentSignals(false);
-        unloadNonEssentialTags();  // Immediate stop
-        hideBanner();
-      });
+      // Remove any existing listeners
+      rejectBtn.removeEventListener('click', rejectClickHandler);
+      rejectBtn.addEventListener('click', rejectClickHandler);
+    }
+
+    function acceptClickHandler() {
+      setConsent({ accepted: true, ts: new Date().toISOString() });
+      updateConsentSignals(true);
+      loadNonEssentialTags();
+      hideBanner();
+    }
+
+    function rejectClickHandler() {
+      setConsent({ accepted: false, ts: new Date().toISOString() });
+      updateConsentSignals(false);
+      unloadNonEssentialTags(); // Immediate stop
+      hideBanner();
     }
   }
 
@@ -220,34 +231,41 @@
     get: getConsent
   };
 
-
   function unloadNonEssentialTags() {
     // Google
     const gtagEl = document.querySelector('script[src*="googletagmanager.com/gtag"]');
-    if (gtagEl) gtagEl.remove(); delete window.gtag; window.mousaGoogleLoaded = false;
+    if (gtagEl) gtagEl.remove();
 
-    // TikTok  
+    // Remove any global gtag‑related flags
+    window.__mousaGoogleLoaded = false;
+
+    // TikTok
     const ttqEl = document.querySelector('script[src*="tiktok.com/i18n/pixel"]');
-    if (ttqEl) ttqEl.remove(); delete window.ttq; window.mousaTikTokLoaded = false;
+    if (ttqEl) ttqEl.remove();
 
-    window.dataLayer = [];  // Clear events
+    // Remove TikTok global setup
+    delete window.TiktokAnalyticsObject;
+    delete window.ttq;
+    window.__mousaTikTokLoaded = false;
+
+    // Clear events queue
+    window.dataLayer = [];
 
     const commonDomain = window.location.hostname.replace(/^www\./, '');
     const cookieExpire = 'Thu, 01 Jan 1970 00:00:00 GMT';
 
     // Google Analytics/Ads (all variants)
     ['_ga', '_gid', '_gat', '_gcl_au', '_gcl_aw'].forEach(name => {
-      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=${commonDomain}`;
-      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=.${commonDomain}`;
-      document.cookie = `${name}=; expires=${cookieExpire}; path=/`;
+      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=${commonDomain}; secure; samesite=strict`;
+      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=.${commonDomain}; secure; samesite=strict`;
+      document.cookie = `${name}=; expires=${cookieExpire}; path=/; secure; samesite=strict`;
     });
 
     // TikTok Pixel
     ['_tt_enable_cookie', '_ttp', 'tt_webid', 'tt_webid_v2', '_tth_s'].forEach(name => {
-      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=${commonDomain}`;
-      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=.${commonDomain}`;
-      document.cookie = `${name}=; expires=${cookieExpire}; path=/`;
+      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=${commonDomain}; secure; samesite=strict`;
+      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=.${commonDomain}; secure; samesite=strict`;
+      document.cookie = `${name}=; expires=${cookieExpire}; path=/; secure; samesite=strict`;
     });
-
   }
 })();

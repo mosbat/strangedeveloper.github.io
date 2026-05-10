@@ -49,7 +49,7 @@
 
 <body>
     <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: May 9, 2026</p>
+    <p class="last-updated">Last updated: May 10, 2026</p>
 
     <p>MOUSA CLOUD CONSULTING LTD, company number 17090955, registered in England and Wales ("we", "us", or "our"), is
         committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard
@@ -89,6 +89,7 @@
         Our legitimate interests may include operating our business, securing our website and services, understanding
         how visitors find and use our website, measuring campaign effectiveness, and protecting our business from fraud,
         abuse, and invalid traffic.</p>
+    <p>Fraud prevention (TrafficGuard) uses legitimate interest as strictly necessary per PECR/GDPR.<sup>[1]</sup></p>
 
     <h2>4. Sharing Your Information</h2>
     <p>We may share personal information with service providers and processors that help us operate our website,
@@ -141,9 +142,9 @@
             <td>You may opt out of marketing emails at any time using the unsubscribe link or by contacting us.</td>
         </tr>
         <tr>
-            <td>Cookie and Tracking Choice</td>
-            <td>You may opt out of non-essential tracking through our cookie banner or other controls we make available.
-            </td>
+            <td>Cookie Choice</td>
+            <td>Essential (TrafficGuard) always runs for security. Non-essential (Google/TikTok) require consent via
+                banner. Reject blocks immediately.<sup>[1]</sup></td>
         </tr>
         <tr>
             <td>Consent Withdrawal</td>
@@ -155,30 +156,24 @@
         may contact us to request a review.</p>
 
     <h2>8. Cookies and Tracking Technologies</h2>
-    <p>We use cookies and similar technologies on this website. Some are essential to keep the site working, secure, and
-        resistant to abuse. Others are non-essential and are used for analytics, advertising, lead attribution, and
-        fraud detection.</p>
+
+    <p>We use cookies and similar technologies. <strong>Essential technologies run by default</strong>:</p>
+
     <ul>
-        <li><strong>Essential cookies and scripts:</strong> These support core website operation and security, such as
-            page delivery, form handling, availability, and abuse prevention.</li>
-        <li><strong>Non-essential analytics and advertising technologies:</strong> We may use Google tags, including
-            Google Analytics and Google Ads-related tags, TikTok tags, and lead-tracking tools to understand traffic
-            sources, measure campaign performance, improve our site and services, and attribute inquiries or conversions
-            to campaigns.</li>
-        <li><strong>Fraud-detection and invalid-traffic tools:</strong> We may use services such as TrafficGuard to
-            detect, analyze, and help block invalid clicks, fraudulent traffic, abuse, and similar activity affecting
-            our website and advertising campaigns.</li>
-        <li><strong>Third-party forms and scheduling tools:</strong> We may use tools such as embedded forms, calendars,
-            or newsletter platforms that may process personal information you submit and may use their own cookies or
-            similar technologies.</li>
+        <li><strong>TrafficGuard</strong> (<code>_tgaid</code>, <code>_tgidts</code>): Strictly necessary for fraud
+            detection/blocking bots/invalid traffic (legitimate interest, no consent needed).<sup>[1]</sup></li>
     </ul>
-    <p>In regions where applicable law requires prior consent for non-essential tracking, we intend to request that
-        consent before activating those technologies. In other regions, some non-essential tracking technologies may run
-        by default, subject to the notice provided in this policy and any opt-out choices we offer. You can also manage
-        cookies through your browser settings, although doing so may affect some site functions.</p>
-    <p>For clarity, analytics, advertising, lead-tracking, and fraud-detection technologies are not presented by us as
-        strictly essential merely because they are useful to our business. We classify them separately from essential
-        site-function and security technologies so visitors can make an informed choice.</p>
+
+    <p><strong>Non-essential (require explicit consent via banner)</strong>:</p>
+
+    <ul>
+        <li>Google tags (Analytics/Ads): <code>_ga</code>, <code>_gid</code>, etc. for traffic analysis & campaign
+            attribution.</li>
+        <li>TikTok Pixel: <code>_ttp</code>, <code>tt_webid</code> for ad performance.</li>
+    </ul>
+
+    <p>On accept, non-essentials load. On reject, blocked/removed. Browser settings can manage cookies (may break site).
+    </p>[file:139][web:15]
 
     <h2>9. Automated Decision-Making</h2>
     <p>We do not use automated decision-making or profiling that produces legal effects or similarly significant effects
@@ -239,6 +234,12 @@
             </div>
         </div>
     </div>
+
+    <p style="font-size: 0.8em; color: #666; margin-top: 2rem;">
+        <sup>[1]</sup> See <a href="#cookie-banner">cookie banner</a> and <code>cookie-consent.js</code> implementation
+        for technical details. TrafficGuard classified strictly necessary per provider guidance and PECR/GDPR
+        exemptions.<sup>[web:15]</sup>
+    </p>
 
     <script src="cookie-consent.js"></script>
 

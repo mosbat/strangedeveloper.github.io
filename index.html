@@ -522,6 +522,26 @@
       </div>
     </header>
 
+    <div id="header-placeholder"></div>
+
+    <script>
+      fetch('standalone-header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('header-placeholder').outerHTML = data;
+
+          const menuBtn = document.getElementById('menuBtn');
+          const panel = document.getElementById('mobilePanel');
+
+          if (menuBtn && panel) {
+            menuBtn.addEventListener('click', function () {
+              const open = panel.classList.toggle('show');
+              menuBtn.setAttribute('aria-expanded', String(open));
+            });
+          }
+        });
+    </script>
+
     <p style="margin-top: 10px;">
       <a href="about-me.html"
         style="background: #007BFF; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600;"

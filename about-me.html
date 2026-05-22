@@ -215,6 +215,26 @@
       </header>
     </div>
 
+    <div id="header-placeholder"></div>
+
+    <script>
+      fetch('standalone-header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('header-placeholder').outerHTML = data;
+
+          const menuBtn = document.getElementById('menuBtn');
+          const panel = document.getElementById('mobilePanel');
+
+          if (menuBtn && panel) {
+            menuBtn.addEventListener('click', function () {
+              const open = panel.classList.toggle('show');
+              menuBtn.setAttribute('aria-expanded', String(open));
+            });
+          }
+        });
+    </script>
+
     <div>
       <header>
         <h1>

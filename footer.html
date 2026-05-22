@@ -3,6 +3,58 @@
 
 <head>
     <style>
+        .footer-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .footer-cta-copy {
+            flex: 0 1 420px;
+            margin: 0;
+        }
+
+        .footer-cta-btn {
+            flex: 0 0 auto;
+            margin-left: 0;
+        }
+
+        @media (max-width: 640px) {
+            .footer-cta {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .footer-cta-btn {
+                width: 100%;
+                justify-content: center;
+                color: chartreuse
+            }
+        }
+
+        .footer-cta-btn.new-client-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 18px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, #23841a 0%, var(--primary) 100%);
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid rgba(1, 105, 111, 0.16);
+            box-shadow: 0 8px 18px rgba(1, 105, 111, 0.16);
+        }
+
+        .footer-cta-btn.new-client-btn:hover,
+        .footer-cta-btn.new-client-btn:focus-visible {
+            color: #fff;
+            text-decoration: none;
+        }
+
         .site-footer a:hover {
             color: #4a90e2 !important;
             transition: color 0.3s ease;
@@ -66,6 +118,11 @@
                 <img src="aws_logo.png" alt="AWS Certified" style="height: 30px; margin: 0 5px;">
             </div>
         </div>
+
+        <section class="footer-cta">
+            <p class="footer-cta-copy">New client? Start with a simple first step.</p>
+            <a class="new-client-btn footer-cta-btn" href="new-clients-starter-offer.html">Get started</a>
+        </section>
 
         <!-- Bottom Bar: Organized CTAs, Copyright, Social -->
         <div style="border-top: 1px solid #333; padding-top: 20px; text-align: center; margin-top: 20px;">

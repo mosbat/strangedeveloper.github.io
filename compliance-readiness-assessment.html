@@ -228,6 +228,26 @@
         </div>
     </header>
 
+    <div id="header-placeholder"></div>
+
+    <script>
+        fetch('standalone-header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').outerHTML = data;
+
+                const menuBtn = document.getElementById('menuBtn');
+                const panel = document.getElementById('mobilePanel');
+
+                if (menuBtn && panel) {
+                    menuBtn.addEventListener('click', function () {
+                        const open = panel.classList.toggle('show');
+                        menuBtn.setAttribute('aria-expanded', String(open));
+                    });
+                }
+            });
+    </script>
+
     <div class="header">
         <h1>🎯 Compliance Readiness Assessment</h1>
         <p>Is your cloud ready for SOC 2, ISO 27001, or GDPR audits?<br><strong>10 questions · 3 minutes · Get your

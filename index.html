@@ -491,166 +491,227 @@
       line-height: 1.5;
       color: #5f6b7a;
     }
-  
-/* Mobile-friendly enhancements */
-html, body {
-  overflow-x: hidden;
-}
-body {
-  width: 100%;
-}
-img, svg, video, iframe {
-  max-width: 100%;
-  height: auto;
-}
-.container,
-.wrapper,
-.section-inner,
-.hero-inner,
-.content-wrap,
-.grid,
-.cards,
-.card-grid,
-.pricing-grid,
-.services-grid,
-.results-grid,
-.case-grid,
-.footer-grid {
-  min-width: 0;
-}
-@media (max-width: 1024px) {
-  .grid,
-  .cards,
-  .card-grid,
-  .pricing-grid,
-  .services-grid,
-  .results-grid,
-  .case-grid,
-  .footer-grid,
-  .hero-grid,
-  .two-column,
-  .three-column {
-    grid-template-columns: 1fr !important;
-  }
-}
-@media (max-width: 768px) {
-  html {
-    font-size: 15px;
-  }
-  body {
-    overflow-x: hidden;
-  }
-  section {
-    scroll-margin-top: 88px;
-  }
-  .container,
-  .wrapper,
-  .section-inner,
-  .hero-inner,
-  .content-wrap {
-    width: min(100% - 1.5rem, 1200px) !important;
-    margin-inline: auto;
-  }
-  .hero,
-  .section,
-  .services,
-  .results,
-  .pricing,
-  .faq,
-  .contact,
-  .footer {
-    padding-inline: 0 !important;
-  }
-  .hero {
-    padding-top: clamp(5.5rem, 10vw, 7rem) !important;
-  }
-  h1 {
-    font-size: clamp(2rem, 8vw, 3rem) !important;
-    line-height: 1.08 !important;
-  }
-  h2 {
-    font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
-  }
-  h3 {
-    font-size: clamp(1.15rem, 4.8vw, 1.4rem) !important;
-  }
-  p, li, a, button, input, textarea {
-    font-size: max(1rem, 16px);
-  }
-  .hero-copy,
-  .hero-content,
-  .hero-text,
-  .section-copy,
-  .lead,
-  .subtitle {
-    max-width: 100% !important;
-  }
-  .cta-group,
-  .button-row,
-  .hero-actions,
-  .nav-actions,
-  .chip-row,
-  .stat-row {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 0.75rem !important;
-  }
-  .cta-group > *,
-  .button-row > *,
-  .hero-actions > *,
-  .nav-actions > * {
-    width: 100%;
-  }
-  .btn,
-  button,
-  [type="button"],
-  [type="submit"],
-  .button,
-  .cta {
-    min-height: 44px;
-    width: 100%;
-  }
-  table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  pre, code {
-    white-space: pre-wrap;
-    word-break: break-word;
-  }
-  [class*="grid"],
-  [class*="columns"],
-  [class*="split"] {
-    gap: 1rem !important;
-  }
-}
-@media (max-width: 480px) {
-  .container,
-  .wrapper,
-  .section-inner,
-  .hero-inner,
-  .content-wrap {
-    width: min(100% - 1rem, 1200px) !important;
-  }
-  .card,
-  .service-card,
-  .result-card,
-  .pricing-card,
-  .faq-item,
-  .panel {
-    padding: 1rem !important;
-  }
-  .badge,
-  .pill,
-  .tag {
-    white-space: normal !important;
-  }
-}
 
-</style>
+    /* Mobile-friendly enhancements */
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    body {
+      width: 100%;
+    }
+
+    img,
+    svg,
+    video,
+    iframe {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container,
+    .wrapper,
+    .section-inner,
+    .hero-inner,
+    .content-wrap,
+    .grid,
+    .cards,
+    .card-grid,
+    .pricing-grid,
+    .services-grid,
+    .results-grid,
+    .case-grid,
+    .footer-grid {
+      min-width: 0;
+    }
+
+    @media (max-width: 1024px) {
+
+      .grid,
+      .cards,
+      .card-grid,
+      .pricing-grid,
+      .services-grid,
+      .results-grid,
+      .case-grid,
+      .footer-grid,
+      .hero-grid,
+      .two-column,
+      .three-column {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      html {
+        font-size: 15px;
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+
+      section {
+        scroll-margin-top: 88px;
+      }
+
+      .container,
+      .wrapper,
+      .section-inner,
+      .hero-inner,
+      .content-wrap {
+        width: min(100% - 1.5rem, 1200px) !important;
+        margin-inline: auto;
+      }
+
+      .hero,
+      .section,
+      .services,
+      .results,
+      .pricing,
+      .faq,
+      .contact,
+      .footer {
+        padding-inline: 0 !important;
+      }
+
+      .hero {
+        padding-top: clamp(5.5rem, 10vw, 7rem) !important;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 8vw, 3rem) !important;
+        line-height: 1.08 !important;
+      }
+
+      h2 {
+        font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
+      }
+
+      h3 {
+        font-size: clamp(1.15rem, 4.8vw, 1.4rem) !important;
+      }
+
+      p,
+      li,
+      a,
+      button,
+      input,
+      textarea {
+        font-size: max(1rem, 16px);
+      }
+
+      .hero-copy,
+      .hero-content,
+      .hero-text,
+      .section-copy,
+      .lead,
+      .subtitle {
+        max-width: 100% !important;
+      }
+
+      .cta-group,
+      .button-row,
+      .hero-actions,
+      .nav-actions,
+      .chip-row,
+      .stat-row {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.75rem !important;
+      }
+
+      .cta-group>*,
+      .button-row>*,
+      .hero-actions>*,
+      .nav-actions>* {
+        width: 100%;
+      }
+
+      .btn,
+      button,
+      [type="button"],
+      [type="submit"],
+      .button,
+      .cta {
+        min-height: 44px;
+        width: 100%;
+      }
+
+      table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      pre,
+      code {
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      [class*="grid"],
+      [class*="columns"],
+      [class*="split"] {
+        gap: 1rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .container,
+      .wrapper,
+      .section-inner,
+      .hero-inner,
+      .content-wrap {
+        width: min(100% - 1rem, 1200px) !important;
+      }
+
+      .card,
+      .service-card,
+      .result-card,
+      .pricing-card,
+      .faq-item,
+      .panel {
+        padding: 1rem !important;
+      }
+
+      .badge,
+      .pill,
+      .tag {
+        white-space: normal !important;
+      }
+    }
+
+    #us-clients {
+      display: block !important;
+      visibility: visible !important;
+    }
+
+    #us-clients .section-inner {
+      display: block !important;
+    }
+
+    #us-clients .us-clients-list {
+      display: block !important;
+      list-style: disc !important;
+      padding-left: 1.5rem !important;
+      margin: 1rem 0 0 !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+
+    #us-clients .us-clients-list li {
+      display: list-item !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      transform: none !important;
+      margin-bottom: 0.75rem !important;
+    }
+  </style>
 
   <script src="book-call.js" defer></script>
 
@@ -708,7 +769,9 @@ img, svg, video, iframe {
         More About Me
         <i class="fas fa-external-link-alt"></i></a>
     </p>
-    <h3>Certified Cloud Security Professional (CCSP) & AWS Solutions Architect</h3>
+    <h3>Certified Cloud Security Professional (CCSP) & AWS Solutions Architect
+      UK-based | Serving NYC, Seattle & Nationwide
+    </h3>
     <h3>Cloud security specialist for regulated industries</h3>
     <b>
       <h2><em>Empowering Your Business with Tailored IT Consulting in Cloud and Cybersecurity</em></h2>
@@ -730,6 +793,11 @@ img, svg, video, iframe {
     <p class="hero-trust-line">
       UK-based, serving US companies remotely with EST-friendly scheduling and USD pricing.
     </p>
+
+    <p class="hero-us-clients">
+      <a href="#us-clients" class="us-clients-link">Working with US Clients</a>
+    </p>
+
     <b><a class="book-call" href="#calendly-book">👉 Book Free Discovery Call</a></b>
     <hr>
     <details class="scenario-box">
@@ -1533,6 +1601,24 @@ img, svg, video, iframe {
       }
     </script>
     <hr>
+    <section id="us-clients" class="section us-clients-section">
+      <div class="section-inner">
+        <h2>Working With US Clients</h2>
+        <p>
+          I work remotely with US companies as an independent UK-based cloud security consultant.
+          My typical clients are startups, SaaS teams, and regulated businesses that need AWS security,
+          compliance support, and practical advisory without the overhead of hiring full-time.
+        </p>
+
+        <ul class="us-clients-list">
+          <li>Available for US business hours overlap, including EST-friendly meetings.</li>
+          <li>Comfortable working as a remote contractor for NYC, Seattle, and nationwide teams.</li>
+          <li>Can invoice in USD and work with cross-border consulting arrangements.</li>
+          <li>Experienced with security, compliance, and architecture work that does not require local presence.</li>
+        </ul>
+      </div>
+    </section>
+    <hr>
     <h1><b>How does it work?</b></h1>
     <h2 style="color: #007BFF; font-style: italic;">
       Flexible payments: Escrow, Wise, invoice (net-30), or bank wire
@@ -1547,6 +1633,16 @@ img, svg, video, iframe {
       All covered by Hiscox Professional Indemnity insurance (£2M).
     </p>
     <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">Which countries do you work with?</div>
+        <div class="faq-answer">I work with clients internationally including the US, UK, Hong Kong and Saudi Arabia.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Can you handle timezone differences?</div>
+        <div class="faq-answer">Yes, I'm accustomed to work with teams from different timezones.
+        </div>
+      </div>
       <div class="faq-item">
         <div class="faq-question">What is escrow and how does it work?</div>
         <div class="faq-answer">Escrow is a secure payment method where the client funds a project in advance, but

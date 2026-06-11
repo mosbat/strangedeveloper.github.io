@@ -68,6 +68,33 @@
       window.gtag('config', 'AW-18022556253');
     })();
 
+    // REDDIT PIXEL
+    (function loadRedditPixel(w, d) {
+      if (w.__mousaRedditLoaded) return;
+      w.__mousaRedditLoaded = true;
+
+      !function (w, d) {
+        if (!w.rdt) {
+          var p = w.rdt = function () {
+            p.sendEvent ? p.sendEvent.apply(p, arguments) : p.callQueue.push(arguments);
+          };
+          p.callQueue = [];
+          var t = d.createElement("script");
+          t.src = "https://www.redditstatic.com/ads/pixel.js?pixel_id=a2_j5ffqn1rq630";
+          t.async = true;
+          var s = d.getElementsByTagName("script")[0];
+          if (s && s.parentNode) {
+            s.parentNode.insertBefore(t, s);
+          } else {
+            (d.head || d.documentElement).appendChild(t);
+          }
+        }
+      }(w, d);
+
+      w.rdt('init', 'a2_j5ffqn1rq630');
+      w.rdt('track', 'PageVisit');
+    })(window, document);
+
     // TIKTOK PIXEL
     (function loadTikTokPixel(w, d, t, id) {
       if (w.__mousaTikTokLoaded) return;
@@ -267,5 +294,12 @@
       document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=.${commonDomain}; secure; samesite=strict`;
       document.cookie = `${name}=; expires=${cookieExpire}; path=/; secure; samesite=strict`;
     });
+
+    // Reddit
+    const redditEl = document.querySelector('script[src*="redditstatic.com/ads/pixel.js"]');
+    if (redditEl) redditEl.remove();
+
+    delete window.rdt;
+    window.__mousaRedditLoaded = false;
   }
 })();

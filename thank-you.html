@@ -85,23 +85,56 @@
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="manifest" href="site.webmanifest">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18022556253"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+    function hasConsent() {
+      try {
+        const CONSENT_KEY = 'mousaConsentV1';
+        const raw = localStorage.getItem(CONSENT_KEY);
+        if (!raw) return false;
+        const c = JSON.parse(raw);
+        return c && c.accepted === true;
+      } catch (e) {
+        return false;
+      }
+    }
 
-    gtag('config', 'AW-18022556253');
-  </script>
+    function fireConversionEvents() {
+      if (!hasConsent()) return;
 
+      if (typeof window.rdt === 'function') {
+        try {
+          window.rdt('track', 'Lead');
+        } catch (e) {
+          console.warn('reddit pixel error', e);
+        }
+      }
 
+      if (typeof window.gtag === 'function') {
+        try {
+          window.gtag('event', 'conversion_event_submit_lead_form_1');
+        } catch (e) {
+          console.warn('gtag error', e);
+        }
+      }
+    }
 
-  <!-- Google tag (gtag.js) event -->
-  <script>
-    gtag('event', 'conversion_event_submit_lead_form_1', {
-      // <event_parameters>
-    });
+    function waitForTrackers(attempts = 20) {
+      if (!hasConsent()) return;
+
+      const googleReady = typeof window.gtag === 'function';
+      const redditReady = typeof window.rdt === 'function';
+
+      if (googleReady || redditReady) {
+        fireConversionEvents();
+        return;
+      }
+
+      if (attempts > 0) {
+        setTimeout(() => waitForTrackers(attempts - 1), 250);
+      }
+    }
+
+    window.addEventListener('load', () => waitForTrackers());
   </script>
 
 </head>

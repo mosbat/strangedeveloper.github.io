@@ -721,6 +721,72 @@
       margin: 0 0 1rem;
       color: #0a0ddd;
     }
+
+    .intro-video-section {
+      margin: clamp(1.25rem, 3vw, 2rem) 0;
+    }
+
+    .intro-video-card {
+      display: grid;
+      gap: 1rem;
+      padding: clamp(1rem, 3vw, 1.5rem);
+      background: #f8f9fa;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .intro-video-copy {
+      margin: 0;
+    }
+
+    .intro-video-kicker {
+      margin: 0 0 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #007BFF;
+    }
+
+    .intro-video-copy h2 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.35rem, 4vw, 2rem);
+      line-height: 1.15;
+      color: #121212;
+    }
+
+    .intro-video-text {
+      margin: 0;
+      color: #495057;
+      line-height: 1.65;
+    }
+
+    .intro-video-embed {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .intro-video-embed .tiktok-embed {
+      margin: 0 auto !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+    }
+
+    @media (min-width: 900px) {
+      .intro-video-card {
+        grid-template-columns: minmax(0, 1.15fr) minmax(280px, 360px);
+        align-items: center;
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .intro-video-card {
+        padding: 1rem;
+        border-radius: 12px;
+      }
+    }
   </style>
 
   <script src="book-call.js" defer></script>
@@ -809,6 +875,33 @@
     </p>
 
     <b><a class="book-call" href="#calendly-book">👉 Book Free Discovery Call</a></b>
+    <section class="intro-video-section" aria-labelledby="intro-video-title">
+      <div class="intro-video-card">
+        <div class="intro-video-copy">
+          <p class="intro-video-kicker">Meet Mousa</p>
+          <h2 id="intro-video-title">A quick video introduction</h2>
+          <p class="intro-video-text">
+            Watch a short intro on how I help teams secure AWS, improve architecture,
+            and support compliance without slowing delivery.
+          </p>
+        </div>
+
+        <div class="intro-video-embed">
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@strange.developer/video/7653941302505000212"
+            data-video-id="7653941302505000212">
+            <section>
+              <a target="_blank" rel="noopener noreferrer" title="@strange.developer"
+                href="https://www.tiktok.com/@strange.developer?refer=embed">@strange.developer</a>
+              <p>Short introduction to Mousa Cloud Consulting.</p>
+              <a target="_blank" rel="noopener noreferrer" title="original sound"
+                href="https://www.tiktok.com/music/original-sound-7653941366464203538?refer=embed">
+                ♬ original sound - Strange Developer
+              </a>
+            </section>
+          </blockquote>
+        </div>
+      </div>
+    </section>
     <hr>
     <details class="scenario-box">
       <summary class="scenario-title" style="
@@ -1845,6 +1938,8 @@
         </div>
       </div>
     </div>
+
+    <script async src="https://www.tiktok.com/embed.js"></script>
 
     <script src="common.js"></script>
 

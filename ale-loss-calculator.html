@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Annual Loss Expectancy Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root,
+    [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --color-bg: #f7f6f2;
+      --color-surface: #f9f8f5;
+      --color-surface-2: #fbfbf9;
+      --color-surface-offset: #edeae5;
+      --color-border: #d4d1ca;
+      --color-divider: #dcd9d5;
+      --color-text: #28251d;
+      --color-text-muted: #67655f;
+      --color-text-faint: #8d8a84;
+      --color-primary: #01696f;
+      --color-primary-hover: #0c4e54;
+      --color-primary-highlight: #cedcd8;
+      --color-success: #437a22;
+      --color-warning: #964219;
+      --color-error: #a12c7b;
+      --shadow-sm: 0 1px 2px rgba(40, 37, 29, .06);
+      --shadow-md: 0 10px 24px rgba(40, 37, 29, .10);
+      --radius-sm: .375rem;
+      --radius-md: .75rem;
+      --radius-lg: 1rem;
+      --radius-xl: 1.25rem;
+      --radius-full: 9999px;
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-body: 'Work Sans', Arial, sans-serif;
+      --content-default: 1120px;
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1c1b19;
+      --color-surface-2: #201f1d;
+      --color-surface-offset: #22211f;
+      --color-border: #393836;
+      --color-divider: #262523;
+      --color-text: #cdccca;
+      --color-text-muted: #a5a29c;
+      --color-text-faint: #7a7772;
+      --color-primary: #4f98a3;
+      --color-primary-hover: #227f8b;
+      --color-primary-highlight: #313b3b;
+      --color-success: #6daa45;
+      --color-warning: #bb653b;
+      --color-error: #d163a7;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, .2);
+      --shadow-md: 0 10px 24px rgba(0, 0, 0, .28);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme]) {
+        --color-bg: #171614;
+        --color-surface: #1c1b19;
+        --color-surface-2: #201f1d;
+      }
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100dvh;
+      line-height: 1.6;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text);
+      background:
+        radial-gradient(circle at top right, color-mix(in srgb, var(--color-primary) 11%, transparent), transparent 28%),
+        linear-gradient(180deg, var(--color-bg), var(--color-surface));
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    input,
+    button {
+      font: inherit;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: var(--space-3);
+      background: var(--color-primary);
+      color: #fff;
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-full);
+      z-index: 20;
+    }
+
+    .skip-link:focus {
+      left: var(--space-3);
+    }
+
+    .shell {
+      max-width: var(--content-default);
+      margin: 0 auto;
+      padding: var(--space-4);
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-4);
+      padding-block: var(--space-4);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      font-weight: 600;
+    }
+
+    .brand svg {
+      width: 28px;
+      height: 28px;
+      color: var(--color-primary);
+    }
+
+    .theme-toggle {
+      width: 48px;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-full);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero {
+      display: grid;
+      gap: var(--space-6);
+      align-items: start;
+      padding-block: clamp(var(--space-6), 8vw, var(--space-16));
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      width: fit-content;
+      padding: var(--space-2) var(--space-3);
+      background: var(--color-primary-highlight);
+      color: var(--color-primary);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 1;
+      letter-spacing: -.02em;
+      max-width: 11ch;
+      margin-top: var(--space-4);
+    }
+
+    .lede {
+      color: var(--color-text-muted);
+      max-width: 62ch;
+      margin-top: var(--space-4);
+    }
+
+    .layout {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .card {
+      background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+      border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(10px);
+    }
+
+    .calculator,
+    .results,
+    .cta-card {
+      padding: clamp(var(--space-4), 3vw, var(--space-8));
+    }
+
+    .section-title {
+      font-size: var(--text-lg);
+      line-height: 1.2;
+      margin-bottom: var(--space-2);
+    }
+
+    .section-copy {
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      margin-bottom: var(--space-6);
+    }
+
+    form {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .grid {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    label {
+      display: grid;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      font-weight: 600;
+    }
+
+    .hint {
+      font-weight: 400;
+      color: var(--color-text-muted);
+      font-size: var(--text-xs);
+    }
+
+    input {
+      width: 100%;
+      min-height: 52px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      padding: 0 var(--space-4);
+    }
+
+    input::placeholder {
+      color: var(--color-text-faint);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-top: var(--space-2);
+    }
+
+    .btn {
+      min-height: 48px;
+      padding: 0 var(--space-5);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--color-border);
+    }
+
+    .results {
+      display: none;
+      gap: var(--space-5);
+    }
+
+    .results.visible,
+    .cta-card.visible {
+      display: grid;
+    }
+
+    .metric-grid {
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .metric {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface-2);
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+    }
+
+    .metric-label {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--color-text-muted);
+    }
+
+    .metric-value {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-top: var(--space-2);
+    }
+
+    .formula {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface-2));
+      color: var(--color-text);
+    }
+
+    .cta-card {
+      display: none;
+      margin-top: var(--space-6);
+      background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 14%, var(--color-surface)), var(--color-surface));
+    }
+
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.05;
+      max-width: 18ch;
+    }
+
+    .cta-copy {
+      color: var(--color-text-muted);
+      margin-top: var(--space-3);
+      max-width: 56ch;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-top: var(--space-5);
+    }
+
+    .cta-note {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-3);
+    }
+
+    .calendly-wrap {
+      margin-top: var(--space-8);
+      min-height: 700px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      background: var(--color-surface-2);
+    }
+
+    .calendly-inline-widget {
+      min-width: 320px;
+      height: 700px;
+    }
+
+    .footer-note {
+      padding-block: var(--space-8);
+      color: var(--color-text-muted);
+      font-size: var(--text-xs);
+    }
+
+    @media (min-width: 820px) {
+      .layout {
+        grid-template-columns: 1.1fr .9fr;
+        align-items: start;
+      }
+
+      .grid.two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .metric-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        padding: var(--space-3);
+      }
+
+      .calendly-wrap {
+        min-height: 760px;
+      }
+
+      .calendly-inline-widget {
+        height: 760px;
+      }
+
+      .button-row,
+      .cta-actions {
+        display: grid;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+
+    .flex-center {
+      display: flex;
+      justify-content: center;
+      /* Horizontal */
+      align-items: center;
+      /* Vertical */
+      min-height: 200px;
+      /* Container height */
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 52px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      padding: 0 var(--space-4);
+    }
+  </style>
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="manifest" href="site.webmanifest">
+
+  <script src="book-call.js" defer></script>
+</head>
+
+<body>
+  <header class="flex-center">
+    <div>
+      <a href="/">
+        <video autoplay muted>
+          <source src="resized-logo.mp4" type='video/mp4'>
+          Your browser does not support the video tag.
+        </video>
+      </a>
+    </div>
+  </header>
+  <div id="header-placeholder"></div>
+
+  <script>
+    fetch('standalone-header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-placeholder').outerHTML = data;
+
+        const menuBtn = document.getElementById('menuBtn');
+        const panel = document.getElementById('mobilePanel');
+
+        if (menuBtn && panel) {
+          menuBtn.addEventListener('click', function () {
+            const open = panel.classList.toggle('show');
+            menuBtn.setAttribute('aria-expanded', String(open));
+          });
+        }
+      });
+  </script>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="shell">
+    <header class="topbar" aria-label="Top navigation">
+      <div class="brand">
+        <svg viewBox="0 0 32 32" fill="none" aria-label="Loss calculator logo">
+          <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"></circle>
+          <path d="M10 19.5 14.5 15l3.2 3.2L23 12.8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+        <span>Loss Estimator</span>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div>
+          <span class="eyebrow">Annualized loss expectancy</span>
+          <h1>Estimate your annual potential losses in seconds.</h1>
+        </div>
+
+        <div class="layout">
+          <section class="card calculator" aria-labelledby="calc-title">
+            <h2 id="calc-title" class="section-title">Calculator</h2>
+            <p class="section-copy">Enter your values below. Exposure Factor should be the percentage of loss from one
+              incident, and ARO is how often you expect that incident per year.
+            </p>
+            <p class="section-copy"><b><i>Confidentiality is a top priority, so no information you input here will be
+                  stored or persisted.</i></b></p>
+            <hr>
+            <hr>
+            <form id="aleForm">
+              <div class="grid two">
+                <label>
+                  Currency
+                  <span class="hint">Choose the currency you want the estimate shown in</span>
+                  <select class="hint" id="countryCurrency" name="countryCurrency" required>
+                    <option value="US">United States (USD)</option>
+                    <option value="SG">Singapore (SGD)</option>
+                    <option value="SA">Saudi Arabia (SAR)</option>
+                    <option value="JP">Japan (JPY)</option>
+                    <option value="HK">Hong Kong (HKD)</option>
+                  </select>
+                </label>
+                <label>
+                  Asset Value (AV)
+                  <span class="hint">Example: 100000</span>
+                  <input id="assetValue" name="assetValue" type="number" inputmode="decimal" min="0" step="0.01"
+                    placeholder="100000" required>
+                </label>
+                <label>
+                  Exposure Factor (%)
+                  <span class="hint">Example: 25 for 25%</span>
+                  <input id="exposureFactor" name="exposureFactor" type="number" inputmode="decimal" min="0" max="100"
+                    step="0.01" placeholder="25" required>
+                </label>
+              </div>
+              <label>
+                Annualized Rate of Occurrence (ARO)
+                <span class="hint">Example: 0.5 means once every two years; 2 means twice per year</span>
+                <input id="aro" name="aro" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0.5"
+                  required>
+              </label>
+              <div class="button-row">
+                <button class="btn btn-primary" type="submit">Calculate losses</button>
+                <button class="btn btn-secondary" type="reset">Reset</button>
+              </div>
+            </form>
+          </section>
+
+          <section id="results" class="card results" aria-live="polite" aria-labelledby="result-title">
+            <div>
+              <h2 id="result-title" class="section-title">Results</h2>
+              <p class="section-copy">These values help estimate expected annual loss under the ALE model.</p>
+            </div>
+            <div class="metric-grid">
+              <div class="metric">
+                <div class="metric-label">Single Loss Expectancy</div>
+                <div id="sleValue" class="metric-value">€0</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Annualized Loss Expectancy</div>
+                <div id="aleValue" class="metric-value">€0</div>
+              </div>
+            </div>
+            <div class="formula">
+              <strong>Formula used:</strong>
+              <div id="formulaText">SLE = AV × EF, ALE = SLE × ARO</div>
+            </div>
+            <h2 id="cta-title" class="cta-title">Wanna reduce losses? Get help from an expert</h2>
+            <p class="cta-copy">Once you know your estimated annual loss, the next step is reducing either the exposure
+              factor or the rate of occurrence.</p>
+            <div class="cta-actions">
+              <a id="bookLink" class="btn btn-primary" href="https://calendly.com/contact-mousa-cloud-consulting/30min"
+                target="_blank" rel="noopener noreferrer">Book a call</a>
+              <a class="btn btn-secondary" href="#calendly-embed">Open booking section</a>
+            </div>
+            <div id="calendly-embed" class="calendly-wrap">
+              <div class="calendly-inline-widget" data-url="https://calendly.com/contact-mousa-cloud-consulting/30min"
+                aria-label="Calendly booking widget"></div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script>
+    (function () {
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const root = document.documentElement;
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+
+      function renderIcon() {
+        toggle.innerHTML = theme === 'dark'
+          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>'
+          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+        toggle.setAttribute('aria-label', 'Switch to ' + (theme === 'dark' ? 'light' : 'dark') + ' mode');
+      }
+      renderIcon();
+      toggle.addEventListener('click', function () {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        renderIcon();
+      });
+
+      const form = document.getElementById('aleForm');
+      const results = document.getElementById('results');
+      const sleEl = document.getElementById('sleValue');
+      const aleEl = document.getElementById('aleValue');
+      const formulaEl = document.getElementById('formulaText');
+
+      const currencyMap = {
+        US: { locale: 'en-US', currency: 'USD' },
+        SG: { locale: 'en-SG', currency: 'SGD' },
+        SA: { locale: 'en-SA', currency: 'SAR' },
+        JP: { locale: 'ja-JP', currency: 'JPY' },
+        HK: { locale: 'en-HK', currency: 'HKD' }
+      };
+
+      const decimal = new Intl.NumberFormat(undefined, { maximumFractionDigits: 4 });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const selectedCountry = document.getElementById('countryCurrency').value;
+        const { locale, currency } = currencyMap[selectedCountry];
+
+        const money = new Intl.NumberFormat(locale, {
+          style: 'currency',
+          currency,
+          currencyDisplay: 'symbol'
+        });
+
+        const av = parseFloat(document.getElementById('assetValue').value);
+        const efPercent = parseFloat(document.getElementById('exposureFactor').value);
+        const aro = parseFloat(document.getElementById('aro').value);
+        if ([av, efPercent, aro].some(Number.isNaN) || av < 0 || efPercent < 0 || aro < 0) return;
+
+        const ef = efPercent / 100;
+        const sle = av * ef;
+        const ale = sle * aro;
+
+        sleEl.textContent = money.format(sle);
+        aleEl.textContent = money.format(ale);
+        formulaEl.textContent = 'SLE = ' + money.format(av) + ' × ' + decimal.format(ef) + ' = ' + money.format(sle) + ' · ALE = ' + money.format(sle) + ' × ' + decimal.format(aro) + ' = ' + money.format(ale);
+        results.classList.add('visible');
+        results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      form.addEventListener('reset', function () {
+        window.setTimeout(function () {
+          results.classList.remove('visible');
+          cta.classList.remove('visible');
+          sleEl.textContent = '0';
+          aleEl.textContent = '0';
+          formulaEl.textContent = 'SLE = AV × EF, ALE = SLE × ARO';
+        }, 0);
+      });
+    })();
+  </script>
+
+
+  <script src="common.js"></script>
+
+  <script src="cookie-consent.js"></script>
+
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').outerHTML = data;
+      });
+  </script>
+
+  <div id="footer-placeholder"></div>
+  <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;
+            padding:1rem;z-index:9999;display:none;font-size:0.9rem;">
+    <div style="max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;
+              gap:0.75rem;align-items:center;">
+      <p style="flex:1;margin:0;">
+        Essential fraud protection (TrafficGuard) runs by default to block bots and click fraud.
+        Non-essential analytics & ads (Google, TikTok & Reddit) only load if you consent below. See our
+        <a href="privacy-policy.html" style="color:#4ea3ff;">Privacy Policy</a>.
+      </p>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+        <button id="cookie-reject" style="background:#444;color:#fff;border:none;padding:0.5rem 1rem;
+                     border-radius:4px;cursor:pointer;">
+          Reject non‑essential
+        </button>
+        <button id="cookie-accept" style="background:#007bff;color:#fff;border:none;padding:0.5rem 1rem;
+                     border-radius:4px;cursor:pointer;">
+          Accept all
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

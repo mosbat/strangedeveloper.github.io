@@ -159,27 +159,6 @@
     })(window, document, 'ttq', 'D6ON94BC77U7PMTO33SG');
   }
 
-  function loadTrafficGuard() {
-    if (window.__mousaTrafficGuardLoaded) return;
-    window.__mousaTrafficGuardLoaded = true;
-
-    var dataTrafficGuard = (window.dataTrafficGuard = window.dataTrafficGuard || []);
-    dataTrafficGuard.push(['property_group_id', 'tg-g-024494-001']);
-    dataTrafficGuard.push(['event', 'pageview']);
-
-    appendScript('https://tgtag.io/tg.js?pid=tg-g-024494-001');
-
-    // Noscript fallback (always create for JS‑disabled browsers)
-    var noscriptImg = document.createElement('img');
-    noscriptImg.src =
-      'https://p.tgtag.io/event?property_group_id=tg-g-024494-001&event=pageview&no_script=1';
-    noscriptImg.width = 1;
-    noscriptImg.height = 1;
-    noscriptImg.border = 0;
-    noscriptImg.style.display = 'none';
-    (document.body || document.documentElement).appendChild(noscriptImg);
-  }
-
   function hideBanner() {
     var banner = document.getElementById('cookie-banner');
     if (banner) banner.style.display = 'none';
@@ -235,7 +214,6 @@
   }
 
   function init() {
-    loadTrafficGuard();
     wireButtons();
     applyConsent();
   }

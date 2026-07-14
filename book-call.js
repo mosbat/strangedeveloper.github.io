@@ -16,7 +16,12 @@
   }
 
   function fireEventIfAllowed() {
-    if (hasConsent() && typeof window.gtag === 'function') {
+
+    if (!hasConsent()) {
+      return;
+    }
+
+    if (typeof window.gtag === 'function') {
       try {
         window.gtag('event', EVENT_NAME, { transport_type: 'beacon' });
         //console.log('book call event fired');
@@ -24,6 +29,11 @@
         console.warn('gtag error', e);
       }
     }
+
+    if (typeof window.rdt === 'function') {
+      window.rdt('track', 'ContactInterest');
+    }
+
   }
 
   function attachListeners() {

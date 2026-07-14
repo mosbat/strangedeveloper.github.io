@@ -31,7 +31,12 @@
     }
 
     if (typeof window.rdt === 'function') {
-      window.rdt('track', 'ContactInterest');
+
+      try {
+        window.rdt('track', 'Lead');
+      } catch (e) {
+        console.warn('rdt error', e)
+      }
     }
 
   }

@@ -1,193 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        .footer-cta {
+        :root {
+            --footer-bg: #1a1a1a;
+            --footer-surface: rgba(255, 255, 255, 0.05);
+            --footer-border: #333;
+            --footer-text: #fff;
+            --footer-muted: #ccc;
+            --footer-link: #4a90e2;
+            --btn-radius: 10px;
+            --btn-min-height: 48px;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .site-footer {
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 28px 16px 20px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .footer-shell {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 22px;
+        }
+
+        .footer-card h4 {
+            margin: 0 0 8px;
+            font-size: 15px;
+        }
+
+        .footer-card p {
+            margin: 0;
+            color: var(--footer-muted);
+        }
+
+        .footer-brand img {
+            display: block;
+            height: 40px;
+            width: auto;
+            margin-bottom: 10px;
+        }
+
+        .footer-legal {
+            text-align: left;
+        }
+
+        .footer-link {
+            color: var(--footer-link);
+            text-decoration: none;
+        }
+
+        .footer-link:hover,
+        .footer-link:focus-visible {
+            text-decoration: underline;
+        }
+
+        .footer-insurance {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 14px;
+            gap: 8px;
+            margin-top: 10px;
             flex-wrap: wrap;
+        }
+
+        .footer-insurance img {
+            height: 24px;
+            width: auto;
+            display: block;
+        }
+
+        .footer-insurance small {
+            color: var(--footer-muted);
+            font-size: 12px;
+        }
+
+        .footer-certifications {
+            border-top: 1px solid var(--footer-border);
+            margin-top: 22px;
+            padding-top: 16px;
             text-align: center;
+            background: var(--footer-surface);
+            border-radius: 12px;
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        .footer-certifications .logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .footer-certifications img {
+            height: 30px;
+            width: auto;
+            display: block;
+        }
+
+        .footer-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 12px;
+            text-align: center;
+            margin-top: 22px;
         }
 
         .footer-cta-copy {
-            flex: 0 1 420px;
             margin: 0;
+            color: var(--footer-text);
+            font-size: 16px;
         }
 
-        .footer-cta-btn {
-            flex: 0 0 auto;
-            margin-left: 0;
-        }
-
-        @media (max-width: 640px) {
-            .footer-cta {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .footer-cta-btn {
-                width: 100%;
-                justify-content: center;
-                color: chartreuse
-            }
-        }
-
-        .footer-cta-btn.new-client-btn {
+        .footer-cta-btn,
+        .footer-action-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-height: 44px;
-            padding: 0 18px;
-            border-radius: 999px;
-            background: linear-gradient(180deg, #23841a 0%, var(--primary) 100%);
-            color: #fff;
+            gap: 8px;
+            min-height: var(--btn-min-height);
+            padding: 12px 18px;
+            border-radius: var(--btn-radius);
             text-decoration: none;
-            border: 1px solid rgba(1, 105, 111, 0.16);
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+            width: 100%;
+            border: 0;
+            cursor: pointer;
+        }
+
+        .footer-cta-btn {
+            background: linear-gradient(180deg, #23841a 0%, #01696f 100%);
+            color: #fff;
             box-shadow: 0 8px 18px rgba(1, 105, 111, 0.16);
         }
 
-        .footer-cta-btn.new-client-btn:hover,
-        .footer-cta-btn.new-client-btn:focus-visible {
-            color: #fff;
-            text-decoration: none;
+        .footer-action-bar {
+            border-top: 1px solid var(--footer-border);
+            margin-top: 20px;
+            padding-top: 20px;
+            text-align: center;
         }
 
-        .site-footer a:hover {
-            color: #4a90e2 !important;
-            transition: color 0.3s ease;
+        .footer-actions {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                text-align: center;
-            }
+        .btn-book { background: #007bff; color: #fff; box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3); }
+        .btn-contact { background: #28a745; color: #fff; box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3); }
+        .btn-home { background: #6c757d; color: #fff; box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3); }
+        .btn-blog { background: #008080; color: #fff; box-shadow: 0 4px 12px rgba(0, 128, 128, 0.3); }
+        .btn-architecture { background: #b60f0f; color: #fff; box-shadow: 0 4px 12px rgba(182, 15, 15, 0.3); }
+
+        .footer-action-btn:hover,
+        .footer-action-btn:focus-visible,
+        .footer-cta-btn:hover,
+        .footer-cta-btn:focus-visible {
+            transform: translateY(-2px);
+            opacity: 0.96;
+        }
+
+        .footer-meta {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            color: var(--footer-muted);
+            margin-bottom: 14px;
+        }
+
+        .footer-meta a {
+            color: var(--footer-muted);
+            margin: 0 10px 0 0;
+        }
+
+        .footer-notice {
+            margin-top: 14px;
+            color: var(--footer-muted);
+            font-size: 13px;
+        }
+
+        .footer-notice p {
+            margin: 0;
+        }
+
+        @media (min-width: 640px) {
+            .site-footer { padding: 36px 20px 20px; }
+            .footer-cta-copy { font-size: 17px; }
+            .footer-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid { grid-template-columns: 1.2fr 1fr 1.2fr; gap: 32px; align-items: start; }
+            .footer-legal { text-align: right; }
+            .footer-insurance { justify-content: flex-end; }
+            .footer-meta { grid-template-columns: auto auto auto; justify-content: center; align-items: center; }
+            .footer-actions { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .footer-cta { flex-direction: row; align-items: center; justify-content: space-between; text-align: left; gap: 16px; }
+            .footer-cta-copy { flex: 1 1 auto; }
+            .footer-cta-btn { width: auto; white-space: nowrap; }
+        }
+
+        @media (min-width: 1024px) {
+            .footer-actions { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+            .footer-action-btn { width: 100%; }
+        }
+
+        .site-footer a:focus-visible,
+        .site-footer button:focus-visible {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
         }
     </style>
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <script src="book-call.js" defer></script>
 </head>
-
 <body>
-    <footer class="site-footer" style="background: #1a1a1a; color: #fff; padding: 40px 20px 20px; font-size: 14px;">
-        <div class="container"
-            style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px;">
-            <!-- Logo & Description -->
-            <div style="flex: 1; min-width: 250px;">
-                <img src="mcc-logo.jpg" alt="Mousa Cloud Consulting LTD Logo"
-                    style="height: 40px; margin-bottom: 10px;">
-                <p>Cloud security audits & architecture. CCSP & AWS certified.</p>
-            </div>
+    <footer class="site-footer">
+        <div class="footer-shell">
+            <div class="footer-grid">
+                <div class="footer-card footer-brand">
+                    <img src="mcc-logo.jpg" alt="Mousa Cloud Consulting LTD Logo">
+                    <p>Cloud security audits & architecture. CCSP & AWS certified.</p>
+                </div>
 
-            <!-- Company Contact -->
-            <div>
-                <h4>Mailing Address</h4>
-                <p>71-75 Shelton Street, <br>
-                    Covent Garden, <br>
-                    London, WC2H 9JQ</p>
-            </div>
+                <div class="footer-card">
+                    <h4>Mailing Address</h4>
+                    <p>71-75 Shelton Street,<br>Covent Garden,<br>London, WC2H 9JQ</p>
+                </div>
 
-            <!-- Legal & Compliance -->
-            <div style="text-align: right;">
-                <h4>Legal</h4>
-                <p><strong>Mousa Cloud Consulting Ltd</strong><br>
+                <div class="footer-card footer-legal">
+                    <h4>Legal</h4>
+                    <p><strong>Mousa Cloud Consulting Ltd</strong><br>
                     Registered in England & Wales No. 17090955<br>
                     Registered Office: 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ<br>
-                    <a href="https://find-and-update.company-information.service.gov.uk/company/17090955"
-                        style="color: #4a90e2;" target="_blank">View at Companies House</a>
-                </p><br>
-                <div style="display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-top: 10px;">
-                    <img src="hiscox.png" alt="Professional Indemnity Insurance - Hiscox"
-                        style="height: 24px; width: auto;">
-                    <small style="color: #ccc; font-size: 12px;">Professional Indemnity Insurance up to 2 million
-                        GBP</small>
+                    <a href="https://find-and-update.company-information.service.gov.uk/company/17090955" class="footer-link" target="_blank" rel="noopener noreferrer">View at Companies House</a></p>
+                    <div class="footer-insurance">
+                        <img src="hiscox.png" alt="Professional Indemnity Insurance - Hiscox">
+                        <small>Professional Indemnity Insurance up to 2 million GBP</small>
+                    </div>
                 </div>
-                <p></p>
-            </div>
-        </div>
-
-        <!-- Certifications -->
-        <div
-            style="border-top: 1px solid #333; padding-top: 15px; margin-top: 20px; text-align: center; background: rgba(255,255,255,0.05);">
-            <div style="margin-top: 10px;">
-                <img src="isc2-logo.png" alt="CCSP Certified" style="height: 30px; margin: 0 5px;">
-                <img src="aws_logo.png" alt="AWS Certified" style="height: 30px; margin: 0 5px;">
-            </div>
-        </div>
-
-        <section class="footer-cta">
-            <p class="footer-cta-copy">New client? Start with a scoped, low-risk engagement.</p>
-            <a class="new-client-btn footer-cta-btn" href="new-clients-starter-offer.html">Get started</a>
-        </section>
-
-        <!-- Bottom Bar: Organized CTAs, Copyright, Social -->
-        <div style="border-top: 1px solid #333; padding-top: 20px; text-align: center; margin-top: 20px;">
-            <!-- Organized CTA Buttons Row -->
-            <div
-                style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
-                <!-- Book Call Button (Calendly popup) -->
-                <a class="book-call" href="#"
-                    onclick="Calendly.initPopupWidget({url: 'https://calendly.com/contact-mousa-cloud-consulting/30min'}); return false;"
-                    style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; background: #007bff; color: #fff; text-decoration: none; font-weight: 600; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,123,255,0.3); transition: all 0.3s ease; font-size: 14px; min-height: 48px;"
-                    onmouseover="this.style.boxShadow='0 6px 18px rgba(0,123,255,0.4)'; this.style.transform='translateY(-2px)'"
-                    onmouseout="this.style.boxShadow='0 4px 12px rgba(0,123,255,0.3)'; this.style.transform='translateY(0)'">
-                    Book Discovery Call
-                </a>
-                <!-- Tally Contact Form Button -->
-                <a class="book-call" href="https://tally.so/r/7R2PPZ"
-                    style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; background: #28a745; color: #fff; text-decoration: none; font-weight: 600; border-radius: 8px; box-shadow: 0 4px 12px rgba(40,167,69,0.3); transition: all 0.3s ease; font-size: 14px; min-height: 48px;"
-                    target="_blank"
-                    onmouseover="this.style.boxShadow='0 6px 18px rgba(40,167,69,0.4)'; this.style.transform='translateY(-2px)'"
-                    onmouseout="this.style.boxShadow='0 4px 12px rgba(40,167,69,0.3)'; this.style.transform='translateY(0)'">
-                    Contact Me
-                </a>
-                <!-- Back to Home Button -->
-                <a href="/"
-                    style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; background: #6c757d; color: #fff; text-decoration: none; font-weight: 600; border-radius: 8px; box-shadow: 0 4px 12px rgba(108,117,125,0.3); transition: all 0.3s ease; font-size: 14px; min-height: 48px;"
-                    onmouseover="this.style.boxShadow='0 6px 18px rgba(108,117,125,0.4)'; this.style.transform='translateY(-2px)'"
-                    onmouseout="this.style.boxShadow='0 4px 12px rgba(108,117,125,0.3)'; this.style.transform='translateY(0)'">
-                    Back to Home
-                </a>
-                <!-- Removed class="book-call" as inline styles now handle it -->
-                <a href="https://blog.mousa-cloud.com" target="_blank"
-                    style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; background: #008080; color: #fff; text-decoration: none; font-weight: 600; border-radius: 8px; box-shadow: 0 4px 12px rgba(108,117,125,0.3); transition: all 0.3s ease; font-size: 14px; min-height: 48px;"
-                    onmouseover="this.style.boxShadow='0 6px 18px rgba(108,117,125,0.4)'; this.style.transform='translateY(-2px)'"
-                    onmouseout="this.style.boxShadow='0 4px 12px rgba(108,117,125,0.3)'; this.style.transform='translateY(0)'">
-                    <span>Case Studies & Articles</span>
-                    <span aria-hidden="true" style="font-size: 15px; line-height: 1;">↗</span>
-                </a>
-                <a href="https://architecture.mousa-cloud.com" target="_blank"
-                    style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; background: #b60f0f; color: #fff; text-decoration: none; font-weight: 600; border-radius: 8px; box-shadow: 0 4px 12px rgba(108,117,125,0.3); transition: all 0.3s ease; font-size: 14px; min-height: 48px;"
-                    onmouseover="this.style.boxShadow='0 6px 18px rgba(108,117,125,0.4)'; this.style.transform='translateY(-2px)'"
-                    onmouseout="this.style.boxShadow='0 4px 12px rgba(108,117,125,0.3)'; this.style.transform='translateY(0)'">
-                    <span>Live Demos</span>
-                    <span aria-hidden="true" style="font-size: 15px; line-height: 1;">↗</span>
-                </a>
             </div>
 
-            <!-- Copyright & Links -->
-            <span style="margin-right: 20px;">© 2026 Mousa Cloud Consulting Ltd. All rights reserved.</span>
-            <a href="privacy-policy.html" style="color: #ccc; margin: 0 10px;" target="_blank">Privacy</a>
-            <a href="terms.html" style="color: #ccc; margin: 0 10px;" target="_blank">Terms</a>
-            <a href="#" onclick="if(window.mousaCookieConsent) window.mousaCookieConsent.reset(); return false;"
-                style="color: #ccc; margin: 0 10px;">Cookie settings</a>
+            <div class="footer-certifications">
+                <div>Certifications</div>
+                <div class="logos">
+                    <img src="isc2-logo.png" alt="CCSP Certified">
+                    <img src="aws_logo.png" alt="AWS Certified">
+                </div>
+            </div>
 
-            <!-- Important Notice -->
-            <div style="margin-top: 15px;">
-                <p style="margin: 10px 0; font-size: 13px; color: #ccc;">
-                    <strong>Important Notice:</strong> Mousa Cloud Consulting Ltd does not provide services to clients
-                    in the EU/EEA.
-                    Our offerings are unavailable and not targeted at EU/EEA residents or businesses. GDPR/DSGVO does
-                    not apply.
-                    Use of VPN/proxy may violate our Terms.
-                </p>
+            <section class="footer-cta" aria-label="New client call to action">
+                <p class="footer-cta-copy">New client? Start with a scoped, low-risk engagement.</p>
+                <a class="footer-cta-btn" href="new-clients-starter-offer.html">Get started</a>
+            </section>
+
+            <div class="footer-action-bar">
+                <div class="footer-actions">
+                    <a class="footer-action-btn btn-book" href="#"
+                       onclick="Calendly.initPopupWidget({url: 'https://calendly.com/contact-mousa-cloud-consulting/30min'}); return false;">
+                        Book Discovery Call
+                    </a>
+                    <a class="footer-action-btn btn-contact" href="https://tally.so/r/7R2PPZ" target="_blank" rel="noopener noreferrer">
+                        Contact Me
+                    </a>
+                    <a class="footer-action-btn btn-home" href="/">
+                        Back to Home
+                    </a>
+                    <a class="footer-action-btn btn-blog" href="https://blog.mousa-cloud.com" target="_blank" rel="noopener noreferrer">
+                        <span>Case Studies & Articles</span>
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                    <a class="footer-action-btn btn-architecture" href="https://architecture.mousa-cloud.com" target="_blank" rel="noopener noreferrer">
+                        <span>Live Demos</span>
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+
+                <div class="footer-meta">
+                    <span>© 2026 Mousa Cloud Consulting Ltd. All rights reserved.</span>
+                    <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy</a>
+                    <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms</a>
+                    <a href="#" onclick="if(window.mousaCookieConsent) window.mousaCookieConsent.reset(); return false;">Cookie settings</a>
+                </div>
+
+                <div class="footer-notice">
+                    <p><strong>Important Notice:</strong> Mousa Cloud Consulting Ltd does not provide services to clients in the EU/EEA. Our offerings are unavailable and not targeted at EU/EEA residents or businesses. GDPR/DSGVO does not apply. Use of VPN/proxy may violate our Terms.</p>
+                </div>
             </div>
         </div>
     </footer>
 </body>
-
 </html>

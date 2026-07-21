@@ -14,13 +14,19 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
             background: #f8fafc;
             line-height: 1.6;
             color: #1e293b;
+        }
+
+        .page-wrapper {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         .header {
@@ -184,12 +190,20 @@
         }
 
         @media (max-width: 600px) {
+            .page-wrapper {
+                padding: 12px;
+            }
+
             .header h1 {
                 font-size: 1.8em;
             }
 
-            body {
-                padding: 15px;
+            .header {
+                padding: 28px 16px;
+            }
+
+            .section {
+                padding: 20px 16px;
             }
         }
 
@@ -199,193 +213,213 @@
             align-items: center;
             min-height: 200px;
         }
+
+
+        #menuBtn {
+            color: #1e293b;
+            background: transparent;
+            border: 1px solid #cbd5e1;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #menuBtn svg,
+        #menuBtn span,
+        #menuBtn i {
+            color: #1e293b;
+            fill: currentColor;
+            stroke: currentColor;
+        }
     </style>
 
     <script src="book-call.js" defer></script>
 </head>
 
 <body>
-    <header class="flex-center">
-        <div>
-            <a href="/">
-                <video autoplay muted>
-                    <source src="resized-logo.mp4" type='video/mp4'>
-                    Your browser does not support the video tag.
-                </video>
-            </a>
+    <div class="body-wrapper">
+        <header class="flex-center">
+            <div>
+                <a href="/">
+                    <video autoplay muted>
+                        <source src="resized-logo.mp4" type='video/mp4'>
+                        Your browser does not support the video tag.
+                    </video>
+                </a>
+            </div>
+        </header>
+
+        <div id="header-placeholder"></div>
+
+        <script>
+            fetch('standalone-header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').outerHTML = data;
+
+                    const menuBtn = document.getElementById('menuBtn');
+                    const panel = document.getElementById('mobilePanel');
+
+                    if (menuBtn && panel) {
+                        menuBtn.addEventListener('click', function () {
+                            const open = panel.classList.toggle('show');
+                            menuBtn.setAttribute('aria-expanded', String(open));
+                        });
+                    }
+                });
+        </script>
+
+        <div class="header">
+            <h1>Quantum Threat Teaser</h1>
+            <p>Is your crypto quantum-safe?<br><strong>3 quick questions • 60 seconds • Instant risk score</strong></p>
         </div>
-    </header>
 
-    <div id="header-placeholder"></div>
-
-    <script>
-        fetch('standalone-header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').outerHTML = data;
-
-                const menuBtn = document.getElementById('menuBtn');
-                const panel = document.getElementById('mobilePanel');
-
-                if (menuBtn && panel) {
-                    menuBtn.addEventListener('click', function () {
-                        const open = panel.classList.toggle('show');
-                        menuBtn.setAttribute('aria-expanded', String(open));
-                    });
-                }
-            });
-    </script>
-
-    <div class="header">
-        <h1>Quantum Threat Teaser</h1>
-        <p>Is your crypto quantum-safe?<br><strong>3 quick questions • 60 seconds • Instant risk score</strong></p>
-    </div>
-
-    <div class="section">
-        <h2>Quantum Crypto Risk</h2>
-        <div class="question">
-            <h3>1. Are you using RSA/ECC encryption anywhere?</h3>
-            <label><input type="radio" name="q1" value="0"> No - all quantum-safe</label>
-            <label><input type="radio" name="q1" value="1"> Yes, but planning migration</label>
-            <label><input type="radio" name="q1" value="2"> Yes, no migration plan</label>
-        </div>
-        <div class="question">
-            <h3>2. "Harvest Now, Decrypt Later" threat assessed?</h3>
-            <label><input type="radio" name="q2" value="0"> Yes, mitigated</label>
-            <label><input type="radio" name="q2" value="1"> Aware, not addressed</label>
-            <label><input type="radio" name="q2" value="2"> Never considered</label>
-        </div>
-        <div class="question">
-            <h3>3. NIST post-quantum crypto tested?</h3>
-            <label><input type="radio" name="q3" value="0"> Yes, in production/pilot</label>
-            <label><input type="radio" name="q3" value="1"> Research phase</label>
-            <label><input type="radio" name="q3" value="2"> No testing done</label>
-        </div>
-    </div>
-
-    <button onclick="calculateScore()" id="submitBtn">Show My Quantum Risk →</button>
-
-    <div id="results" class="results">
-        <div class="risk-badge" id="riskBadge"></div>
-        <h2 id="riskTitle"></h2>
-        <p id="riskDesc"></p>
-        <div class="fixes">
-            <h3>Fix This First</h3>
-            <ol id="priorityFixes"></ol>
-        </div>
-    </div>
-
-    <div id="ctaSection" class="cta">
-        <!-- Calendly link widget begin -->
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-        <a class="btn btn-primary book-call" href=""
-            onclick="Calendly.initPopupWidget({url: 'https://calendly.com/contact-mousa-cloud-consulting/30min'});return false;">
-            <p><strong>Quantum security emergency?</strong></p>
-            👉 Click here to book a quick meeting!
-        </a>
-        <!-- Calendly link widget end -->
-    </div>
-
-    <script>
-        function calculateScore() {
-            const answers = ['q1', 'q2', 'q3'];
-            let score = 0;
-            let answered = 0;
-
-            for (let q of answers) {
-                const selected = document.querySelector(`input[name="${q}"]:checked`);
-                if (selected) {
-                    score += parseInt(selected.value);
-                    answered++;
-                }
-            }
-
-            if (answered < 3) {
-                alert('Please answer all 3 questions.');
-                return;
-            }
-
-            const submitBtn = document.getElementById('submitBtn');
-            const results = document.getElementById('results');
-            const ctaSection = document.getElementById('ctaSection');
-
-            submitBtn.style.display = 'none';
-            results.style.display = 'block';
-            ctaSection.style.display = 'block';  // Show CTA only after calculation
-            results.scrollIntoView({ behavior: 'smooth' });
-
-            let riskClass, riskTitle, riskDesc, fixes;
-
-            if (score === 0) {
-                riskClass = 'risk-low';
-                riskTitle = 'Quantum-Safe';
-                riskDesc = 'Rare! You\'re ahead of 99% of companies.';
-                fixes = ['Monitor NIST standards', 'Document your approach'];
-            } else if (score <= 3) {
-                riskClass = 'risk-medium';
-                riskTitle = 'Moderate Risk';
-                riskDesc = 'Quantum threats 3-7 years away. Start now.';
-                fixes = [
-                    'Inventory ALL RSA/ECC usage',
-                    'Test Kyber/Dilithium crypto',
-                    'Assess HNDL data risks'
-                ];
-            } else {
-                riskClass = 'risk-high';
-                riskTitle = 'URGENT Quantum Risk';
-                riskDesc = 'Attackers could decrypt your data soon.';
-                fixes = [
-                    'EMERGENCY: Map all classical crypto NOW',
-                    'EMERGENCY: HNDL risk assessment',
-                    'Pilot NIST PQC algorithms this quarter'
-                ];
-            }
-
-            document.getElementById('riskBadge').className = `risk-badge ${riskClass}`;
-            document.getElementById('riskBadge').textContent = riskTitle;
-            document.getElementById('riskTitle').textContent = riskTitle;
-            document.getElementById('riskDesc').textContent = riskDesc;
-
-            const fixesList = document.getElementById('priorityFixes');
-            fixesList.innerHTML = fixes.map(fix => `<li>${fix}</li>`).join('');
-        }
-    </script>
-
-    <script>
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').outerHTML = data;
-            });
-    </script>
-
-    <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;
-            padding:1rem;z-index:9999;display:none;font-size:0.9rem;">
-        <div style="max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;
-              gap:0.75rem;align-items:center;">
-            <p style="flex:1;margin:0;">
-                Non-essential analytics & ads (Google, TikTok & Reddit) only load if you consent below. See our
-                <a href="privacy-policy.html" style="color:#4ea3ff;">Privacy Policy</a>.
-            </p>
-            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-                <button id="cookie-reject" style="background:#444;color:#fff;border:none;padding:0.5rem 1rem;
-                     border-radius:4px;cursor:pointer;">
-                    Reject non‑essential
-                </button>
-                <button id="cookie-accept" style="background:#007bff;color:#fff;border:none;padding:0.5rem 1rem;
-                     border-radius:4px;cursor:pointer;">
-                    Accept all
-                </button>
+        <div class="section">
+            <h2>Quantum Crypto Risk</h2>
+            <div class="question">
+                <h3>1. Are you using RSA/ECC encryption anywhere?</h3>
+                <label><input type="radio" name="q1" value="0"> No - all quantum-safe</label>
+                <label><input type="radio" name="q1" value="1"> Yes, but planning migration</label>
+                <label><input type="radio" name="q1" value="2"> Yes, no migration plan</label>
+            </div>
+            <div class="question">
+                <h3>2. "Harvest Now, Decrypt Later" threat assessed?</h3>
+                <label><input type="radio" name="q2" value="0"> Yes, mitigated</label>
+                <label><input type="radio" name="q2" value="1"> Aware, not addressed</label>
+                <label><input type="radio" name="q2" value="2"> Never considered</label>
+            </div>
+            <div class="question">
+                <h3>3. NIST post-quantum crypto tested?</h3>
+                <label><input type="radio" name="q3" value="0"> Yes, in production/pilot</label>
+                <label><input type="radio" name="q3" value="1"> Research phase</label>
+                <label><input type="radio" name="q3" value="2"> No testing done</label>
             </div>
         </div>
+
+        <button onclick="calculateScore()" id="submitBtn">Show My Quantum Risk →</button>
+
+        <div id="results" class="results">
+            <div class="risk-badge" id="riskBadge"></div>
+            <h2 id="riskTitle"></h2>
+            <p id="riskDesc"></p>
+            <div class="fixes">
+                <h3>Fix This First</h3>
+                <ol id="priorityFixes"></ol>
+            </div>
+        </div>
+
+        <div id="ctaSection" class="cta">
+            <!-- Calendly link widget begin -->
+            <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+            <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+            <a class="btn btn-primary book-call" href=""
+                onclick="Calendly.initPopupWidget({url: 'https://calendly.com/contact-mousa-cloud-consulting/30min'});return false;">
+                <p><strong>Quantum security emergency?</strong></p>
+                👉 Click here to book a quick meeting!
+            </a>
+            <!-- Calendly link widget end -->
+        </div>
+
+        <script>
+            function calculateScore() {
+                const answers = ['q1', 'q2', 'q3'];
+                let score = 0;
+                let answered = 0;
+
+                for (let q of answers) {
+                    const selected = document.querySelector(`input[name="${q}"]:checked`);
+                    if (selected) {
+                        score += parseInt(selected.value);
+                        answered++;
+                    }
+                }
+
+                if (answered < 3) {
+                    alert('Please answer all 3 questions.');
+                    return;
+                }
+
+                const submitBtn = document.getElementById('submitBtn');
+                const results = document.getElementById('results');
+                const ctaSection = document.getElementById('ctaSection');
+
+                submitBtn.style.display = 'none';
+                results.style.display = 'block';
+                ctaSection.style.display = 'block';  // Show CTA only after calculation
+                results.scrollIntoView({ behavior: 'smooth' });
+
+                let riskClass, riskTitle, riskDesc, fixes;
+
+                if (score === 0) {
+                    riskClass = 'risk-low';
+                    riskTitle = 'Quantum-Safe';
+                    riskDesc = 'Rare! You\'re ahead of 99% of companies.';
+                    fixes = ['Monitor NIST standards', 'Document your approach'];
+                } else if (score <= 3) {
+                    riskClass = 'risk-medium';
+                    riskTitle = 'Moderate Risk';
+                    riskDesc = 'Quantum threats 3-7 years away. Start now.';
+                    fixes = [
+                        'Inventory ALL RSA/ECC usage',
+                        'Test Kyber/Dilithium crypto',
+                        'Assess HNDL data risks'
+                    ];
+                } else {
+                    riskClass = 'risk-high';
+                    riskTitle = 'URGENT Quantum Risk';
+                    riskDesc = 'Attackers could decrypt your data soon.';
+                    fixes = [
+                        'EMERGENCY: Map all classical crypto NOW',
+                        'EMERGENCY: HNDL risk assessment',
+                        'Pilot NIST PQC algorithms this quarter'
+                    ];
+                }
+
+                document.getElementById('riskBadge').className = `risk-badge ${riskClass}`;
+                document.getElementById('riskBadge').textContent = riskTitle;
+                document.getElementById('riskTitle').textContent = riskTitle;
+                document.getElementById('riskDesc').textContent = riskDesc;
+
+                const fixesList = document.getElementById('priorityFixes');
+                fixesList.innerHTML = fixes.map(fix => `<li>${fix}</li>`).join('');
+            }
+        </script>
+
+        <script>
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').outerHTML = data;
+                });
+        </script>
+
+        <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;
+            padding:1rem;z-index:9999;display:none;font-size:0.9rem;">
+            <div style="max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;
+              gap:0.75rem;align-items:center;">
+                <p style="flex:1;margin:0;">
+                    Non-essential analytics & ads (Google, TikTok & Reddit) only load if you consent below. See our
+                    <a href="privacy-policy.html" style="color:#4ea3ff;">Privacy Policy</a>.
+                </p>
+                <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+                    <button id="cookie-reject" style="background:#444;color:#fff;border:none;padding:0.5rem 1rem;
+                     border-radius:4px;cursor:pointer;">
+                        Reject non‑essential
+                    </button>
+                    <button id="cookie-accept" style="background:#007bff;color:#fff;border:none;padding:0.5rem 1rem;
+                     border-radius:4px;cursor:pointer;">
+                        Accept all
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script src="common.js"></script>
+
+        <script src="cookie-consent.js"></script>
+
+        <div id="footer-placeholder"></div>
     </div>
-
-    <script src="common.js"></script>
-
-    <script src="cookie-consent.js"></script>
-
-    <div id="footer-placeholder"></div>
 </body>
 
 </html>

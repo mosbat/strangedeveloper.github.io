@@ -14,13 +14,20 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background: #f8fafc;
             line-height: 1.6;
             color: #1e293b;
+        }
+
+        .page-wrapper {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         .header {
@@ -201,6 +208,59 @@
             min-height: 200px;
             /* Container height */
         }
+
+        @media (max-width: 600px) {
+            .page-wrapper {
+                padding: 12px;
+            }
+
+            .header {
+                padding: 24px 16px;
+            }
+
+            .header h1 {
+                font-size: 1.6em;
+            }
+
+            .section {
+                padding: 20px 16px;
+            }
+
+            .question h3 {
+                font-size: 1rem;
+            }
+
+            label {
+                padding: 10px 12px;
+                font-size: 0.95rem;
+            }
+
+            button {
+                padding: 14px 20px;
+                font-size: 1rem;
+            }
+
+            .cta {
+                padding: 18px;
+            }
+        }
+
+        #menuBtn {
+            color: #1e293b;
+            background: transparent;
+            border: 1px solid #cbd5e1;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #menuBtn svg,
+        #menuBtn span,
+        #menuBtn i {
+            color: #1e293b;
+            fill: currentColor;
+            stroke: currentColor;
+        }
     </style>
 
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -215,230 +275,236 @@
 </head>
 
 <body>
-    <header class="flex-center">
-        <div>
-            <a href="/">
-                <video autoplay muted>
-                    <source src="resized-logo.mp4" type='video/mp4'>
-                    Your browser does not support the video tag.
-                </video>
-            </a>
-        </div>
-    </header>
-    <div id="header-placeholder"></div>
+    <div class="page-wrapper">
+        <header class="flex-center">
+            <div>
+                <a href="/">
+                    <video autoplay muted>
+                        <source src="resized-logo.mp4" type='video/mp4'>
+                        Your browser does not support the video tag.
+                    </video>
+                </a>
+            </div>
+        </header>
+        <div id="header-placeholder"></div>
 
-    <script>
-        fetch('standalone-header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').outerHTML = data;
+        <script>
+            fetch('standalone-header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').outerHTML = data;
 
-                const menuBtn = document.getElementById('menuBtn');
-                const panel = document.getElementById('mobilePanel');
+                    const menuBtn = document.getElementById('menuBtn');
+                    const panel = document.getElementById('mobilePanel');
 
-                if (menuBtn && panel) {
-                    menuBtn.addEventListener('click', function () {
-                        const open = panel.classList.toggle('show');
-                        menuBtn.setAttribute('aria-expanded', String(open));
-                    });
-                }
-            });
-    </script>
-    <div class="header">
-        <h1>🛡️ Cloud Security Quick Assessment</h1>
-        <p>Answer 8 simple questions. Get your risk score + 3 priority fixes.<br><strong>Takes 2 minutes.</strong></p>
-    </div>
-
-    <div class="section">
-        <h2>Section 1: IAM & Access</h2>
-        <div class="question">
-            <h3>1. Do you have IAM roles/users with wildcard permissions (*)?</h3>
-            <label><input type="radio" name="q1" value="1"> Yes</label>
-            <label><input type="radio" name="q1" value="0"> No</label>
-        </div>
-        <div class="question">
-            <h3>2. Are there AWS service accounts >90 days old that haven't been used?</h3>
-            <label><input type="radio" name="q2" value="1"> Yes</label>
-            <label><input type="radio" name="q2" value="0"> No</label>
-        </div>
-        <div class="question">
-            <h3>3. Is MFA enforced for all users with admin privileges?</h3>
-            <label><input type="radio" name="q3" value="0"> Yes</label>
-            <label><input type="radio" name="q3" value="1"> No</label>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>Section 2: Infrastructure Security</h2>
-        <div class="question">
-            <h3>4. Do you have public S3 buckets containing sensitive data?</h3>
-            <label><input type="radio" name="q4" value="1"> Yes</label>
-            <label><input type="radio" name="q4" value="0"> No</label>
-        </div>
-        <div class="question">
-            <h3>5. Are all EC2 security groups allowing 0.0.0.0/0 inbound?</h3>
-            <label><input type="radio" name="q5" value="1"> Yes</label>
-            <label><input type="radio" name="q5" value="0"> No</label>
-        </div>
-        <div class="question">
-            <h3>6. Is CloudTrail logging enabled across ALL regions?</h3>
-            <label><input type="radio" name="q6" value="0"> Yes</label>
-            <label><input type="radio" name="q6" value="1"> No</label>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>Section 3: Compliance & Operations</h2>
-        <div class="question">
-            <h3>7. Do you conduct quarterly access reviews for privileged accounts?</h3>
-            <label><input type="radio" name="q7" value="0"> Yes</label>
-            <label><input type="radio" name="q7" value="1"> No</label>
-        </div>
-        <div class="question">
-            <h3>8. Are all production databases encrypted at rest AND in transit?</h3>
-            <label><input type="radio" name="q8" value="0"> Yes</label>
-            <label><input type="radio" name="q8" value="1"> No</label>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>Section 4: Cloud Cost Leaks (Bonus)</h2>
-        <div class="question">
-            <h3>9. Do dev/test environments run 24/7?</h3>
-            <label><input type="radio" name="q9" value="1"> Yes</label>
-            <label><input type="radio" name="q9" value="0"> No</label>
-        </div>
-        <div class="question">
-            <h3>10. Are there unused snapshots/volumes >90 days old?</h3>
-            <label><input type="radio" name="q10" value="1"> Yes</label>
-            <label><input type="radio" name="q10" value="0"> No</label>
-        </div>
-    </div>
-
-    <button onclick="calculateScore()" id="submitBtn">Get My Risk Score & Fixes</button>
-
-    <div id="results" class="results">
-        <div class="risk-badge" id="riskBadge"></div>
-        <h2 id="riskTitle"></h2>
-        <p id="riskDesc"></p>
-        <div class="fixes">
-            <h3>Your 3 Priority Fixes:</h3>
-            <ol id="priorityFixes"></ol>
-        </div>
-        <div class="cta">
-            <!-- Calendly link widget begin -->
-            <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-            <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-            <a class="btn btn-primary book-call" href=""
-                onclick="Calendly.initPopupWidget({url: 'https://calendly.com/contact-mousa-cloud-consulting/30min'});return false;">
-                <p><strong>Want personalized fixes for YOUR environment?</strong></p>
-                👉 Click here to book a quick meeting!
-            </a>
-            <!-- Calendly link widget end -->
-        </div>
-    </div>
-
-
-    <script>
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').outerHTML = data;
-            });
-    </script>
-
-    <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;
-            padding:1rem;z-index:9999;display:none;font-size:0.9rem;">
-        <div style="max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;
-              gap:0.75rem;align-items:center;">
-            <p style="flex:1;margin:0;">
-                Non-essential analytics & ads (Google, TikTok & Reddit) only load if you consent below. See our
-                <a href="privacy-policy.html" style="color:#4ea3ff;">Privacy Policy</a>.
+                    if (menuBtn && panel) {
+                        menuBtn.addEventListener('click', function () {
+                            const open = panel.classList.toggle('show');
+                            menuBtn.setAttribute('aria-expanded', String(open));
+                        });
+                    }
+                });
+        </script>
+        <div class="header">
+            <h1>🛡️ Cloud Security Quick Assessment</h1>
+            <p>Answer 8 simple questions. Get your risk score + 3 priority fixes.<br><strong>Takes 2
+                    minutes.</strong>
             </p>
-            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-                <button id="cookie-reject" style="background:#444;color:#fff;border:none;padding:0.5rem 1rem;
-                     border-radius:4px;cursor:pointer;">
-                    Reject non‑essential
-                </button>
-                <button id="cookie-accept" style="background:#007bff;color:#fff;border:none;padding:0.5rem 1rem;
-                     border-radius:4px;cursor:pointer;">
-                    Accept all
-                </button>
+        </div>
+
+        <div class="section">
+            <h2>Section 1: IAM & Access</h2>
+            <div class="question">
+                <h3>1. Do you have IAM roles/users with wildcard permissions (*)?</h3>
+                <label><input type="radio" name="q1" value="1"> Yes</label>
+                <label><input type="radio" name="q1" value="0"> No</label>
+            </div>
+            <div class="question">
+                <h3>2. Are there AWS service accounts >90 days old that haven't been used?</h3>
+                <label><input type="radio" name="q2" value="1"> Yes</label>
+                <label><input type="radio" name="q2" value="0"> No</label>
+            </div>
+            <div class="question">
+                <h3>3. Is MFA enforced for all users with admin privileges?</h3>
+                <label><input type="radio" name="q3" value="0"> Yes</label>
+                <label><input type="radio" name="q3" value="1"> No</label>
             </div>
         </div>
-    </div>
 
-    <script src="common.js"></script>
+        <div class="section">
+            <h2>Section 2: Infrastructure Security</h2>
+            <div class="question">
+                <h3>4. Do you have public S3 buckets containing sensitive data?</h3>
+                <label><input type="radio" name="q4" value="1"> Yes</label>
+                <label><input type="radio" name="q4" value="0"> No</label>
+            </div>
+            <div class="question">
+                <h3>5. Are all EC2 security groups allowing 0.0.0.0/0 inbound?</h3>
+                <label><input type="radio" name="q5" value="1"> Yes</label>
+                <label><input type="radio" name="q5" value="0"> No</label>
+            </div>
+            <div class="question">
+                <h3>6. Is CloudTrail logging enabled across ALL regions?</h3>
+                <label><input type="radio" name="q6" value="0"> Yes</label>
+                <label><input type="radio" name="q6" value="1"> No</label>
+            </div>
+        </div>
 
-    <script src="cookie-consent.js"></script>
+        <div class="section">
+            <h2>Section 3: Compliance & Operations</h2>
+            <div class="question">
+                <h3>7. Do you conduct quarterly access reviews for privileged accounts?</h3>
+                <label><input type="radio" name="q7" value="0"> Yes</label>
+                <label><input type="radio" name="q7" value="1"> No</label>
+            </div>
+            <div class="question">
+                <h3>8. Are all production databases encrypted at rest AND in transit?</h3>
+                <label><input type="radio" name="q8" value="0"> Yes</label>
+                <label><input type="radio" name="q8" value="1"> No</label>
+            </div>
+        </div>
 
-    <div id="footer-placeholder"></div>
+        <div class="section">
+            <h2>Section 4: Cloud Cost Leaks (Bonus)</h2>
+            <div class="question">
+                <h3>9. Do dev/test environments run 24/7?</h3>
+                <label><input type="radio" name="q9" value="1"> Yes</label>
+                <label><input type="radio" name="q9" value="0"> No</label>
+            </div>
+            <div class="question">
+                <h3>10. Are there unused snapshots/volumes >90 days old?</h3>
+                <label><input type="radio" name="q10" value="1"> Yes</label>
+                <label><input type="radio" name="q10" value="0"> No</label>
+            </div>
+        </div>
 
-    <script>
-        function calculateScore() {
-            const answers = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10'];
-            let score = 0;
-            let answered = 0;
+        <button onclick="calculateScore()" id="submitBtn">Get My Risk Score & Fixes</button>
 
-            for (let q of answers) {
-                const selected = document.querySelector(`input[name="${q}"]:checked`);
-                if (selected) {
-                    score += parseInt(selected.value);
-                    answered++;
+        <div id="results" class="results">
+            <div class="risk-badge" id="riskBadge"></div>
+            <h2 id="riskTitle"></h2>
+            <p id="riskDesc"></p>
+            <div class="fixes">
+                <h3>Your 3 Priority Fixes:</h3>
+                <ol id="priorityFixes"></ol>
+            </div>
+            <div class="cta">
+                <!-- Calendly link widget begin -->
+                <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+                <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"
+                    async></script>
+                <a class="btn btn-primary book-call" href=""
+                    onclick="Calendly.initPopupWidget({url: 'https://calendly.com/contact-mousa-cloud-consulting/30min'});return false;">
+                    <p><strong>Want personalized fixes for YOUR environment?</strong></p>
+                    👉 Click here to book a quick meeting!
+                </a>
+                <!-- Calendly link widget end -->
+            </div>
+        </div>
+
+
+        <script>
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').outerHTML = data;
+                });
+        </script>
+
+        <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;
+            padding:1rem;z-index:9999;display:none;font-size:0.9rem;">
+            <div style="max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;
+              gap:0.75rem;align-items:center;">
+                <p style="flex:1;margin:0;">
+                    Non-essential analytics & ads (Google, TikTok & Reddit) only load if you consent below. See our
+                    <a href="privacy-policy.html" style="color:#4ea3ff;">Privacy Policy</a>.
+                </p>
+                <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+                    <button id="cookie-reject" style="background:#444;color:#fff;border:none;padding:0.5rem 1rem;
+                     border-radius:4px;cursor:pointer;">
+                        Reject non‑essential
+                    </button>
+                    <button id="cookie-accept" style="background:#007bff;color:#fff;border:none;padding:0.5rem 1rem;
+                     border-radius:4px;cursor:pointer;">
+                        Accept all
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script src="common.js"></script>
+
+        <script src="cookie-consent.js"></script>
+
+        <div id="footer-placeholder"></div>
+
+        <script>
+            function calculateScore() {
+                const answers = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10'];
+                let score = 0;
+                let answered = 0;
+
+                for (let q of answers) {
+                    const selected = document.querySelector(`input[name="${q}"]:checked`);
+                    if (selected) {
+                        score += parseInt(selected.value);
+                        answered++;
+                    }
                 }
+
+                if (answered < 8) {
+                    alert('Please answer all questions for accurate results.');
+                    return;
+                }
+
+                const submitBtn = document.getElementById('submitBtn');
+                const results = document.getElementById('results');
+
+                submitBtn.style.display = 'none';
+                results.style.display = 'block';
+
+                let riskClass, riskTitle, riskDesc, fixes;
+
+                if (score <= 2) {
+                    riskClass = 'risk-low';
+                    riskTitle = '🟢 Low Risk';
+                    riskDesc = 'Solid foundation. Keep up basic hygiene.';
+                    fixes = [
+                        '1. Schedule quarterly access reviews',
+                        '2. Verify MFA everywhere',
+                        '3. Test your incident response once/year'
+                    ];
+                } else if (score <= 5) {
+                    riskClass = 'risk-medium';
+                    riskTitle = '🟡 Medium Risk';
+                    riskDesc = '3-5 gaps to address. Fix these within 30 days.';
+                    fixes = [
+                        '1. Remove wildcard IAM permissions (*)',
+                        '2. Enable CloudTrail across ALL regions',
+                        '3. Tighten Security Groups (no 0.0.0.0/0)'
+                    ];
+                } else {
+                    riskClass = 'risk-high';
+                    riskTitle = '🔴 High Risk';
+                    riskDesc = 'Immediate action required. 6+ critical gaps.';
+                    fixes = [
+                        '1. Audit ALL IAM roles for wildcards immediately',
+                        '2. Enable MFA + delete dormant accounts',
+                        '3. Fix public S3 buckets + enable full logging'
+                    ];
+                }
+
+                document.getElementById('riskBadge').className = `risk-badge ${riskClass}`;
+                document.getElementById('riskBadge').textContent = riskTitle;
+                document.getElementById('riskTitle').textContent = riskTitle;
+                document.getElementById('riskDesc').textContent = riskDesc;
+
+                const fixesList = document.getElementById('priorityFixes');
+                fixesList.innerHTML = fixes.map(fix => `<li>${fix}</li>`).join('');
             }
-
-            if (answered < 8) {
-                alert('Please answer all questions for accurate results.');
-                return;
-            }
-
-            const submitBtn = document.getElementById('submitBtn');
-            const results = document.getElementById('results');
-
-            submitBtn.style.display = 'none';
-            results.style.display = 'block';
-
-            let riskClass, riskTitle, riskDesc, fixes;
-
-            if (score <= 2) {
-                riskClass = 'risk-low';
-                riskTitle = '🟢 Low Risk';
-                riskDesc = 'Solid foundation. Keep up basic hygiene.';
-                fixes = [
-                    '1. Schedule quarterly access reviews',
-                    '2. Verify MFA everywhere',
-                    '3. Test your incident response once/year'
-                ];
-            } else if (score <= 5) {
-                riskClass = 'risk-medium';
-                riskTitle = '🟡 Medium Risk';
-                riskDesc = '3-5 gaps to address. Fix these within 30 days.';
-                fixes = [
-                    '1. Remove wildcard IAM permissions (*)',
-                    '2. Enable CloudTrail across ALL regions',
-                    '3. Tighten Security Groups (no 0.0.0.0/0)'
-                ];
-            } else {
-                riskClass = 'risk-high';
-                riskTitle = '🔴 High Risk';
-                riskDesc = 'Immediate action required. 6+ critical gaps.';
-                fixes = [
-                    '1. Audit ALL IAM roles for wildcards immediately',
-                    '2. Enable MFA + delete dormant accounts',
-                    '3. Fix public S3 buckets + enable full logging'
-                ];
-            }
-
-            document.getElementById('riskBadge').className = `risk-badge ${riskClass}`;
-            document.getElementById('riskBadge').textContent = riskTitle;
-            document.getElementById('riskTitle').textContent = riskTitle;
-            document.getElementById('riskDesc').textContent = riskDesc;
-
-            const fixesList = document.getElementById('priorityFixes');
-            fixesList.innerHTML = fixes.map(fix => `<li>${fix}</li>`).join('');
-        }
-    </script>
+        </script>
+        <div id="footer-placeholder"></div>
+    </div>
 </body>
 
 </html>

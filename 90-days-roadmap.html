@@ -413,17 +413,6 @@
             </a>
         </div>
 
-
-
-
-        <script>
-            fetch('footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-placeholder').outerHTML = data;
-                });
-        </script>
-
         <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;
             padding:1rem;z-index:9999;display:none;font-size:0.9rem;">
             <div style="max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;
@@ -451,6 +440,14 @@
 
 
         <div id="footer-placeholder"></div>
+
+        <script>
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').outerHTML = data;
+                });
+        </script>
     </div>
 
 

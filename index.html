@@ -429,24 +429,6 @@
       font-size: clamp(0.85rem, 3vw, 0.95rem);
     }
 
-    .prices-table th,
-    .prices-table td {
-      padding: clamp(0.75rem, 2.5vw, 1rem) 0.75rem;
-      border-bottom: 1px solid #eee;
-      text-align: left;
-    }
-
-    .prices-table th {
-      background: #f8f9fa;
-      font-weight: 600;
-      border-bottom: 2px solid #ddd;
-    }
-
-    .prices-table td:last-child {
-      text-align: right;
-      font-weight: 700;
-    }
-
     .scenario-content ul {
       list-style: disc;
       padding-left: 1.5rem;
@@ -479,11 +461,7 @@
       line-height: 1;
     }
 
-    @media (max-width: 480px) {
-      .prices-table {
-        font-size: 0.8rem;
-      }
-    }
+    @media (max-width: 480px) {}
 
     .hero-trust-line {
       margin: 0 auto 14px;
@@ -1592,102 +1570,6 @@
       </div>
     </section>
     <hr>
-    <h1 id="prices">Prices</h1>
-    <p style="color: #121212; padding-left: 10%;">
-      <b>
-        <div class="table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>Service</th>
-                <th>Details</th>
-                <th>Price (USD)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Initial Discovery Call</td>
-                <td>30-minute qualification call to assess fit and requirements</td>
-                <td>Free</td>
-              </tr>
-              <tr>
-                <td>Migration Readiness Assessment</td>
-                <td>Security-focused gap analysis & cloud migration roadmap. Workshop + report + strategy call.</td>
-                <td>From USD 3,500</td>
-              </tr>
-              <tr>
-                <td>Cloud Security Audit</td>
-                <td>IAM, storage, and threat detection review with written findings report</td>
-                <td>From USD 5,000</td>
-              </tr>
-              <tr>
-                <td>Cloud Architecture & Design Review</td>
-                <td>Review and design of secure, scalable AWS architecture (networking, IAM, data, resiliency, cost),
-                  with diagrams and implementation recommendations</td>
-                <td>From USD 7,000</td>
-              </tr>
-              <tr>
-                <td>Secure Cloud Data Migration</td>
-                <td>Planning and execution of secure data migration to AWS or multi-cloud environments, including access
-                  controls, encryption, integrity checks, and cutover support.</td>
-                <td>From USD 7,500</td>
-              </tr>
-              <tr>
-                <td>Compliance Readiness Assessment</td>
-                <td>SOC 2 / ISO 27001 / GDPR cloud compliance review</td>
-                <td>From USD 8,000</td>
-              </tr>
-              <tr>
-                <td>End-to-End Cloud Security Programme</td>
-                <td>Audit + fixes + 90-day hardening roadmap</td>
-                <td>From USD 15,000</td>
-              </tr>
-              <tr>
-                <td>Monthly Cloud Security Advisory Retainer</td>
-                <td>Ongoing advisory and monitoring, up to 20 hrs/month</td>
-                <td>From USD 3,000/month</td>
-              </tr>
-              <tr>
-                <td colspan="3" style="padding-top: 1rem; font-weight: 700;">
-                  <b>AI Security &amp; Governance Services</b>
-                </td>
-              </tr>
-              <tr>
-                <td>GenAI Security & Data Protection Assessment</td>
-                <td>Map GenAI usage, find data leaks & prompt injection risks, deliver prioritized fixes aligned with
-                  NIST AI RMF</td>
-                <td>From USD 6,000</td>
-              </tr>
-              <tr>
-                <td>AI Use Policy & Governance Starter Pack</td>
-                <td>AI acceptable-use policy, vendor approval workflow, and ownership model aligned with global AI
-                  regulations</td>
-                <td>From USD 4,000</td>
-              </tr>
-              <tr>
-                <td>Cloud & AI Architecture Hardening Review</td>
-                <td>Secure-by-design review of LLMs, vector stores, APIs, and data pipelines with IAM, encryption, and
-                  monitoring controls</td>
-                <td>From USD 6,000</td>
-              </tr>
-              <tr>
-                <td>AI Security & Governance Advisor (Retainer)</td>
-                <td>Monthly advisory for CTO/CISO/GC on new AI use cases, vendors, and regulations with policy updates
-                </td>
-                <td>From USD 3,000/month</td>
-              </tr>
-              <tr>
-                <td>48-Hour GenAI Risk Snapshot</td>
-                <td>Fast workshop + report with top 5 AI risks and 3 fastest fixes to kickstart your AI security program
-                </td>
-                <td>USD 1,500</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </b>
-    </p>
-    <hr>
     <div class="section">
       <h2>Certified By</h2>
       <div class="carousel">
@@ -1769,58 +1651,6 @@
         </div>
       </div>
       <div class="faq-item">
-        <div class="faq-question">What is escrow and how does it work?</div>
-        <div class="faq-answer">Escrow is a secure payment method where the client funds a project in advance, but
-          the
-          money is held by a third party until agreed-upon milestones or the final project is completed. This
-          ensures
-          both parties are protected: the client is assured the work will be done before payment is released, and
-          the
-          freelancer is assured they will be paid once the work is completed to satisfaction.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">What happens if there is a dispute over the work completed?</div>
-        <div class="faq-answer">If a dispute arises, both the client and the freelancer can present their case to
-          the
-          escrow service or a neutral mediator (if applicable). The funds will be held in escrow until the issue is
-          resolved, ensuring fair treatment for both sides. We will aim for clear communication and regular updates
-          to
-          avoid misunderstandings and resolve issues quickly.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">How do we ensure the project is completed on time?</div>
-        <div class="faq-answer">We agree on clear project milestones and deadlines before starting the work. Regular
-          progress updates will be shared throughout the development process, and if any delays are anticipated,
-          I’ll
-          notify you well in advance. This keeps the project on track and allows for adjustments if needed.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">What happens if the project requirements change mid-way?</div>
-        <div class="faq-answer">If the scope of the project changes, I will provide an updated estimate of the time
-          and
-          cost required. We can amend the project milestones accordingly. Any new requirements will be added to the
-          escrow agreement to ensure clarity on both sides.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">How do you ensure the quality of the work?</div>
-        <div class="faq-answer">We ensure quality through rigorous processes, peer reviews, compliance checklists, and
-          client feedback loops. Every deliverable passes a final quality gate before handover.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">What happens if the project takes longer than expected?</div>
-        <div class="faq-answer">We will set realistic timelines and define project milestones upfront. If any delays
-          are
-          foreseen, I will communicate this immediately and work with you to adjust timelines or expectations. If
-          the
-          delay is caused by me, I’ll make it a priority to complete the work as soon as possible.</div>
-      </div>
-
-      <div class="faq-item">
         <div class="faq-question">How do you handle intellectual property and confidentiality?</div>
         <div class="faq-answer">I respect your privacy and the confidentiality of your project. Any intellectual
           property (IP) created during the course of our collaboration will be transferred to you once the project
@@ -1828,21 +1658,17 @@
           complete and payment has been made. I’m happy to sign an NDA (Non-Disclosure Agreement) if necessary.
         </div>
       </div>
-
       <div class="faq-item">
         <div class="faq-question">How do you charge for the project?</div>
-        <div class="faq-answer">Prices are mentioned above in the <a href="#prices">prices</a> section. We could agree
-          on
-          payments released through escrow as key deliverables are completed.</div>
+        <div class="faq-answer">You can find more details about payments and pricing on the <a href="pricing.html"
+            target="_blank">pricing page</a></div>
       </div>
-
       <div class="faq-item">
         <div class="faq-question">Do you offer support after the project is completed?</div>
         <div class="faq-answer">Yes, I offer post-project support. Ongoing support can be arranged on a
           retainer basis or as an hourly rate for any additional work that arises after the project is finished.
         </div>
       </div>
-
       <div class="faq-item">
         <div class="faq-question">How do we communicate during the project?</div>
         <div class="faq-answer">I prefer to maintain open lines of communication through your preferred channels,
@@ -1850,46 +1676,16 @@
           any
           inquiries or feedback. Regular check-ins and progress reports can be scheduled to keep you updated.</div>
       </div>
-
-      <div class="faq-item">
-        <div class="faq-question">What if I’m not satisfied with the work?</div>
-        <div class="faq-answer">Your satisfaction is my priority. If you're not happy with the work at any point, we
-          can
-          discuss your concerns, make revisions, or clarify any misunderstandings. If the issue cannot be resolved,
-          funds in escrow will be returned to you (as per the agreement terms), ensuring fair treatment for both
-          sides.
-        </div>
-      </div>
-
       <div class="faq-item">
         <div class="faq-question">Are your services insured?</div>
         <div class="faq-answer">Yes, all services are covered by Professional Indemnity (PI) insurance with Hiscox, up
           to £2M GBP. This protects against cyber incidents resulting from errors or omissions.</div>
       </div>
-
       <div class="faq-item">
-        <div class="faq-question">Can I terminate the project early?</div>
-        <div class="faq-answer">Yes, if you need to terminate the project early, we can do so. However, any
-          completed
-          work will be delivered, and payment will be made for the milestones that have been met. If the termination
-          is
-          due to non-performance or issues on my end, we can discuss a fair resolution through the escrow process.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">Do you work with clients in different time zones?</div>
-        <div class="faq-answer">Yes, I am flexible and can accommodate different time zones. I strive to maintain
-          clear
-          communication and will adjust my working hours to ensure that deadlines and milestones are met.</div>
-      </div>
-
-            <div class="faq-item">
         <div class="faq-question">You need more details not covered here?</div>
-        <div class="faq-answer">Please use the chat widget for more details and to chat with me or the AI assistant directly (make sure that your browser is not blocking it). You can also use the contact form to get more details via e-mail before commitment.</div>
+        <div class="faq-answer">Please checkout <a href="faq.html">FAQ</a> page for more answers. Alternatively, you can
+          use the chat widget to ask me or the trained AI agent for more comprehensive answers.</div>
       </div>
-
-
     </div>
 
     <div class="socials-container" title="Socials">

@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing | Mousa Cloud Consulting</title>
+  <meta name="description"
+    content="Standalone pricing page for cloud security, AWS architecture, compliance, and AI governance consulting services." />
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --surface: #fff;
+      --surface-2: #eef3f9;
+      --text: #102033;
+      --muted: #5f6b7a;
+      --border: #d9e2ec;
+      --brand: #2156d8;
+      --brand-2: #183b78;
+      --shadow: 0 10px 30px rgba(16, 32, 51, .08);
+      --max: 1080px
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top, rgba(33, 86, 216, .08), transparent 32%), var(--bg);
+      line-height: 1.6
+    }
+
+    a {
+      color: var(--brand);
+      text-decoration: none
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden
+    }
+
+    .skip-link:focus {
+      left: 16px;
+      top: 16px;
+      width: auto;
+      height: auto;
+      padding: 12px 16px;
+      background: var(--surface);
+      border: 2px solid var(--brand);
+      border-radius: 10px;
+      z-index: 1000
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto
+    }
+
+    header {
+      padding: 24px 0 16px
+    }
+
+    .hero,
+    .section-card {
+      background: rgba(255, 255, 255, .92);
+      border: 1px solid rgba(217, 226, 236, .9);
+      border-radius: 24px;
+      box-shadow: var(--shadow)
+    }
+
+    .hero {
+      padding: 24px
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .86rem;
+      font-weight: 700;
+      color: var(--brand-2);
+      background: var(--surface-2);
+      padding: 8px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.1;
+      letter-spacing: -.03em
+    }
+
+    .lead {
+      margin: 0;
+      max-width: 68ch;
+      color: var(--muted);
+      font-size: 1.03rem
+    }
+
+    .quick-links {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .82);
+      color: var(--text);
+      font-size: .95rem;
+      box-shadow: 0 4px 12px rgba(16, 32, 51, .04)
+    }
+
+    main {
+      padding: 10px 0 40px
+    }
+
+    .section-card {
+      padding: 20px;
+      margin-bottom: 20px
+    }
+
+    .section-title {
+      margin: 0 0 8px;
+      font-size: 1.4rem
+    }
+
+    .section-text {
+      margin: 0;
+      color: var(--muted)
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 18px
+    }
+
+    .price-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(16, 32, 51, .04);
+      padding: 18px;
+      display: grid;
+      gap: 10px
+    }
+
+    .price-card.featured {
+      border-color: rgba(33, 86, 216, .3);
+      background: linear-gradient(180deg, rgba(33, 86, 216, .05), rgba(255, 255, 255, .98))
+    }
+
+    .price-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start
+    }
+
+    .service-name {
+      margin: 0;
+      font-size: 1.05rem
+    }
+
+    .price {
+      font-weight: 800;
+      color: var(--brand-2);
+      white-space: nowrap
+    }
+
+    .detail {
+      margin: 0;
+      color: var(--muted)
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--brand-2);
+      font-size: .84rem;
+      font-weight: 700
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(16, 32, 51, .04)
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid #e8edf4;
+      vertical-align: top
+    }
+
+    th {
+      background: #f8fbff;
+      font-size: .92rem
+    }
+
+    td:last-child,
+    th:last-child {
+      text-align: right;
+      white-space: nowrap
+    }
+
+    .note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: .95rem
+    }
+
+    .cta-box {
+      display: grid;
+      gap: 12px;
+      background: linear-gradient(180deg, rgba(33, 86, 216, .08), rgba(33, 86, 216, .03));
+      border: 1px solid rgba(33, 86, 216, .18);
+      border-radius: 20px;
+      padding: 18px
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid transparent
+    }
+
+    .button.primary {
+      background: var(--brand);
+      color: #fff
+    }
+
+    .button.secondary {
+      background: #fff;
+      border-color: var(--border);
+      color: var(--text)
+    }
+
+    details {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(16, 32, 51, .04)
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px
+    }
+
+    summary::-webkit-details-marker {
+      display: none
+    }
+
+    summary::after {
+      content: "+";
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--surface-2);
+      color: var(--brand-2);
+      font-weight: 800
+    }
+
+    details[open] summary::after {
+      content: "–"
+    }
+
+    .answer {
+      padding: 0 18px 18px;
+      color: var(--muted)
+    }
+
+    @media (min-width:760px) {
+      .hero {
+        padding: 34px
+      }
+
+      .section-card {
+        padding: 28px
+      }
+
+      .pricing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+    }
+
+    @media (min-width:1024px) {
+      .pricing-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+      }
+    }
+
+    .mobile-price-cards {
+      display: none;
+      margin-top: 18px;
+      gap: 12px
+    }
+
+    .mobile-price-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(16, 32, 51, .04);
+      padding: 16px;
+      display: grid;
+      gap: 8px
+    }
+
+    .mobile-price-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start
+    }
+
+    .mobile-price-name {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700
+    }
+
+    .mobile-price-value {
+      font-weight: 800;
+      color: var(--brand-2);
+      white-space: nowrap
+    }
+
+    .mobile-price-desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: .95rem
+    }
+
+    @media (max-width: 759px) {
+      .table-wrap {
+        display: none
+      }
+
+      .mobile-price-cards {
+        display: grid
+      }
+    }
+
+    .ai-services-title {
+      margin-top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#pricing">Skip to pricing content</a>
+  <header class="container">
+    <header class="logo-video-container"
+      style="width: 100%; max-width: 400px; margin: 0 auto 1rem auto; overflow: hidden; border-radius: 8px;">
+      <div class="logo-video"
+        style="position: relative; width: 100%; padding-bottom: 56.25%; /* 16:9 aspect ratio */ height: 0;">
+        <video autoplay muted loop playsinline
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+          <source src="resized-logo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </header>
+
+    <div id="header-placeholder"></div>
+
+    <script>
+      fetch('standalone-header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('header-placeholder').outerHTML = data;
+
+          const menuBtn = document.getElementById('menuBtn');
+          const panel = document.getElementById('mobilePanel');
+
+          if (menuBtn && panel) {
+            menuBtn.addEventListener('click', function () {
+              const open = panel.classList.toggle('show');
+              menuBtn.setAttribute('aria-expanded', String(open));
+            });
+          }
+        });
+    </script>
+    <div class="hero">
+      <div class="eyebrow">Pricing</div>
+      <h1>Clear pricing for high-trust consulting engagements.</h1>
+      <p class="lead">Mobile-first pricing for AWS security, cloud architecture, compliance, and AI governance. Each
+        service is structured to make scope, outcomes, and next steps easy to compare.</p>
+      <div class="quick-links" aria-label="Quick links">
+        <a class="chip" href="#packages">Packages</a>
+        <a class="chip" href="#pricing-table">Full price list</a>
+        <a class="chip" href="#how-it-works">How it works</a>
+        <a class="chip" href="#faq">Pricing FAQ</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="pricing">
+    <section class="section-card" id="packages" aria-labelledby="packages-title">
+      <h2 class="section-title" id="packages-title">Service packages</h2>
+      <p class="section-text">Start with a focused assessment, then move into architecture, remediation, or advisory
+        support as needed.</p>
+      <div class="pricing-grid">
+        <article class="price-card featured">
+          <div class="price-top">
+            <h3 class="service-name">Initial Discovery Call</h3>
+            <div class="price">Free</div>
+          </div>
+          <p class="detail">30-minute qualification call to assess fit, scope, and next steps.</p>
+          <div class="tag-row"><span class="tag">Best first step</span><span class="tag">No obligation</span></div>
+        </article>
+        <article class="price-card">
+          <div class="price-top">
+            <h3 class="service-name"> <a href="cloud-migration-services.html" target="_blank">Migration Readiness
+                Assessment</a></h3>
+            <div class="price">From USD 3,500</div>
+          </div>
+          <p class="detail">Security-focused gap analysis, migration roadmap, workshop report, and strategy call.</p>
+          <div class="tag-row"><span class="tag">Cloud migration</span><span class="tag">Strategy</span></div>
+        </article>
+        <article class="price-card">
+          <div class="price-top">
+            <h3 class="service-name"><a href="cloud-security-audits-advisory.html" target="_blank">Cloud Security
+                Audit</a></h3>
+            <div class="price">From USD 5,000</div>
+          </div>
+          <p class="detail">IAM, storage, and threat detection review with written findings and remediation roadmap.</p>
+          <div class="tag-row"><span class="tag">Audit</span><span class="tag">Findings report</span></div>
+        </article>
+        <article class="price-card">
+          <div class="price-top">
+            <h3 class="service-name"><a href="cloud-security-audits-advisory.html" target="_blank">Cloud Architecture
+                Design Review</a></h3>
+            <div class="price">From USD 7,000</div>
+          </div>
+          <p class="detail">Review and design of secure, scalable AWS architecture covering networking, IAM, data,
+            resiliency, and cost.</p>
+          <div class="tag-row"><span class="tag">Architecture</span><span class="tag">Diagrams</span></div>
+        </article>
+        <article class="price-card">
+          <div class="price-top">
+            <h3 class="service-name"><a href="cloud-migration-services.html" target="_blank">Secure Cloud Data
+                Migration</a></h3>
+            <div class="price">From USD 7,500</div>
+          </div>
+          <p class="detail">Planning and execution of secure migration to AWS or multi-cloud environments, including
+            encryption and cutover support.</p>
+          <div class="tag-row"><span class="tag">Migration</span><span class="tag">Validation</span></div>
+        </article>
+        <article class="price-card">
+          <div class="price-top">
+            <h3 class="service-name"><a href="compliance-governance.html" target="_blank">Compliance Readiness
+                Assessment</a></h3>
+            <div class="price">From USD 8,000</div>
+          </div>
+          <p class="detail">SOC 2, ISO 27001, GDPR cloud compliance review with gap analysis and prioritized next steps.
+          </p>
+          <div class="tag-row"><span class="tag">Compliance</span><span class="tag">Gap analysis</span></div>
+        </article>
+        <article class="price-card featured">
+          <div class="price-top">
+            <h3 class="service-name">End-to-End Cloud Security Programme</h3>
+            <div class="price">From USD 15,000</div>
+          </div>
+          <p class="detail">Audit fixes, hardening, and a 90-day roadmap for stronger security posture.</p>
+          <div class="tag-row"><span class="tag">Transformation</span><span class="tag">Priority fixes</span></div>
+        </article>
+        <article class="price-card">
+          <div class="price-top">
+            <h3 class="service-name">Monthly Cloud Security Advisory Retainer</h3>
+            <div class="price">From USD 3,000 / month</div>
+          </div>
+          <p class="detail">Ongoing advisory and monitoring, up to 20 hours per month.</p>
+          <div class="tag-row"><span class="tag">Retainer</span><span class="tag">Ongoing support</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card" id="ai-services" aria-labelledby="ai-services-title">
+      <h2 class="section-title ai-services-title" id="ai-services-title">AI Security &amp; Governance</h2>
+      <div class="pricing-grid">
+        <article class="price-card featured">
+          <div class="price-top">
+            <h3 class="service-name"><a href="ai-governance.html" target="_blank">GenAI Security &amp; Data Protection
+                Assessment</a></h3>
+            <div class="price">From USD 6,000</div>
+          </div>
+          <p class="detail">Map GenAI usage, find data leaks &amp; prompt injection risks, deliver prioritized fixes
+            aligned with NIST AI RMF.</p>
+          <div class="tag-row">
+            <span class="tag">AI governance</span>
+            <span class="tag">Security review</span>
+          </div>
+        </article>
+
+        <article class="price-card">
+          <div class="price-top">
+            <h3 class="service-name"><a href="ai-governance-2services.html" target="_blank">AI Use Policy &amp;
+                Governance Starter
+                Pack</a></h3>
+            <div class="price">From USD 4,000</div>
+          </div>
+          <p class="detail">AI acceptable-use policy, vendor approval workflow, and ownership model aligned with global
+            AI regulations.</p>
+          <div class="tag-row">
+            <span class="tag">Policy</span>
+            <span class="tag">Governance</span>
+          </div>
+        </article>
+
+        <article class="price-card">
+          <div class="price-top">
+            <h3 class="service-name"><a href="ai-governance.html" target="_blank">Cloud &amp; AI Architecture Hardening
+                Review</a></h3>
+            <div class="price">From USD 6,000</div>
+          </div>
+          <p class="detail">Secure-by-design review of LLMs, vector stores, APIs, and data pipelines with IAM,
+            encryption, and monitoring controls.</p>
+          <div class="tag-row">
+            <span class="tag">Architecture</span>
+            <span class="tag">Hardening</span>
+          </div>
+        </article>
+
+        <article class="price-card featured">
+          <div class="price-top">
+            <h3 class="service-name"><a href="ai-governance-2services.html" target="_blank">AI Security &amp; Governance
+                Advisor Retainer</a></h3>
+            <div class="price">From USD 3,000 / month</div>
+          </div>
+          <p class="detail">Monthly advisory for CTO/CISO/GC on new AI use cases, vendors, and regulations with policy
+            updates.</p>
+          <div class="tag-row">
+            <span class="tag">Retainer</span>
+            <span class="tag">Advisor</span>
+          </div>
+        </article>
+
+        <article class="price-card">
+          <div class="price-top">
+            <h3 class="service-name"><a href="ai-governance.html" target="_blank">48-Hour GenAI Risk Snapshot</a></h3>
+            <div class="price">USD 1,500</div>
+          </div>
+          <p class="detail">Fast workshop + report with top 5 AI risks and 3 fastest fixes to kickstart your AI security
+            program.</p>
+          <div class="tag-row">
+            <span class="tag">Fast start</span>
+            <span class="tag">Workshop</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="mobile-price-cards" aria-label="Mobile AI pricing cards">
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">GenAI Security &amp; Data Protection Assessment</h3>
+            <div class="mobile-price-value">From USD 6,000</div>
+          </div>
+          <p class="mobile-price-desc">Map GenAI usage, find data leaks &amp; prompt injection risks, deliver
+            prioritized fixes aligned with NIST AI RMF.</p>
+          <p class="note"><a href="ai-governance.html">View service details</a></p>
+        </article>
+
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">AI Use Policy &amp; Governance Starter Pack</h3>
+            <div class="mobile-price-value">From USD 4,000</div>
+          </div>
+          <p class="mobile-price-desc">AI acceptable-use policy, vendor approval workflow, and ownership model aligned
+            with global AI regulations.</p>
+          <p class="note"><a href="ai-governance-2services.html">View service details</a></p>
+        </article>
+
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">Cloud &amp; AI Architecture Hardening Review</h3>
+            <div class="mobile-price-value">From USD 6,000</div>
+          </div>
+          <p class="mobile-price-desc">Secure-by-design review of LLMs, vector stores, APIs, and data pipelines with
+            IAM, encryption, and monitoring controls.</p>
+          <p class="note"><a href="ai-governance.html">View service details</a></p>
+        </article>
+
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">AI Security &amp; Governance Advisor Retainer</h3>
+            <div class="mobile-price-value">From USD 3,000 / month</div>
+          </div>
+          <p class="mobile-price-desc">Monthly advisory for CTO/CISO/GC on new AI use cases, vendors, and regulations
+            with policy updates.</p>
+          <p class="note"><a href="ai-governance-2services.html">View service details</a></p>
+        </article>
+
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">48-Hour GenAI Risk Snapshot</h3>
+            <div class="mobile-price-value">USD 1,500</div>
+          </div>
+          <p class="mobile-price-desc">Fast workshop + report with top 5 AI risks and 3 fastest fixes to kickstart your
+            AI security program.</p>
+          <p class="note"><a href="ai-governance.html">View service details</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card" id="pricing-table" aria-labelledby="table-title">
+      <h2 class="section-title" id="table-title">Full price list</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Details</th>
+              <th>Price USD</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Initial Discovery Call</td>
+              <td>30-minute qualification call to assess fit and requirements.</td>
+              <td>Free</td>
+            </tr>
+            <tr>
+              <td>Migration Readiness Assessment</td>
+              <td>Security-focused gap analysis and cloud migration roadmap.</td>
+              <td>From USD 3,500</td>
+            </tr>
+            <tr>
+              <td>Cloud Security Audit</td>
+              <td>IAM, storage, and threat detection review with findings report.</td>
+              <td>From USD 5,000</td>
+            </tr>
+            <tr>
+              <td>Cloud Architecture Design Review</td>
+              <td>Secure AWS architecture review, diagrams, and recommendations.</td>
+              <td>From USD 7,000</td>
+            </tr>
+            <tr>
+              <td>Secure Cloud Data Migration</td>
+              <td>Migration planning and execution with encryption, checks, and cutover support.</td>
+              <td>From USD 7,500</td>
+            </tr>
+            <tr>
+              <td>Compliance Readiness Assessment</td>
+              <td>SOC 2, ISO 27001, GDPR cloud compliance review.</td>
+              <td>From USD 8,000</td>
+            </tr>
+            <tr>
+              <td>End-to-End Cloud Security Programme</td>
+              <td>Audit fixes and 90-day hardening roadmap.</td>
+              <td>From USD 15,000</td>
+            </tr>
+            <tr>
+              <td>Monthly Cloud Security Advisory Retainer</td>
+              <td>Ongoing advisory and monitoring, up to 20 hrs / month.</td>
+              <td>From USD 3,000 / month</td>
+            </tr>
+            <tr>
+              <td>GenAI Security &amp; Data Protection Assessment</td>
+              <td>Map GenAI usage, find data leaks, prompt injection risks, and deliver prioritized fixes.</td>
+              <td>From USD 6,000</td>
+            </tr>
+            <tr>
+              <td>AI Use Policy &amp; Governance Starter Pack</td>
+              <td>AI acceptable-use policy, vendor approval workflow, and ownership model.</td>
+              <td>From USD 4,000</td>
+            </tr>
+            <tr>
+              <td>Cloud &amp; AI Architecture Hardening Review</td>
+              <td>Secure-by-design review of LLMs, vector stores, APIs, and data pipelines.</td>
+              <td>From USD 6,000</td>
+            </tr>
+            <tr>
+              <td>AI Security Governance Advisor Retainer</td>
+              <td>Monthly advisory for CTO/CISO/GC on AI use cases, vendors, and regulations.</td>
+              <td>From USD 3,000 / month</td>
+            </tr>
+            <tr>
+              <td>48-Hour GenAI Risk Snapshot</td>
+              <td>Fast workshop report with top risks and fastest fixes.</td>
+              <td>USD 1,500</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mobile-price-cards" aria-label="Mobile pricing cards">
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">Initial Discovery Call</h3>
+            <div class="mobile-price-value">Free</div>
+          </div>
+          <p class="mobile-price-desc">30-minute qualification call to assess fit and requirements.</p>
+        </article>
+
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">Migration Readiness Assessment</h3>
+            <div class="mobile-price-value">From USD 3,500</div>
+          </div>
+          <p class="mobile-price-desc">Security-focused gap analysis and cloud migration roadmap.</p>
+        </article>
+
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">Cloud Security Audit</h3>
+            <div class="mobile-price-value">From USD 5,000</div>
+          </div>
+          <p class="mobile-price-desc">IAM, storage, and threat detection review with findings report.</p>
+        </article>
+
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">Cloud Architecture Design Review</h3>
+            <div class="mobile-price-value">From USD 7,000</div>
+          </div>
+          <p class="mobile-price-desc">Secure AWS architecture review, diagrams, and recommendations.</p>
+        </article>
+
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">Secure Cloud Data Migration</h3>
+            <div class="mobile-price-value">From USD 7,500</div>
+          </div>
+          <p class="mobile-price-desc">Migration planning and execution with encryption, checks, and cutover support.
+          </p>
+        </article>
+
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">Compliance Readiness Assessment</h3>
+            <div class="mobile-price-value">From USD 8,000</div>
+          </div>
+          <p class="mobile-price-desc">SOC 2, ISO 27001, GDPR cloud compliance review.</p>
+        </article>
+
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">End-to-End Cloud Security Programme</h3>
+            <div class="mobile-price-value">From USD 15,000</div>
+          </div>
+          <p class="mobile-price-desc">Audit fixes and 90-day hardening roadmap.</p>
+        </article>
+
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">Monthly Cloud Security Advisory Retainer</h3>
+            <div class="mobile-price-value">From USD 3,000 / month</div>
+          </div>
+          <p class="mobile-price-desc">Ongoing advisory and monitoring, up to 20 hrs / month.</p>
+        </article>
+
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">GenAI Security &amp; Data Protection Assessment</h3>
+            <div class="mobile-price-value">From USD 6,000</div>
+          </div>
+          <p class="mobile-price-desc">Map GenAI usage, find data leaks, prompt injection risks, and deliver prioritized
+            fixes.</p>
+        </article>
+
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">AI Use Policy &amp; Governance Starter Pack</h3>
+            <div class="mobile-price-value">From USD 4,000</div>
+          </div>
+          <p class="mobile-price-desc">AI acceptable-use policy, vendor approval workflow, and ownership model.</p>
+        </article>
+
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">Cloud &amp; AI Architecture Hardening Review</h3>
+            <div class="mobile-price-value">From USD 6,000</div>
+          </div>
+          <p class="mobile-price-desc">Secure-by-design review of LLMs, vector stores, APIs, and data pipelines.</p>
+        </article>
+
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">AI Security Governance Advisor Retainer</h3>
+            <div class="mobile-price-value">From USD 3,000 / month</div>
+          </div>
+          <p class="mobile-price-desc">Monthly advisory for CTO/CISO/GC on AI use cases, vendors, and regulations.</p>
+        </article>
+
+        <article class="mobile-price-card">
+          <div class="mobile-price-top">
+            <h3 class="mobile-price-name">48-Hour GenAI Risk Snapshot</h3>
+            <div class="mobile-price-value">USD 1,500</div>
+          </div>
+          <p class="mobile-price-desc">Fast workshop report with top risks and fastest fixes.</p>
+        </article>
+      </div>
+      <p class="note">All pricing is indicative and may vary based on scope, urgency, complexity, and stakeholder
+        involvement.</p>
+    </section>
+
+    <section class="section-card" id="how-it-works" aria-labelledby="how-title">
+      <h2 class="section-title" id="how-title">How it works</h2>
+      <div class="pricing-grid">
+        <details>
+          <summary>What’s included in pricing?</summary>
+          <div class="answer">
+            <p>Prices generally cover the agreed scope, delivery, and the outputs listed in the service description.
+              Larger engagements can be split into milestones.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Do you offer escrow?</summary>
+          <div class="answer">
+            <p>Yes. For many projects, escrow can be used so funds are released as milestones are completed and
+              approved.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Can you invoice in USD?</summary>
+          <div class="answer">
+            <p>Yes. I typically work with USD pricing and can support cross-border consulting arrangements.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Do you offer retainer options?</summary>
+          <div class="answer">
+            <p>Yes. Ongoing advisory, security reviews, and architecture support can be structured as a monthly
+              retainer.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section-card" id="faq" aria-labelledby="faq-title">
+      <h2 class="section-title" id="faq-title">Pricing FAQ</h2>
+      <details open>
+        <summary>Are these fixed prices?</summary>
+        <div class="answer">
+          <p>They are starting prices. Final pricing depends on the exact scope, timeline, and delivery format.</p>
+        </div>
+      </details>
+      <details>
+        <summary>How do I choose the right service?</summary>
+        <div class="answer">
+          <p>Start with the free discovery call. From there, I can recommend the smallest useful engagement for your
+            situation.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Can services be combined?</summary>
+        <div class="answer">
+          <p>Yes. Many clients combine assessment, architecture review, and ongoing advisory into a phased engagement.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <section class="section-card" aria-labelledby="contact-title">
+      <h2 class="section-title" id="contact-title">Next step</h2>
+      <p class="section-text">If you already know what you need, book a discovery call and I’ll help you narrow scope
+        and next steps.</p>
+      <div class="cta-box">
+        <p style="margin:0;color:var(--text);font-weight:700;">Prefer to review first?</p>
+        <p style="margin:0;color:var(--muted);">Use the service cards above to compare options, then start with the
+          best-fit assessment.</p>
+        <div class="cta-actions">
+          <a class="button primary" href="https://calendly.com/contact-mousa-cloud-consulting/30min"
+            target="_blank">Book Free Discovery Call</a>
+          <a class="button secondary" href="#pricing">Back to top</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;
+            padding:1rem;z-index:9999;display:none;font-size:0.9rem;">
+    <div style="max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;
+              gap:0.75rem;align-items:center;">
+      <p style="flex:1;margin:0;">
+        Non-essential analytics & ads (Google, TikTok & Reddit) only load if you consent below. See our
+        <a href="privacy-policy.html" style="color:#4ea3ff;">Privacy Policy</a>.
+      </p>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+        <button id="cookie-reject" style="background:#444;color:#fff;border:none;padding:0.5rem 1rem;
+                     border-radius:4px;cursor:pointer;">
+          Reject non‑essential
+        </button>
+        <button id="cookie-accept" style="background:#007bff;color:#fff;border:none;padding:0.5rem 1rem;
+                     border-radius:4px;cursor:pointer;">
+          Accept all
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="common.js"></script>
+
+  <script src="cookie-consent.js"></script>
+
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').outerHTML = data;
+      });
+  </script>
+
+
+  <div id="footer-placeholder"></div>
+</body>
+
+</html>

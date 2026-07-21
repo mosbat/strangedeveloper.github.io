@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ | Professional Consulting Services</title>
+    <meta name="description"
+        content="Frequently asked questions about working together, timelines, escrow, communication, support, confidentiality, and project delivery." />
+    <style>
+        :root {
+            --bg: #f7f9fc;
+            --surface: #ffffff;
+            --surface-2: #eef3f9;
+            --text: #102033;
+            --muted: #5f6b7a;
+            --border: #d9e2ec;
+            --brand: #2156d8;
+            --brand-2: #183b78;
+            --shadow: 0 10px 30px rgba(16, 32, 51, 0.08);
+            --radius: 18px;
+            --max: 1080px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top, rgba(33, 86, 216, 0.08), transparent 32%),
+                var(--bg);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--brand);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .skip-link:focus {
+            left: 16px;
+            top: 16px;
+            width: auto;
+            height: auto;
+            padding: 12px 16px;
+            background: var(--surface);
+            border: 2px solid var(--brand);
+            border-radius: 10px;
+            z-index: 1000;
+        }
+
+        header {
+            padding: 28px 0 18px;
+        }
+
+        .hero {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.78));
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(217, 226, 236, 0.85);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            padding: 24px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.86rem;
+            font-weight: 700;
+            color: var(--brand-2);
+            background: var(--surface-2);
+            padding: 8px 12px;
+            border-radius: 999px;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .lead {
+            margin: 0;
+            max-width: 68ch;
+            color: var(--muted);
+            font-size: 1.03rem;
+        }
+
+        .quick-links {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.82);
+            color: var(--text);
+            font-size: 0.95rem;
+            box-shadow: 0 4px 12px rgba(16, 32, 51, 0.04);
+        }
+
+        main {
+            padding: 10px 0 40px;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(217, 226, 236, 0.9);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        .section-text {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .faq-toolbar {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .search {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            font-size: 1rem;
+            background: #fff;
+            color: var(--text);
+            outline: none;
+        }
+
+        .search:focus {
+            border-color: var(--brand);
+            box-shadow: 0 0 0 4px rgba(33, 86, 216, 0.12);
+        }
+
+        .category-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .category-nav a {
+            padding: 9px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: #fff;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.92rem;
+        }
+
+        .faq-list {
+            display: grid;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        details {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(16, 32, 51, 0.04);
+        }
+
+        summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 18px 18px;
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+            flex: 0 0 auto;
+            width: 28px;
+            height: 28px;
+            border-radius: 999px;
+            display: grid;
+            place-items: center;
+            background: var(--surface-2);
+            color: var(--brand-2);
+            font-weight: 800;
+        }
+
+        details[open] summary::after {
+            content: "–";
+        }
+
+        .answer {
+            padding: 0 18px 18px;
+            color: var(--muted);
+        }
+
+        .answer p {
+            margin: 0 0 10px;
+        }
+
+        .answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .answer a {
+            font-weight: 600;
+        }
+
+        .highlight {
+            border-left: 4px solid var(--brand);
+            background: linear-gradient(90deg, rgba(33, 86, 216, 0.08), transparent);
+        }
+
+        .footer-note {
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        .contact-box {
+            display: grid;
+            gap: 12px;
+            background: linear-gradient(180deg, rgba(33, 86, 216, 0.08), rgba(33, 86, 216, 0.03));
+            border: 1px solid rgba(33, 86, 216, 0.18);
+            border-radius: 20px;
+            padding: 18px;
+            margin-top: 18px;
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 0 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            border: 1px solid transparent;
+        }
+
+        .button.primary {
+            background: var(--brand);
+            color: #fff;
+        }
+
+        .button.secondary {
+            background: #fff;
+            border-color: var(--border);
+            color: var(--text);
+        }
+
+        @media (min-width: 760px) {
+            .hero {
+                padding: 34px;
+            }
+
+            .section-card {
+                padding: 28px;
+            }
+
+            .faq-toolbar {
+                grid-template-columns: 1fr auto;
+                align-items: center;
+            }
+
+            summary {
+                font-size: 1.02rem;
+            }
+        }
+
+        #profile-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: left;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="profile-container">
+        <header class="logo-video-container"
+            style="width: 100%; max-width: 400px; margin: 0 auto 1rem auto; overflow: hidden; border-radius: 8px;">
+            <div class="logo-video"
+                style="position: relative; width: 100%; padding-bottom: 56.25%; /* 16:9 aspect ratio */ height: 0;">
+                <video autoplay muted loop playsinline
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <source src="resized-logo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </header>
+
+        <div id="header-placeholder"></div>
+
+        <script>
+            fetch('standalone-header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').outerHTML = data;
+
+                    const menuBtn = document.getElementById('menuBtn');
+                    const panel = document.getElementById('mobilePanel');
+
+                    if (menuBtn && panel) {
+                        menuBtn.addEventListener('click', function () {
+                            const open = panel.classList.toggle('show');
+                            menuBtn.setAttribute('aria-expanded', String(open));
+                        });
+                    }
+                });
+        </script>
+
+        <a class="skip-link" href="#faq">Skip to FAQ content</a>
+
+        <header class="container">
+            <div class="hero">
+                <div class="eyebrow">Frequently Asked Questions</div>
+                <h1>Clear answers for prospects evaluating the next step.</h1>
+                <p class="lead">
+                    This page covers fit, process, timelines, escrow, communication, confidentiality, support, and what
+                    happens if things change. It is designed to be easy to scan on mobile and helpful for serious
+                    prospects.
+                </p>
+                <div class="quick-links" aria-label="Quick links">
+                    <a class="chip" href="#fit">Fit &amp; availability</a>
+                    <a class="chip" href="#process">Process &amp; delivery</a>
+                    <a class="chip" href="#commercial">Commercial terms</a>
+                    <a class="chip" href="#risk">Risk &amp; protection</a>
+                    <a class="chip" href="#contact">Contact</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="container" id="faq">
+            <section class="section-card" aria-labelledby="faq-intro-title">
+                <h2 class="section-title" id="faq-intro-title">How to use this page</h2>
+                <p class="section-text">
+                    Start with the category links, or use the search box below to jump to a specific question. Tap any
+                    question to expand the answer.
+                </p>
+
+                <div class="faq-toolbar">
+                    <label for="faqSearch" class="sr-only" style="position:absolute;left:-9999px;">Search FAQs</label>
+                    <input id="faqSearch" class="search" type="search"
+                        placeholder="Search questions, e.g. escrow, support, timezone..."
+                        aria-label="Search FAQ questions" />
+                    <nav class="category-nav" aria-label="FAQ categories">
+                        <a href="#fit">Fit &amp; availability</a>
+                        <a href="#process">Process &amp; delivery</a>
+                        <a href="#commercial">Commercial terms</a>
+                        <a href="#risk">Risk &amp; protection</a>
+                    </nav>
+                </div>
+            </section>
+
+            <section class="section-card" id="fit" aria-labelledby="fit-title">
+                <h2 class="section-title" id="fit-title">Fit &amp; availability</h2>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>Which countries do you work with?</summary>
+                        <div class="answer">
+                            <p>I work with clients internationally including the US, UK, Hong Kong and Saudi Arabia.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Can you handle timezone differences?</summary>
+                        <div class="answer">
+                            <p>Yes, I'm accustomed to working with teams from different time zones.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Do you work with clients in different time zones?</summary>
+                        <div class="answer">
+                            <p>Yes, I am flexible and can accommodate different time zones. I strive to maintain clear
+                                communication and will adjust my working hours to help meet deadlines and milestones.
+                            </p>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <section class="section-card" id="process" aria-labelledby="process-title">
+                <h2 class="section-title" id="process-title">Process &amp; delivery</h2>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>How do we ensure the project is completed on time?</summary>
+                        <div class="answer">
+                            <p>We agree on clear project milestones and deadlines before starting the work. Regular
+                                progress updates are shared throughout the process, and if any delays are anticipated,
+                                I’ll notify you well in advance.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What happens if the project requirements change mid-way?</summary>
+                        <div class="answer">
+                            <p>If the scope changes, I will provide an updated estimate of the time and cost required.
+                                We can amend milestones accordingly, and any new requirements will be added to the
+                                escrow agreement for clarity.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>How do you ensure the quality of the work?</summary>
+                        <div class="answer">
+                            <p>We ensure quality through rigorous processes, peer reviews, compliance checklists, and
+                                client feedback loops. Every deliverable passes a final quality gate before handover.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What happens if the project takes longer than expected?</summary>
+                        <div class="answer">
+                            <p>We set realistic timelines and define milestones upfront. If delays are foreseen, I
+                                communicate this early and work with you to adjust timelines or expectations. If the
+                                delay is caused by me, I make it a priority to complete the work as soon as possible.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>How do we communicate during the project?</summary>
+                        <div class="answer">
+                            <p>I prefer open communication through your preferred channel, whether that's email, Slack,
+                                or project management tools like Trello or Jira. Regular check-ins and progress updates
+                                can be scheduled to keep you informed.</p>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <section class="section-card" id="commercial" aria-labelledby="commercial-title">
+                <h2 class="section-title" id="commercial-title">Commercial terms</h2>
+                <div class="faq-list">
+                    <details class="faq-item highlight" open>
+                        <summary>How do you charge for the project?</summary>
+                        <div class="answer">
+                            <p>Prices are mentioned above in the <a href="pricing.html" target="_blank">pricing</a>
+                                page. We can also agree
+                                on payments released through escrow as key deliverables are completed.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What is escrow and how does it work?</summary>
+                        <div class="answer">
+                            <p>Escrow is a secure payment method where the client funds a project in advance, but the
+                                money is held by a third party until agreed-upon milestones or the final project is
+                                completed. This protects both parties.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Do you offer support after the project is completed?</summary>
+                        <div class="answer">
+                            <p>Yes, I offer post-project support. Ongoing support can be arranged on a retainer basis or
+                                as an hourly rate for any additional work that arises after the project is finished.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Can I terminate the project early?</summary>
+                        <div class="answer">
+                            <p>Yes, if you need to terminate the project early, we can do so. Completed work will be
+                                delivered, and payment will be made for the milestones that have been met.</p>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <section class="section-card" id="risk" aria-labelledby="risk-title">
+                <h2 class="section-title" id="risk-title">Risk &amp; protection</h2>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>What happens if there is a dispute over the work completed?</summary>
+                        <div class="answer">
+                            <p>If a dispute arises, both parties can present their case to the escrow service or a
+                                neutral mediator, if applicable. Funds remain held until the issue is resolved, ensuring
+                                fair treatment.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>How do you handle intellectual property and confidentiality?</summary>
+                        <div class="answer">
+                            <p>I respect your privacy and the confidentiality of your project. Any intellectual property
+                                created during the collaboration will be transferred to you once the project is complete
+                                and payment has been made. I’m happy to sign an NDA if necessary.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What if I’m not satisfied with the work?</summary>
+                        <div class="answer">
+                            <p>Your satisfaction is my priority. If you're not happy with the work, we can discuss your
+                                concerns, make revisions, or clarify misunderstandings. If the issue cannot be resolved,
+                                funds in escrow will be returned to you according to the agreement terms.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Are your services insured?</summary>
+                        <div class="answer">
+                            <p>Yes, all services are covered by Professional Indemnity (PI) insurance with Hiscox, up to
+                                £2M GBP. This protects against cyber incidents resulting from errors or omissions.</p>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <section class="section-card" id="contact" aria-labelledby="contact-title">
+                <h2 class="section-title" id="contact-title">Need more detail?</h2>
+                <p class="section-text">
+                    If your question is not covered here, you can use the chat widget for a quick conversation or send a
+                    message through the contact form.
+                </p>
+                <div class="contact-box">
+                    <p style="margin:0;color:var(--text);font-weight:700;">Prefer a direct conversation?</p>
+                    <p style="margin:0;color:var(--muted);">Use the chat widget if it is enabled in your browser, or
+                        contact me by email for more context before committing.</p>
+                    <div class="contact-actions">
+                        <a class="button primary" href="https://tally.so/r/7R2PPZ" target="_blank">Open contact form</a>
+                        <a class="button secondary" href="#top">Back to top</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <script>
+            const search = document.getElementById('faqSearch');
+            const items = [...document.querySelectorAll('.faq-item')];
+            search.addEventListener('input', () => {
+                const q = search.value.trim().toLowerCase();
+                items.forEach(item => {
+                    const text = item.innerText.toLowerCase();
+                    item.style.display = !q || text.includes(q) ? '' : 'none';
+                });
+            });
+        </script>
+
+        <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;
+            padding:1rem;z-index:9999;display:none;font-size:0.9rem;">
+            <div style="max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;
+              gap:0.75rem;align-items:center;">
+                <p style="flex:1;margin:0;">
+                    Non-essential analytics & ads (Google, TikTok & Reddit) only load if you consent below. See our
+                    <a href="privacy-policy.html" style="color:#4ea3ff;">Privacy Policy</a>.
+                </p>
+                <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+                    <button id="cookie-reject" style="background:#444;color:#fff;border:none;padding:0.5rem 1rem;
+                     border-radius:4px;cursor:pointer;">
+                        Reject non‑essential
+                    </button>
+                    <button id="cookie-accept" style="background:#007bff;color:#fff;border:none;padding:0.5rem 1rem;
+                     border-radius:4px;cursor:pointer;">
+                        Accept all
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script src="common.js"></script>
+
+        <script src="cookie-consent.js"></script>
+
+        <script>
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').outerHTML = data;
+                });
+        </script>
+
+
+        <div id="footer-placeholder"></div>
+</body>
+
+</html>

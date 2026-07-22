@@ -95,68 +95,6 @@
       w.rdt('track', 'PageVisit');
     })(window, document);
 
-    // TIKTOK PIXEL
-    (function loadTikTokPixel(w, d, t, id) {
-      if (w.__mousaTikTokLoaded) return;
-      w.__mousaTikTokLoaded = true;
-
-      w.TiktokAnalyticsObject = t;
-      var ttq = (w[t] = w[t] || []);
-
-      ttq.methods = [
-        'page', 'track', 'identify', 'instances', 'debug',
-        'on', 'off', 'once', 'ready', 'alias', 'group',
-        'enableCookie', 'disableCookie', 'holdConsent',
-        'revokeConsent', 'grantConsent'
-      ];
-
-      ttq.setAndDefer = function (obj, method) {
-        obj[method] = function () {
-          obj.push([method].concat(Array.prototype.slice.call(arguments, 0)));
-        };
-      };
-
-      for (var i = 0; i < ttq.methods.length; i++) {
-        ttq.setAndDefer(ttq, ttq.methods[i]);
-      }
-
-      ttq.load = function (pixelId, opts) {
-        var url = 'https://analytics.tiktok.com/i18n/pixel/events.js';
-        ttq._i = ttq._i || {};
-        ttq._i[pixelId] = ttq._i[pixelId] || [];
-        ttq._i[pixelId]._u = url;
-        ttq._t = ttq._t || {};
-        ttq._t[pixelId] = +new Date();
-        ttq._o = ttq._o || {};
-        ttq._o[pixelId] = opts || {};
-
-        var script = d.createElement('script');
-        script.type = 'text/javascript';
-        script.async = true;
-        script.src = url + '?sdkid=' + pixelId + '&lib=' + t;
-        script.onerror = function () {
-          console.warn('TikTok Pixel script failed to load:', script.src);
-        };
-
-        var firstScript = d.getElementsByTagName('script')[0];
-        if (firstScript && firstScript.parentNode) {
-          firstScript.parentNode.insertBefore(script, firstScript);
-        } else if (d.head) {
-          d.head.appendChild(script);
-        } else if (d.body) {
-          d.body.appendChild(script);
-        } else {
-          d.documentElement.appendChild(script);
-        }
-      };
-
-      try {
-        ttq.load(id);
-        ttq.page();
-      } catch (e) {
-        console.warn('TikTok Pixel failed to initialize:', e);
-      }
-    })(window, document, 'ttq', 'D6ON94BC77U7PMTO33SG');
   }
 
   function hideBanner() {
@@ -244,15 +182,6 @@
     // Remove any global gtag‑related flags
     window.__mousaGoogleLoaded = false;
 
-    // TikTok
-    const ttqEl = document.querySelector('script[src*="tiktok.com/i18n/pixel"]');
-    if (ttqEl) ttqEl.remove();
-
-    // Remove TikTok global setup
-    delete window.TiktokAnalyticsObject;
-    delete window.ttq;
-    window.__mousaTikTokLoaded = false;
-
     // Clear events queue
     window.dataLayer = [];
 
@@ -261,13 +190,6 @@
 
     // Google Analytics/Ads (all variants)
     ['_ga', '_gid', '_gat', '_gcl_au', '_gcl_aw'].forEach(name => {
-      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=${commonDomain}; secure; samesite=strict`;
-      document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=.${commonDomain}; secure; samesite=strict`;
-      document.cookie = `${name}=; expires=${cookieExpire}; path=/; secure; samesite=strict`;
-    });
-
-    // TikTok Pixel
-    ['_tt_enable_cookie', '_ttp', 'tt_webid', 'tt_webid_v2', '_tth_s'].forEach(name => {
       document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=${commonDomain}; secure; samesite=strict`;
       document.cookie = `${name}=; expires=${cookieExpire}; path=/; domain=.${commonDomain}; secure; samesite=strict`;
       document.cookie = `${name}=; expires=${cookieExpire}; path=/; secure; samesite=strict`;

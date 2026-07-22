@@ -186,15 +186,6 @@
       margin-top: 20px;
     }
 
-    .social-icon {
-      width: 50px;
-      /* Adjust the icon size as needed */
-      height: 50px;
-      /* Adjust the icon size as needed */
-      margin: 0 10px;
-      /* Adjust the margin between icons as needed */
-    }
-
     .donate-container {
       text-align: center;
       margin-top: 20px;
@@ -765,6 +756,18 @@
         border-radius: 12px;
       }
     }
+
+    .cloud-specialist {
+      color: #495057;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-top: -0.25rem;
+    }
+
+    .social-icon {
+      width: 50px;
+      height: auto;
+    }
   </style>
 
   <script src="book-call.js" defer></script>
@@ -790,6 +793,7 @@
         <video autoplay muted loop playsinline
           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
           <source src="resized-logo.mp4" type="video/mp4">
+          <track kind="captions" src="resized-logo-captions.vtt" srclang="en" label="English captions" default>
           Your browser does not support the video tag.
         </video>
       </div>
@@ -815,6 +819,8 @@
         });
     </script>
 
+    <main id="main-content"></main>
+
     <p style="margin-top: 10px;">
       <a href="about-me.html"
         style="background: #0056b3; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600;"
@@ -825,7 +831,7 @@
     <h1>Certified Cloud Security Professional (CCSP) & AWS Solutions Architect
       UK-based | Serving NYC, Seattle & Nationwide
     </h1>
-    <h3>Cloud security specialist for regulated industries</h3>
+    <p class="cloud-specialist">Cloud security specialist for regulated industries</p>
     <b>
       <h2><em>Empowering Your Business with Tailored IT Consulting in Cloud and Cybersecurity</em></h2>
       <h2><em><a href="ethics.html" target="_blank">Upholding Ethics and Integrity in Technology: A Commitment to
@@ -871,7 +877,7 @@
 
         <div class="intro-video-embed">
           <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@strange.developer/video/7653941302505000212"
-            data-video-id="7653941302505000212">
+            data-video-id="7653941302505000212" title="Mousa Cloud Consulting intro video">
             <section>
               <a target="_blank" rel="noopener noreferrer" title="@strange.developer"
                 href="https://www.tiktok.com/@strange.developer?refer=embed">@strange.developer</a>
@@ -1094,7 +1100,8 @@
           <div
             style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid #1f7a3a;">
             <h3 style="color: #1f7a3a; margin: 0 0 12px 0; font-size: 20px;">PCI Compliance Achieved</h3>
-            <p style="color: #212529; line-height: 1.6; margin: 0;">Led PCI-DSS compliance program for high-volume payments
+            <p style="color: #212529; line-height: 1.6; margin: 0;">Led PCI-DSS compliance program for high-volume
+              payments
               platform, implementing controls and monitoring that maintained continuous compliance through multiple
               audits.</p>
           </div>
@@ -1522,8 +1529,9 @@
               <p>
                 Start with this in-depth SaaS AWS security case study:
               </p>
-              <a href="https://blog.mousa-cloud.com/case-studies/how-id-help-a-messy-mid-saas-company-pass-audit-without-slowing-performance/"
-                target="_blank" rel="noopener" style="color:#0b63ff; text-decoration:underline;">
+              <a href="https://blog.mousa-cloud.com/case-studies/how-id-help-a-messy-mid-saas-company-pass-audit-without-slowing-performance"
+                target="_blank" rel="noopener"
+                style="color: #0056b3; font-weight: 600; text-decoration: underline; text-underline-offset: 0.15em;">
                 How I’d help a messy mid-size SaaS pass an audit without slowing performance (case study)
               </a>
             </div>
@@ -1692,13 +1700,13 @@
       <h3><b>Socials</b></h3>
       <!-- YouTube Icon -->
       <a href="https://www.youtube.com/channel/UCvFgWJTzfK_Hpjc1pXWwLfg" target="_blank">
-        <img class="social-icon" src="youtube-icon.png" alt="YouTube" style="width: 50px; height: 50px;">
+        <img class="social-icon" src="youtube-icon.png" alt="YouTube">
         <i class="fas fa-external-link-alt"></i>
       </a>
 
       <!-- TikTok Icon -->
       <a href="https://www.tiktok.com/@strange.developer" target="_blank">
-        <img class="social-icon" src="tiktok-icon.png" alt="TikTok" style="width: 50px; height: 50px;">
+        <img class="social-icon" src="tiktok-icon.png" alt="TikTok">
         <i class="fas fa-external-link-alt"></i>
       </a>
     </div>
@@ -1706,7 +1714,7 @@
     <div class="socials-container" title="Newsletter">
       <h3><b>Subscribe to my newsletter to receive updates, trends, tips, and hints from the experts.</b></h3>
       <a href="https://newsletter.mousa-cloud.com/subscription/form" target="_blank">
-        <img class="social-icon" src="news.png" alt="Newsletter Form" style="width: 50px; height: 50px;">
+        <img class="social-icon" src="news.png" alt="Newsletter Form">
         <i class="fas fa-external-link-alt"></i>
       </a>
     </div>
@@ -1746,7 +1754,7 @@
       <div style="max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;
               gap:0.75rem;align-items:center;">
         <p style="flex:1;margin:0;">
-          Non-essential analytics & ads (Google, TikTok & Reddit) only load if you consent below. See our
+          Non-essential analytics & ads (Google & Reddit) only load if you consent below. See our
           <a href="privacy-policy.html" style="color:#4ea3ff;">Privacy Policy</a>.
         </p>
         <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
@@ -1761,6 +1769,9 @@
         </div>
       </div>
     </div>
+
+
+    </main>
 
     <script async src="https://www.tiktok.com/embed.js"></script>
 

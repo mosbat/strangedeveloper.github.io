@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
     content="UK-based cloud security consultant helping CTOs and security teams harden AWS, reduce cloud risk, improve compliance, and secure AI systems for US companies." />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -15,6 +14,11 @@
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="manifest" href="site.webmanifest">
   <link rel="stylesheet" href="styles.css">
+
+  <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" class="icon-ext">
+    <path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z" />
+    <path fill="currentColor" d="M5 5h6v2H7v10h10v-4h2v6H5V5z" />
+  </svg>
 
   <script type="application/ld+json">
 {
@@ -1088,7 +1092,8 @@
         <p>
           For a deeper look at how I think through messy real-world environments, see my
           <a href="https://blog.mousa-cloud.com/case-studies/how-id-help-a-messy-mid-saas-company-pass-audit-without-slowing-performance/"
-            target="_blank" rel="noopener" style="color: #0056b3; font-weight: 600; text-decoration: underline; text-underline-offset: 0.15em;">
+            target="_blank" rel="noopener"
+            style="color: #0056b3; font-weight: 600; text-decoration: underline; text-underline-offset: 0.15em;">
             AWS SaaS security case study
           </a>.
         </p>
@@ -1583,19 +1588,19 @@
       <div class="carousel">
         <div class="carousel-inner" id="carouselInner">
           <div class="carousel-item">
-            <img src="aws_logo.png" alt="Client 0 Logo">
+            <img src="aws_logo.png" alt="Client 0 Logo" loading="lazy" decoding="async">
           </div>
           <div class="carousel-item">
-            <img src="oracle-logo.png" alt="Client 1 Logo">
+            <img src="oracle-logo.png" alt="Client 1 Logo" loading="lazy" decoding="async">
           </div>
           <div class="carousel-item">
-            <img src="github-logo.png" alt="Client 2 Logo">
+            <img src="github-logo.png" alt="Client 2 Logo" loading="lazy" decoding="async">
           </div>
           <div class="carousel-item">
-            <img src="microsoft-logo.png" alt="Client 2 Logo">
+            <img src="microsoft-logo.png" alt="Client 2 Logo" loading="lazy" decoding="async">
           </div>
           <div class="carousel-item">
-            <img src="isc2-logo.png" alt="Client 2 Logo">
+            <img src="isc2-logo.png" alt="Client 2 Logo" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="carousel-controls">
@@ -1700,13 +1705,13 @@
       <h3><b>Socials</b></h3>
       <!-- YouTube Icon -->
       <a href="https://www.youtube.com/channel/UCvFgWJTzfK_Hpjc1pXWwLfg" target="_blank">
-        <img class="social-icon" src="youtube-icon.png" alt="YouTube">
+        <img class="social-icon" src="youtube-icon.png" alt="YouTube" loading="lazy" decoding="async">
         <i class="fas fa-external-link-alt"></i>
       </a>
 
       <!-- TikTok Icon -->
       <a href="https://www.tiktok.com/@strange.developer" target="_blank">
-        <img class="social-icon" src="tiktok-icon.png" alt="TikTok">
+        <img class="social-icon" src="tiktok-icon.png" alt="TikTok" loading="lazy" decoding="async">
         <i class="fas fa-external-link-alt"></i>
       </a>
     </div>
@@ -1714,7 +1719,7 @@
     <div class="socials-container" title="Newsletter">
       <h3><b>Subscribe to my newsletter to receive updates, trends, tips, and hints from the experts.</b></h3>
       <a href="https://newsletter.mousa-cloud.com/subscription/form" target="_blank">
-        <img class="social-icon" src="news.png" alt="Newsletter Form">
+        <img class="social-icon" src="news.png" alt="Newsletter Form" loading="lazy" decoding="async">
         <i class="fas fa-external-link-alt"></i>
       </a>
     </div>
@@ -1775,11 +1780,11 @@
 
     <script async src="https://www.tiktok.com/embed.js"></script>
 
-    <script src="common.js"></script>
+    <script src="common.js" defer></script>
 
-    <script src="cookie-consent.js"></script>
+    <script src="cookie-consent.js" defer></script>
 
-    <script>
+    <script defer>
       fetch('footer.html')
         .then(response => response.text())
         .then(data => {
@@ -1791,8 +1796,6 @@
     <div id="footer-placeholder"></div>
 
 </body>
-
-<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
 <script>
 
@@ -1810,27 +1813,6 @@
       closeModal();
     }
   });
-
-  // When the page loads, make the list items fade in one by one
-  window.onload = function () {
-
-
-
-    const items = document.querySelectorAll('#professions-list li');
-    items.forEach((item, index) => {
-      setTimeout(() => {
-        item.classList.add('show-item');
-      }, index * 300); // Add a delay for each item
-    });
-
-    const services = document.querySelectorAll('#services-list li');
-    services.forEach((item, index) => {
-      setTimeout(() => {
-        item.classList.add('show-item');
-      }, index * 300); // Add a delay for each item
-    });
-  };
-
 
 
 </script>

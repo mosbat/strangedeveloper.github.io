@@ -301,33 +301,74 @@
     }
 
     .faq-container {
-      max-width: 600px;
+      width: 100%;
+      max-width: 42rem;
       margin: 0 auto;
+      padding-inline: 0.75rem;
+    }
+
+    .faq-item {
+      margin-bottom: 0.75rem;
+      border: 1px solid #d7e3f4;
+      border-radius: 0.75rem;
+      background: #fff;
+      overflow: hidden;
     }
 
     .faq-question {
-      background-color: #0056b3;
-      color: white;
-      padding: 15px;
-      margin: 5px 0;
+      list-style: none;
+      display: block;
+      width: 100%;
+      padding: 1rem 3rem 1rem 1rem;
+      background: #0056b3;
+      color: #fff;
+      font-size: 1rem;
+      line-height: 1.4;
+      font-weight: 600;
       cursor: pointer;
-      border: 1px solid #0056b3;
-      border-radius: 5px;
-      font-size: 16px;
+      position: relative;
+      min-height: 44px;
+    }
+
+    .faq-question::-webkit-details-marker,
+    .faq-question::marker {
+      display: none;
+    }
+
+    .faq-question::after {
+      content: "+";
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .faq-item[open] .faq-question::after {
+      content: "−";
     }
 
     .faq-answer {
-      background-color: #f1f1f1;
-      padding: 10px 15px;
-      margin: 0 0 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      display: none;
-      /* Hide the answer by default */
+      padding: 1rem;
+      background: #f8f9fb;
+      color: #24313f;
+      line-height: 1.6;
     }
 
-    .faq-question:hover {
-      background-color: #0056b3;
+    @media (min-width: 768px) {
+      .faq-container {
+        padding-inline: 0;
+      }
+
+      .faq-question {
+        font-size: 1.05rem;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
     }
 
     .carousel {
@@ -378,36 +419,107 @@
     }
 
     .scenario-box {
-      margin: 1rem 0;
-      border: 1px solid #ddd;
-      border-radius: 8px;
+      margin-block: 1rem;
+      border: 1px solid #d9dee7;
+      border-radius: 0.875rem;
+      background: #fff;
       overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
     }
 
     .scenario-title {
-      padding: 1rem;
-      background: #f8f9fa;
+      display: block;
+      width: 100%;
+      min-height: 44px;
+      padding: 1rem 3.25rem 1rem 1rem;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      color: #1f2937;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.4;
       cursor: pointer;
-      font-weight: bold;
-      font-size: 1.1em;
+      position: relative;
     }
 
-    .scenario-title:hover {
-      background: #e9ecef;
+    .scenario-title::-webkit-details-marker,
+    .scenario-title::marker {
+      display: none;
+    }
+
+    .scenario-title::after {
+      content: "+";
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      width: 1.75rem;
+      height: 1.75rem;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(31, 41, 55, 0.08);
+      color: #1f2937;
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .scenario-box[open] .scenario-title::after {
+      content: "−";
     }
 
     .scenario-content {
       padding: 1rem;
+      border-top: 1px solid #e5e7eb;
+      background: #f8fafc;
+      color: #1f2937;
     }
 
     .scenario-content h4 {
+      margin: 0 0 0.5rem;
       color: #0056b3;
-      margin-top: 0.5rem;
     }
 
     .scenario-content p {
-      line-height: 1.5;
-      color: #000;
+      margin: 0 0 0.75rem;
+      line-height: 1.6;
+    }
+
+    .scenario-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .scenario-content ul {
+      margin: 0.75rem 0 1rem;
+      padding-left: 1.25rem;
+    }
+
+    .scenario-content li+li {
+      margin-top: 0.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .scenario-title {
+        padding: 1.125rem 3.5rem 1.125rem 1.25rem;
+        font-size: 1.05rem;
+      }
+
+      .scenario-box:hover {
+        box-shadow: 0 8px 24px rgba(0, 86, 179, 0.12);
+      }
+    }
+
+    .scenario-content ul {
+      display: block;
+      margin: 0.75rem 0 1rem;
+      padding-left: 1.25rem;
+      list-style: disc;
+    }
+
+    .scenario-content li {
+      display: list-item;
+      visibility: visible;
+      opacity: 1;
+      transform: none;
     }
 
     .table-wrapper {
@@ -424,19 +536,7 @@
       font-size: clamp(0.85rem, 3vw, 0.95rem);
     }
 
-    .scenario-content ul {
-      list-style: disc;
-      padding-left: 1.5rem;
-      margin: 0.75rem 0 1rem;
-    }
 
-    .scenario-content li {
-      color: #000;
-      opacity: 1;
-      transform: none;
-      display: list-item;
-      margin-bottom: 0.5rem;
-    }
 
     .service-title {
       display: flex;
@@ -494,11 +594,16 @@
     .cards,
     .card-grid,
     .pricing-grid,
-    .services-grid,
     .results-grid,
     .case-grid,
     .footer-grid {
       min-width: 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
     }
 
     @media (max-width: 1024px) {
@@ -507,7 +612,6 @@
       .cards,
       .card-grid,
       .pricing-grid,
-      .services-grid,
       .results-grid,
       .case-grid,
       .footer-grid,
@@ -516,6 +620,8 @@
       .three-column {
         grid-template-columns: 1fr !important;
       }
+
+
     }
 
     @media (max-width: 768px) {
@@ -647,9 +753,7 @@
 
       .card,
       .service-card,
-      .result-card,
       .pricing-card,
-      .faq-item,
       .panel {
         padding: 1rem !important;
       }
@@ -772,11 +876,117 @@
       width: 50px;
       height: auto;
     }
+
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .result-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border-top: 4px solid var(--card-accent, #0056b3);
+    }
+
+    .result-card h3 {
+      margin: 0 0 0.75rem;
+      color: var(--card-accent, #0056b3);
+      font-size: 1.125rem;
+      line-height: 1.25;
+    }
+
+    .result-card p {
+      margin: 0;
+      color: #212529;
+      line-height: 1.6;
+    }
+
+    @media (min-width: 640px) {
+      .results-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+        gap: 1.25rem;
+      }
+
+      .result-card {
+        padding: 1.25rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .result-card {
+        padding: 1.5rem;
+      }
+
+      .result-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+    }
+
+    .insight-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.875rem;
+      margin-top: 1.375rem;
+    }
+
+    .insight-card {
+      padding: 1rem;
+      border: 1px solid rgba(1, 105, 111, 0.12);
+      border-radius: 1rem;
+      background: #fff;
+    }
+
+    .insight-card__title {
+      margin: 0 0 0.375rem;
+      color: #1f1f1f;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .insight-card__text {
+      margin: 0;
+      color: #343a40;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    @media (min-width: 640px) {
+      .insight-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .insight-card {
+        padding: 1rem 1.125rem;
+      }
+    }
+
+    @media (min-width: 960px) {
+      .insight-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.875rem;
+      }
+    }
+
+
+    .back-link {
+      display: inline-block;
+      padding: 0.5rem 0;
+      color: #01696f;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.5;
+    }
   </style>
 
   <script src="book-call.js" defer></script>
-
-  <script src="js/calendly-widget.js" defer></script>
 
 </head>
 
@@ -882,17 +1092,17 @@
         <div class="intro-video-embed">
           <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@strange.developer/video/7653941302505000212"
             data-video-id="7653941302505000212" title="Mousa Cloud Consulting intro video">
-            <section>
-              <a target="_blank" rel="noopener noreferrer" title="@strange.developer"
-                href="https://www.tiktok.com/@strange.developer?refer=embed">@strange.developer</a>
-              <p>Short introduction to Mousa Cloud Consulting.</p>
-              <a target="_blank" rel="noopener noreferrer" title="original sound"
-                href="https://www.tiktok.com/music/original-sound-7653941366464203538?refer=embed">
-                ♬ original sound - Strange Developer
-              </a>
-            </section>
+            <div class="tiktok-lazy"
+              data-tiktok-url="https://www.tiktok.com/@strange.developer/video/7653941302505000212">
+              <img src="tiktok-icon.png" alt="Intro video preview" loading="lazy">
+              <div class="tiktok-overlay">
+                <span>Watch intro (TikTok)</span>
+              </div>
+            </div>
           </blockquote>
         </div>
+
+
       </div>
     </section>
     <p>
@@ -916,8 +1126,7 @@
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-  " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(0,123,255,0.2)';"
-        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,123,255,0.1)';">
+  ">
         <span style="display: inline-block; margin-right: 0.5rem;">🔒</span>
         Who is this for?
       </summary>
@@ -1098,53 +1307,46 @@
           </a>.
         </p>
 
-        <div id="results-grid"
-          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
-
-          <!-- PCI Compliance -->
-          <div
-            style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid #1f7a3a;">
-            <h3 style="color: #1f7a3a; margin: 0 0 12px 0; font-size: 20px;">PCI Compliance Achieved</h3>
-            <p style="color: #212529; line-height: 1.6; margin: 0;">Led PCI-DSS compliance program for high-volume
-              payments
-              platform, implementing controls and monitoring that maintained continuous compliance through multiple
-              audits.</p>
+        <div id="results-grid" class="results-grid">
+          <div class="result-card" style="--card-accent: #1f7a3a;">
+            <h3>PCI Compliance Achieved</h3>
+            <p>
+              Led PCI-DSS compliance program for high-volume payments platform, implementing controls and monitoring
+              that maintained continuous compliance through multiple audits.
+            </p>
           </div>
 
-          <!-- IAM Migration -->
-          <div
-            style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid #0056b3;">
-            <h3 style="color: #0056b3; margin: 0 0 12px 0; font-size: 20px;">50K+ Account IAM Migration</h3>
-            <p style="color: #212529; line-height: 1.6; margin: 0;">Engineered custom migration tools that transferred
-              50,000+ user accounts to new SaaS IAM platform in production environment—completed under aggressive
-              timeline with zero downtime.</p>
+          <div class="result-card" style="--card-accent: #0056b3;">
+            <h3>50K+ Account IAM Migration</h3>
+            <p>
+              Engineered custom migration tools that transferred 50,000+ user accounts to new SaaS IAM platform in
+              production environment—completed under aggressive timeline with zero downtime.
+            </p>
           </div>
 
-          <!-- Alerts & Monitoring -->
-          <div
-            style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid #17a2b8;">
-            <h3 style="color: #17a2b8; margin: 0 0 12px 0; font-size: 20px;">Proactive Error Detection</h3>
-            <p style="color: #212529; line-height: 1.6; margin: 0;">Built real-time alerting system on new SaaS IAM
-              platform to automatically detect and prioritize missing/problematic accounts, reducing manual remediation
-              by 70%.</p>
+          <div class="result-card" style="--card-accent: #17a2b8;">
+            <h3>Proactive Error Detection</h3>
+            <p>
+              Built real-time alerting system on new SaaS IAM platform to automatically detect and prioritize
+              missing/problematic accounts, reducing manual remediation by 70%.
+            </p>
           </div>
 
-          <!-- SOC2 Controls -->
-          <div
-            style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid #7a5a00;">
-            <h3 style="color: #7a5a00; margin: 0 0 12px 0; font-size: 20px;">SOC 2 Controls Designed</h3>
-            <p style="color: #212529; line-height: 1.6; margin: 0;">Authored and proposed targeted SOC 2 controls
-              addressing critical gaps in access management and monitoring, adopted into compliance roadmap.</p>
+          <div class="result-card" style="--card-accent: #7a5a00;">
+            <h3>SOC 2 Controls Designed</h3>
+            <p>
+              Authored and proposed targeted SOC 2 controls addressing critical gaps in access management and
+              monitoring, adopted into compliance roadmap.
+            </p>
           </div>
 
-          <!-- API Key Security -->
-          <div
-            style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid #dc3545;">
-            <h3 style="color: #dc3545; margin: 0 0 12px 0; font-size: 20px;">API Key Risk Reduction</h3>
-            <p style="color: #212529; line-height: 1.6; margin: 0;">Implemented automated API key governance reducing
-              unauthorized access risk across 200+ services—cut exposure surface by 85%.</p>
+          <div class="result-card" style="--card-accent: #dc3545;">
+            <h3>API Key Risk Reduction</h3>
+            <p>
+              Implemented automated API key governance reducing unauthorized access risk across 200+ services—cut
+              exposure surface by 85%.
+            </p>
           </div>
-
         </div>
 
         <div style="text-align: center; margin-top: 30px;">
@@ -1541,7 +1743,7 @@
               </a>
             </div>
 
-            <div style="display:flex; flex-direction:column; align-items:flex-start; gap:10px; min-width:220px;">
+            <div style="display:flex; flex-direction:column; align-items:flex-start; gap:10px; min-width:0;">
               <a href="https://blog.mousa-cloud.com" target="_blank"
                 style="display:inline-flex; align-items:center; gap:10px; padding:14px 18px; border-radius:12px; background:#01696f; color:#ffffff; text-decoration:none; font-weight:700; font-size:15px; line-height:1; border:1px solid #01696f; box-shadow:0 8px 18px rgba(1,105,111,.18); transition:transform .15s ease, box-shadow .15s ease, background .15s ease;"
                 onmouseover="this.style.background='#00575c'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 12px 22px rgba(1,105,111,.24)'"
@@ -1556,27 +1758,32 @@
                 Live Demos
                 <span aria-hidden="true" style="font-size:16px; line-height:1;">→</span>
               </a>
-              <a href="#calendly-book" style="font-size:14px; color:#01696f; text-decoration:none; font-weight:600;">Or
-                go
-                back to the discovery call</a>
+              <a href="#calendly-book" class="back-link">
+                Or go back to the discovery call
+              </a>
             </div>
           </div>
 
-          <div style="margin-top:22px; display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:14px;">
-            <div style="background:#ffffff; border:1px solid rgba(1,105,111,.12); border-radius:16px; padding:16px;">
-              <div style="font-weight:700; margin-bottom:6px; color:#1f1f1f;">Cloud Security</div>
-              <div style="font-size:14px; line-height:1.6; color:#343a40;">Practical guidance on AWS security, IAM, and
-                reducing operational risk.</div>
+          <div class="insight-grid">
+            <div class="insight-card">
+              <h3 class="insight-card__title">Cloud Security</h3>
+              <p class="insight-card__text">
+                Practical guidance on AWS security, IAM, and reducing operational risk.
+              </p>
             </div>
-            <div style="background:#ffffff; border:1px solid rgba(1,105,111,.12); border-radius:16px; padding:16px;">
-              <div style="font-weight:700; margin-bottom:6px; color:#1f1f1f;">PCI & Compliance</div>
-              <div style="font-size:14px; line-height:1.6; color:#343a40;">How tokenization, controls, and scoping
-                decisions affect real compliance work.</div>
+
+            <div class="insight-card">
+              <h3 class="insight-card__title">PCI &amp; Compliance</h3>
+              <p class="insight-card__text">
+                How tokenization, controls, and scoping decisions affect real compliance work.
+              </p>
             </div>
-            <div style="background:#ffffff; border:1px solid rgba(1,105,111,.12); border-radius:16px; padding:16px;">
-              <div style="font-weight:700; margin-bottom:6px; color:#1f1f1f;">AI Governance</div>
-              <div style="font-size:14px; line-height:1.6; color:#343a40;">Thoughts on safe GenAI adoption, policy, and
-                secure-by-design architecture.</div>
+
+            <div class="insight-card">
+              <h3 class="insight-card__title">AI Governance</h3>
+              <p class="insight-card__text">
+                Thoughts on safe GenAI adoption, policy, and secure-by-design architecture.
+              </p>
             </div>
           </div>
         </div>
@@ -1653,52 +1860,52 @@
       All covered by Hiscox Professional Indemnity insurance (£2M).
     </p>
     <div class="faq-container">
-      <div class="faq-item">
-        <div class="faq-question">Which countries do you work with?</div>
+      <details class="faq-item">
+        <summary class="faq-question">Which countries do you work with?</summary>
         <div class="faq-answer">I work with clients internationally including the US, UK, Hong Kong and Saudi Arabia.
         </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">Can you handle timezone differences?</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Can you handle timezone differences?</summary>
         <div class="faq-answer">Yes, I'm accustomed to work with teams from different timezones.
         </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">How do you handle intellectual property and confidentiality?</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">How do you handle intellectual property and confidentiality?</summary>
         <div class="faq-answer">I respect your privacy and the confidentiality of your project. Any intellectual
           property (IP) created during the course of our collaboration will be transferred to you once the project
           is
           complete and payment has been made. I’m happy to sign an NDA (Non-Disclosure Agreement) if necessary.
         </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">How do you charge for the project?</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">How do you charge for the project?</summary>
         <div class="faq-answer">You can find more details about payments and pricing on the <a href="pricing.html"
             target="_blank">pricing page</a></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">Do you offer support after the project is completed?</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Do you offer support after the project is completed?</summary>
         <div class="faq-answer">Yes, I offer post-project support. Ongoing support can be arranged on a
           retainer basis or as an hourly rate for any additional work that arises after the project is finished.
         </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">How do we communicate during the project?</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">How do we communicate during the project?</summary>
         <div class="faq-answer">I prefer to maintain open lines of communication through your preferred channels,
           whether that's email, Slack, or project management tools like Trello or Jira. I ensure timely responses to
           any
           inquiries or feedback. Regular check-ins and progress reports can be scheduled to keep you updated.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">Are your services insured?</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Are your services insured?</summary>
         <div class="faq-answer">Yes, all services are covered by Professional Indemnity (PI) insurance with Hiscox, up
           to £2M GBP. This protects against cyber incidents resulting from errors or omissions.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">You need more details not covered here?</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">You need more details not covered here?</summary>
         <div class="faq-answer">Please checkout <a href="faq.html">FAQ</a> page for more answers. Alternatively, you can
           use the chat widget to ask me or the trained AI agent for more comprehensive answers.</div>
-      </div>
+      </details>
     </div>
 
     <div class="socials-container" title="Socials">
@@ -1724,35 +1931,169 @@
       </a>
     </div>
 
-    <script>
-      function copyToClipboard(text) {
-        const tempInput = document.createElement('textarea');
-        tempInput.value = text;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand('copy');
-        document.body.removeChild(tempInput);
-        alert('Address copied to clipboard: ' + text);
-      }
-    </script>
-
-    <!-- Modal Container -->
-    <div id="modalContainer" class="modal" style="display: none;">
-      <!-- Modal Content -->
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div id="qrcodeContainer"></div>
+    <!-- Calendly inline widget begin -->
+    <div id="calendly-book" class="calendly-inline-widget calendly-lazy"
+      data-url="https://calendly.com/contact-mousa-cloud-consulting/30min"
+      aria-label="Book a free 30-minute discovery call">
+      <div class="calendly-placeholder">
+        <p>Scheduler loading…</p>
+        <a href="https://calendly.com/contact-mousa-cloud-consulting/30min" target="_blank" rel="noopener noreferrer"
+          class="calendly-fallback-btn">
+          Open booking page
+        </a>
       </div>
     </div>
-    <hr>
-    </p>
 
-    <!-- Calendly inline widget begin -->
-    <div id="calendly-book" class="calendly-inline-widget"
-      data-url="https://calendly.com/contact-mousa-cloud-consulting/30min" style="min-width:320px;height:700px;"></div>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <style>
+      .calendly-lazy {
+        width: 100%;
+        min-width: 320px;
+        height: 760px;
+      }
+
+      .calendly-placeholder {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        padding: 1rem;
+        text-align: center;
+        border-radius: 12px;
+        background: #f8f9fa;
+        border: 1px solid #e5e7eb;
+        box-sizing: border-box;
+      }
+
+      .calendly-fallback-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        width: 100%;
+        max-width: 320px;
+        padding: 0.875rem 1rem;
+        border-radius: 999px;
+        background: #0056b3;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        box-sizing: border-box;
+      }
+
+      .calendly-inline-widget iframe {
+        height: 100% !important;
+      }
+
+      @media (max-width: 767px) {
+        .calendly-lazy {
+          height: 900px;
+        }
+      }
+
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .calendly-lazy {
+          height: 820px;
+        }
+
+        .calendly-fallback-btn {
+          width: auto;
+          min-width: 260px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .calendly-lazy {
+          height: 760px;
+        }
+
+        .calendly-fallback-btn {
+          width: auto;
+          min-width: 260px;
+        }
+
+        .services-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 1.5rem;
+        }
+      }
+    </style>
+
+    <script defer>
+      (function () {
+        const container = document.getElementById('calendly-book');
+        if (!container) return;
+
+        let scriptRequested = false;
+        let widgetInitialized = false;
+
+        function getCalendlyHeight() {
+          if (window.innerWidth < 768) return 900;
+          if (window.innerWidth < 1024) return 820;
+          return 760;
+        }
+
+        function applyCalendlyHeight() {
+          const h = getCalendlyHeight();
+          container.style.height = h + 'px';
+        }
+
+        function initCalendly() {
+          if (widgetInitialized || !window.Calendly) return;
+          widgetInitialized = true;
+          container.innerHTML = '';
+          applyCalendlyHeight();
+          window.Calendly.initInlineWidget({
+            url: container.dataset.url,
+            parentElement: container
+          });
+        }
+
+        function loadCalendly() {
+          if (window.Calendly) {
+            initCalendly();
+            return;
+          }
+
+          if (scriptRequested) return;
+          scriptRequested = true;
+
+          const script = document.createElement('script');
+          script.src = 'https://assets.calendly.com/assets/external/widget.js';
+          script.async = true;
+          script.onload = initCalendly;
+          document.head.appendChild(script);
+        }
+
+        applyCalendlyHeight();
+
+        let resizeTimer;
+        window.addEventListener('resize', function () {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(applyCalendlyHeight, 150);
+        });
+
+        const mobile = window.matchMedia('(max-width: 767px)').matches;
+        const rootMargin = mobile ? '1200px 0px' : '700px 0px';
+
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                loadCalendly();
+                observer.unobserve(container);
+              }
+            });
+          }, { rootMargin });
+
+          observer.observe(container);
+        } else {
+          setTimeout(loadCalendly, 1500);
+        }
+      })();
+    </script>
     <!-- Calendly inline widget end -->
-
 
     <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;
             padding:1rem;z-index:9999;display:none;font-size:0.9rem;">
@@ -1775,10 +2116,7 @@
       </div>
     </div>
 
-
     </main>
-
-    <script async src="https://www.tiktok.com/embed.js"></script>
 
     <script src="common.js" defer></script>
 
@@ -1795,54 +2133,54 @@
 
     <div id="footer-placeholder"></div>
 
+    <script defer>
+      document.addEventListener('DOMContentLoaded', function () {
+        const containers = document.querySelectorAll('.tiktok-lazy');
+
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                const container = entry.target;
+                const url = container.getAttribute('data-tiktok-url');
+
+                const blockquote = document.createElement('blockquote');
+                blockquote.className = 'tiktok-embed';
+                blockquote.setAttribute('cite', url);
+
+                const a = document.createElement('a');
+                a.href = url;
+                blockquote.appendChild(a);
+
+                container.innerHTML = '';
+                container.appendChild(blockquote);
+
+                if (!document.querySelector('script[src*="tiktok.com/embed.js"]')) {
+                  const s = document.createElement('script');
+                  s.src = 'https://www.tiktok.com/embed.js';
+                  s.async = true;
+                  document.body.appendChild(s);
+                }
+
+                obs.unobserve(container);
+              }
+            });
+          }, { rootMargin: '200px 0px' });
+
+          containers.forEach(function (c) {
+            observer.observe(c);
+          });
+        }
+      });
+    </script>
+
 </body>
 
-<script>
-
-  // Function to close the modal
-  function closeModal() {
-    var modalContainer = document.getElementById('modalContainer');
-    modalContainer.style.display = 'none';
-
-    var qrcodeContainer = document.getElementById('qrcodeContainer');
-    qrcodeContainer.innerHTML = '';
-  }
-
-  document.getElementById('modalContainer').addEventListener('click', function (event) {
-    if (event.target === this) {
-      closeModal();
-    }
-  });
-
-
-</script>
-
-<script>
-  // Select all FAQ question elements
-  const faqQuestions = document.querySelectorAll('.faq-question');
-
-  // Add click event listeners to each question
-  faqQuestions.forEach(question => {
-    question.addEventListener('click', () => {
-      // Toggle the visibility of the associated answer
-      const answer = question.nextElementSibling;
-      if (answer.style.display === 'block') {
-        answer.style.display = 'none';
-      } else {
-        answer.style.display = 'block';
-      }
-    });
-  });
-</script>
-
-<script>
+<script defer>
   function onMailToClick(event) {
     icon
     event.preventDefault();
 
-    // Insert Twitter Event ID
-    twq('event', 'tw-omjy9-oxajj', {
-    });
     // Optionally trigger the mailto link after the script runs
     window.location.href = 'mailto:contact@mousa-cloud.com?subject=Project%20Inquiry';
   }

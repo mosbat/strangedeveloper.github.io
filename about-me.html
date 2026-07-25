@@ -4,124 +4,172 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
   <title>About Me - Mousa Cloud Consulting</title>
   <meta name="description"
     content="Independent cloud security consultant specializing in cloud security, compliance, migrations, and architecture.">
   <style>
     :root {
-      --bg: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-      --card-bg: rgba(255, 255, 255, 0.95);
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
       --text: #1e293b;
       --text-muted: #64748b;
-      --accent: #3b82f6;
-      --accent-hover: #2563eb;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
       --border: #e2e8f0;
-      --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
-      --radius: 16px;
+      --shadow-sm: 0 4px 14px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+      --radius: 12px;
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --content-max: 900px;
     }
 
-    * {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      line-height: 1.7;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
       color: var(--text);
       background: var(--bg);
-      padding: 2rem 1rem;
-      min-height: 100vh;
+      padding: var(--space-4);
+      min-height: 100dvh;
     }
 
-    @media (min-width: 768px) {
-      body {
-        padding: 4rem 2rem;
-      }
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    a {
+      color: var(--accent);
     }
 
     .container {
-      max-width: 900px;
-      margin: 0 auto;
+      width: min(100%, var(--content-max));
+      margin-inline: auto;
+    }
+
+    .hero,
+    .faq-section,
+    .contact-cta {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
     }
 
     .hero {
-      background: var(--card-bg);
-      backdrop-filter: blur(20px);
-      border-radius: var(--radius);
-      padding: 3rem 2.5rem;
-      margin-bottom: 3rem;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
+      padding: var(--space-5);
+      margin-bottom: var(--space-6);
       text-align: center;
     }
 
+    .flex-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 120px;
+    }
+
     h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-size: clamp(1.75rem, 6vw, 3rem);
+      line-height: 1.15;
       font-weight: 800;
-      margin: 0 0 0.5rem 0;
-      background: linear-gradient(135deg, var(--accent), #60a5fa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      margin: 0 0 var(--space-2);
+      color: var(--accent);
+    }
+
+    h2,
+    h3 {
+      line-height: 1.2;
+      margin: 0 0 var(--space-2);
+    }
+
+    p,
+    ul {
+      margin: 0 0 var(--space-4);
     }
 
     .tagline {
-      font-size: 1.25rem;
+      font-size: 1rem;
       color: var(--accent);
       font-weight: 600;
-      margin: 0 0 1rem 0;
+      margin: 0 0 var(--space-3);
     }
 
     .faq-section {
-      background: var(--card-bg);
-      backdrop-filter: blur(20px);
-      border-radius: var(--radius);
-      margin-bottom: 1.5rem;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      transition: all 0.3s ease;
+      margin-bottom: var(--space-4);
+      overflow: clip;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
     }
 
     .faq-question {
-      font-size: 1.125rem;
-      font-weight: 700;
-      padding: 1.75rem 2rem;
-      margin: 0;
-      cursor: pointer;
-      background: linear-gradient(90deg, transparent 0%, #eff6ff 100%);
-      border: none;
+      display: block;
       width: 100%;
+      min-height: 48px;
+      padding: var(--space-4);
+      margin: 0;
+      border: 0;
+      background: #ffffff;
+      color: var(--text);
       text-align: left;
-      transition: all 0.3s ease;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
     }
 
-    .faq-question:hover {
-      background: linear-gradient(90deg, transparent 0%, var(--accent-hover) 10%);
-      color: white;
+    .faq-question:hover,
+    .faq-question:focus-visible {
+      background: #eff6ff;
+      color: var(--text);
+    }
+
+    .faq-question:focus-visible,
+    .contact-cta a:focus-visible,
+    .faq-answer a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
     }
 
     .faq-answer {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+      transition: max-height 0.25s ease;
     }
 
     .faq-answer.expanded {
-      max-height: 800px;
-      padding: 0 2rem 2rem 2rem;
-    }
-
-    .faq-answer p,
-    .faq-answer ul {
-      margin: 0 0 1rem 0;
+      max-height: 1000px;
+      padding: 0 var(--space-4) var(--space-4);
     }
 
     .faq-answer ul {
-      padding-left: 1.5rem;
+      padding-left: 1.25rem;
     }
 
     .faq-answer a {
@@ -134,56 +182,201 @@
       text-decoration: underline;
     }
 
-    .credly-badge {
-      display: inline-block;
-      background: var(--accent);
-      color: white;
-      padding: 0.5rem 1rem;
+    .credly-badge,
+    .credly-badge:visited {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.625rem 1rem;
       border-radius: 9999px;
+      background: var(--accent);
+      color: #ffffff !important;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+
+    .credly-badge:hover,
+    .credly-badge:focus-visible {
+      background: var(--accent-hover);
+      color: #ffffff !important;
+    }
+
+    .credly-badge:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
     }
 
     .contact-cta {
-      background: var(--accent);
-      color: white;
-      padding: 2rem;
-      border-radius: var(--radius);
+      padding: var(--space-5);
+      margin-top: var(--space-6);
       text-align: center;
-      font-weight: 600;
-      margin-top: 2rem;
-      box-shadow: var(--shadow);
+    }
+
+    .contact-cta h3 {
+      margin-bottom: var(--space-3);
     }
 
     .contact-cta a {
-      color: white;
+      color: #ffffff;
       text-decoration: none;
     }
 
+    .book-call-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.875rem 1.25rem;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .book-call-btn:hover,
+    .book-call-btn:focus-visible {
+      background: var(--accent-hover);
+    }
+
     footer {
-      margin-top: 4rem;
+      margin-top: var(--space-8);
       text-align: center;
       color: var(--text-muted);
       font-size: 0.875rem;
     }
 
-    @media (max-width: 768px) {
+    @media (min-width: 640px) {
+      body {
+        padding: var(--space-5);
+      }
 
-      .faq-question,
+      .hero {
+        padding: var(--space-6);
+      }
+
+      .faq-question {
+        padding: var(--space-5);
+      }
+
       .faq-answer.expanded {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        padding: 0 var(--space-5) var(--space-5);
       }
     }
 
-    .flex-center {
-      display: flex;
-      justify-content: center;
-      /* Horizontal */
+    @media (min-width: 768px) {
+      body {
+        padding: var(--space-8) var(--space-6);
+      }
+
+      .hero {
+        padding: var(--space-8);
+        margin-bottom: var(--space-8);
+        box-shadow: var(--shadow-md);
+      }
+
+      .flex-center {
+        min-height: 180px;
+      }
+
+      .tagline {
+        font-size: 1.125rem;
+      }
+
+      .faq-question {
+        font-size: 1.0625rem;
+      }
+
+      .contact-cta {
+        padding: var(--space-6);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .social-link {
+      display: inline-flex;
       align-items: center;
-      /* Vertical */
-      min-height: 200px;
-      /* Container height */
+      gap: 0.75rem;
+      min-height: 48px;
+      text-decoration: none;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+
+    .cookie-banner {
+      position: fixed;
+      inset: auto 0 0 0;
+      background: #111;
+      color: #fff;
+      padding: 1rem;
+      z-index: 9999;
+      display: none;
+      font-size: 0.9rem;
+    }
+
+    .cookie-banner__inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .cookie-banner__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .cookie-banner button {
+      min-height: 44px;
+      padding: 0.75rem 1rem;
+      border: 0;
+      border-radius: 8px;
+    }
+
+    #profile-picture {
+      width: min(160px, 42vw);
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 9999px;
+      margin: 0 auto var(--space-4);
+    }
+
+    p,
+    li {
+      max-width: 70ch;
+    }
+
+    .faq-question:active,
+    .book-call-btn:active,
+    .credly-badge:active {
+      transform: scale(0.99);
+    }
+
+    a {
+      color: var(--accent);
     }
   </style>
 
@@ -206,9 +399,9 @@
       <header class="flex-center">
         <div>
           <a href="/">
-            <video autoplay muted>
-              <source src="resized-logo.mp4" type='video/mp4'>
-              Your browser does not support the video tag.
+            <video autoplay muted playsinline preload="metadata" poster="mcc-logo.jpg"
+              aria-label="Mousa Cloud Consulting logo animation">
+              <source src="resized-logo.mp4" type="video/mp4">
             </video>
           </a>
         </div>
@@ -240,18 +433,18 @@
         <h1>
           About Me
         </h1>
-        <img id="profile-picture" src="https://img-c.udemycdn.com/user/200_H/33334916_b69e.jpg" alt="Profile Picture" />
-        <h3>Mousa Al Bateh</h1>
-          <p class="tagline">Independent Cloud Consultant</p>
-          <p>I specialize in working with US companies as an independent contractor,
-            particularly in NYC and Seattle tech markets.</p>
+        <img id="profile-picture" src="https://img-c.udemycdn.com/user/200_H/33334916_b69e.jpg"
+          alt="Portrait of Mousa Al Bateh" width="200" height="200" decoding="async" />
+        <h2>Mousa Al Bateh</h2>
+        <p class="tagline">Independent Cloud Consultant</p>
+        <p>I specialize in working with US companies as an independent contractor,
+          particularly in NYC and Seattle tech markets.</p>
       </header>
     </div>
 
     <!-- FAQ Sections - YOUR EXACT CONTENT -->
     <div class="faq-section">
-      <button class="faq-question"
-        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+      <button class="faq-question" aria-expanded="false">
         What services do you offer?
       </button>
       <div class="faq-answer">
@@ -272,8 +465,7 @@
     </div>
 
     <div class="faq-section">
-      <button class="faq-question"
-        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+      <button class="faq-question" aria-expanded="false">
         Do you have any clients' testimonials?
       </button>
       <div class="faq-answer">
@@ -288,8 +480,7 @@
     </div>
 
     <div class="faq-section">
-      <button class="faq-question"
-        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+      <button class="faq-question" aria-expanded="false">
         Which countries you work with?
       </button>
       <div class="faq-answer">
@@ -300,8 +491,7 @@
     </div>
 
     <div class="faq-section">
-      <button class="faq-question"
-        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+      <button class="faq-question" aria-expanded="false">
         Can you handle timezone differences?
       </button>
       <div class="faq-answer">
@@ -312,8 +502,7 @@
     </div>
 
     <div class="faq-section">
-      <button class="faq-question"
-        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+      <button class="faq-question" aria-expanded="false">
         My Background
       </button>
       <div class="faq-answer">
@@ -324,8 +513,7 @@
     </div>
 
     <div class="faq-section">
-      <button class="faq-question"
-        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+      <button class="faq-question" aria-expanded="false">
         My Qualifications
       </button>
       <div class="faq-answer">
@@ -339,8 +527,7 @@
     </div>
 
     <div class="faq-section">
-      <button class="faq-question"
-        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+      <button class="faq-question" aria-expanded="false">
         How much do you charge for each project?
       </button>
       <div class="faq-answer">
@@ -353,23 +540,31 @@
     </div>
 
     <div class="faq-section">
-      <button class="faq-question"
-        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+      <button class="faq-question" aria-expanded="false">
         How to verify my skills?
       </button>
       <div class="faq-answer">
-        <p>Credly is an international platform that documents the qualifications of each individual directly from the
-          certification providers providing a reliable public and convenient method to verify claimed
-          qualifications/credentials. You can view all of them below:</p>
-        <p><a href="https://www.credly.com/users/mousa-al-bateh.88d2f3ce" target="_blank" class="credly-badge"
-            style="color: rgb(252, 3, 3);">View on
-            Credly</a></p>
+        <p>
+          You can verify my skills through both formal credentials and practical work. My certifications are publicly
+          verifiable on Credly, and I also publish live demos, technical articles, and case-study-style examples that
+          show how I solve real cloud security and architecture problems.
+        </p>
+        <p>
+          Since some past work was covered by NDAs, I cannot always share named client details. To make my work
+          transparent, I provide verified credentials together with hands-on demos, technical writing, and example
+          solution walkthroughs.
+        </p>
+        <p>
+          <a href="https://www.credly.com/users/mousa-al-bateh.88d2f3ce" target="_blank" rel="noopener noreferrer"
+            class="credly-badge">
+            View my verified certifications on Credly
+          </a>
+        </p>
       </div>
     </div>
 
     <div class="faq-section">
-      <button class="faq-question"
-        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+      <button class="faq-question" aria-expanded="false">
         How would you describe yourself?
       </button>
       <div class="faq-answer">
@@ -381,8 +576,7 @@
     </div>
 
     <div class="faq-section">
-      <button class="faq-question"
-        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+      <button class="faq-question" aria-expanded="false">
         Do you have LinkedIn?
       </button>
       <div class="faq-answer">
@@ -403,8 +597,7 @@
     </div>
 
     <div class="faq-section">
-      <button class="faq-question"
-        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+      <button class="faq-question" aria-expanded="false">
         What are you passionate about?
       </button>
       <div class="faq-answer">
@@ -414,8 +607,7 @@
     </div>
 
     <div class="faq-section">
-      <button class="faq-question"
-        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+      <button class="faq-question" aria-expanded="false">
         What is your stance towards AI?
       </button>
       <div class="faq-answer">
@@ -428,8 +620,7 @@
     </div>
 
     <div class="faq-section">
-      <button class="faq-question"
-        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+      <button class="faq-question" aria-expanded="false">
         What are your hobbies?
       </button>
       <div class="faq-answer">
@@ -439,34 +630,50 @@
     </div>
 
     <div class="faq-section">
-      <button class="faq-question"
-        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+      <button class="faq-question" aria-expanded="false">
         What are your socials?
       </button>
       <div class="faq-answer">
-        <a href="https://www.tiktok.com/@strange.developer">My TikTok channel <img class="social-icon"
-            src="tiktok-icon.png" alt="TikTok" style="width: 50px; height: 50px;"></a>
+        <a class="social-link" href="https://www.tiktok.com/@strange.developer" target="_blank"
+          rel="noopener noreferrer">
+          <img class="social-icon" src="tiktok-icon.png" alt="" width="40" height="40" loading="lazy" decoding="async">
+          <span>My TikTok channel</span>
+        </a>
       </div>
     </div>
     <div class="faq-section">
-      <button class="faq-question"
-        onclick="this.parentElement.querySelector('.faq-answer').classList.toggle('expanded')">
+      <button class="faq-question" aria-expanded="false">
         You need more details not covered here?
       </button>
       <div class="faq-answer">
-        Please use the chat widget for more details and to chat with me or the AI assistant directly (make sure your browser is not blocking it). You can also use the contact form to get more details via e-mail before commitment.
+        <p>Please use the chat widget for more details and to chat with me or the AI assistant directly (make sure your
+          browser is not blocking it). You can also use the contact form to get more details via e-mail before
+          commitment.</p>
       </div>
     </div>
 
     <!-- Contact CTA -->
     <div class="contact-cta">
-      <h3 style="color: #000000;">Ready to talk cloud?</h3>
-      <!-- Calendly inline widget begin -->
-      <div class="calendly-inline-widget" data-url="https://calendly.com/contact-mousa-cloud-consulting/30min"
-        style="min-width:320px;height:700px;"></div>
-      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-      <!-- Calendly inline widget end -->
+      <h3>Ready to talk cloud?</h3>
+      <a class="book-call-btn" href="https://calendly.com/contact-mousa-cloud-consulting/30min" target="_blank"
+        rel="noopener noreferrer">
+        Book a free consultation
+      </a>
     </div>
+
+    <script>
+      document.querySelectorAll('.faq-section').forEach(section => {
+        const btn = section.querySelector('.faq-question');
+        const answer = section.querySelector('.faq-answer');
+
+        btn.addEventListener('click', () => {
+          const open = answer.classList.toggle('expanded');
+          btn.setAttribute('aria-expanded', String(open));
+        });
+      });
+    </script>
+
+    <div id="footer-placeholder"></div>
 
 
     <script>
@@ -477,23 +684,15 @@
         });
     </script>
 
-    <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;
-            padding:1rem;z-index:9999;display:none;font-size:0.9rem;">
-      <div style="max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;
-              gap:0.75rem;align-items:center;">
-        <p style="flex:1;margin:0;">
+    <div id="cookie-banner" class="cookie-banner">
+      <div class="cookie-banner__inner">
+        <p>
           Non-essential analytics & ads (Google & Reddit) only load if you consent below. See our
-          <a href="privacy-policy.html" style="color:#4ea3ff;">Privacy Policy</a>.
+          <a href="privacy-policy.html">Privacy Policy</a>.
         </p>
-        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-          <button id="cookie-reject" style="background:#444;color:#fff;border:none;padding:0.5rem 1rem;
-                     border-radius:4px;cursor:pointer;">
-            Reject non‑essential
-          </button>
-          <button id="cookie-accept" style="background:#007bff;color:#fff;border:none;padding:0.5rem 1rem;
-                     border-radius:4px;cursor:pointer;">
-            Accept all
-          </button>
+        <div class="cookie-banner__actions">
+          <button id="cookie-reject">Reject non-essential</button>
+          <button id="cookie-accept">Accept all</button>
         </div>
       </div>
     </div>
@@ -501,20 +700,6 @@
     <script src="common.js"></script>
 
     <script src="cookie-consent.js"></script>
-
-    <div id="footer-placeholder"></div>
-
-    <script>
-      // Simple toggle for accessibility (keyboard support)
-      document.querySelectorAll('.faq-question').forEach(btn => {
-        btn.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            btn.click();
-          }
-        });
-      });
-    </script>
 
   </div>
 

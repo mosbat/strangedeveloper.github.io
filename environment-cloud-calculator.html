@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Green Cloud Optimization | Mousa Cloud Consulting</title>
+    <meta name="description"
+        content="Mobile-first landing page for Green Cloud Optimization: learn about the environmental impact of data centers, see how emissions link to financial performance, use an illustrative cloud carbon calculator, and explore consulting services to reduce both AWS spend and carbon footprint." />
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --color-bg: #f7f6f2;
+            --color-surface: #fbfbf9;
+            --color-surface-2: #f1efea;
+            --color-border: #d7d3cc;
+            --color-divider: #dfdbd5;
+            --color-text: #22201b;
+            --color-text-muted: #6f6b65;
+            --color-text-faint: #9a958d;
+            --color-primary: #0b6c73;
+            --color-primary-hover: #0a555a;
+            --radius-sm: 0.5rem;
+            --radius-md: 0.875rem;
+            --radius-lg: 1.25rem;
+            --shadow-sm: 0 1px 2px rgba(22, 20, 15, 0.06);
+            --text-xs: 0.8rem;
+            --text-sm: 0.9rem;
+            --text-base: 1rem;
+            --text-lg: 1.25rem;
+            --text-xl: 1.5rem;
+            --content-default: 960px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: var(--text-base);
+            line-height: 1.6;
+            color: var(--color-text);
+            background: radial-gradient(circle at top left, rgba(11, 108, 115, 0.08), transparent 30%),
+                var(--color-bg);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(100% - 2rem, var(--content-default));
+            margin: 0 auto;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(14px);
+            background: rgba(247, 246, 242, 0.92);
+            border-bottom: 1px solid rgba(34, 32, 27, 0.06);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            min-height: 3.5rem;
+            padding: 0.75rem 0;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            font-size: var(--text-sm);
+        }
+
+        .brand-mark {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 0.75rem;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #d9e8e5, #fbfbf9);
+            border: 1px solid rgba(11, 108, 115, 0.18);
+            color: var(--color-primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 2.75rem;
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            border: 1px solid rgba(34, 32, 27, 0.10);
+            background: var(--color-surface);
+            color: var(--color-text);
+            font-weight: 600;
+            font-size: var(--text-sm);
+            cursor: pointer;
+            transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+                background 180ms cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 180ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: #fff;
+            border-color: var(--color-primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-primary-hover);
+            transform: translateY(-1px);
+        }
+
+        main {
+            padding: 2.5rem 0 3.5rem;
+        }
+
+        .hero {
+            padding: 2.5rem 0 2rem;
+        }
+
+        .hero h1 {
+            margin: 0 0 0.75rem;
+            font-size: 2rem;
+            letter-spacing: -0.04em;
+        }
+
+        .hero p {
+            margin: 0;
+            max-width: 36rem;
+            color: var(--color-text-muted);
+            font-size: var(--text-sm);
+        }
+
+        .hero-actions {
+            margin-top: 1.75rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            background: #d9e8e5;
+            color: var(--color-primary);
+            font-size: var(--text-xs);
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .section {
+            padding: 2rem 0 0;
+        }
+
+        .section-heading {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: var(--text-xl);
+            letter-spacing: -0.03em;
+        }
+
+        .section-heading p {
+            margin: 0.5rem 0 0;
+            color: var(--color-text-muted);
+            max-width: 40rem;
+            font-size: var(--text-sm);
+        }
+
+        .panel {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(34, 32, 27, 0.08);
+            padding: 1.5rem;
+        }
+
+        .panel-label {
+            font-size: var(--text-xs);
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-text-faint);
+            margin-bottom: 0.5rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        label {
+            font-size: var(--text-sm);
+            font-weight: 600;
+        }
+
+        input[type="number"],
+        select {
+            padding: 0.6rem 0.75rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-border);
+            font-size: var(--text-sm);
+            width: 100%;
+        }
+
+        input[type="range"] {
+            width: 100%;
+        }
+
+        .range-labels {
+            font-size: var(--text-xs);
+            color: var(--color-text-muted);
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.25rem;
+        }
+
+        .results-meta {
+            font-size: var(--text-xs);
+            color: var(--color-text-muted);
+            margin-top: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .results-box {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            background: var(--color-surface-2);
+            border: 1px solid var(--color-divider);
+            font-size: var(--text-sm);
+        }
+
+        .results-box strong {
+            display: block;
+            margin-bottom: 0.15rem;
+        }
+
+        .results-main {
+            font-size: var(--text-lg);
+            font-weight: 700;
+            margin-top: 0.25rem;
+        }
+
+        .service-card {
+            margin-top: 1.75rem;
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(34, 32, 27, 0.08);
+            padding: 1.5rem;
+        }
+
+        .service-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.75rem;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-title {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: var(--text-lg);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .service-price {
+            font-weight: 800;
+            font-size: var(--text-sm);
+            color: var(--color-primary);
+            white-space: nowrap;
+        }
+
+        .service-body {
+            font-size: var(--text-sm);
+            color: var(--color-text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .service-list {
+            margin: 0;
+            padding-left: 1rem;
+            font-size: var(--text-sm);
+            color: var(--color-text);
+        }
+
+        .service-list li {
+            margin-bottom: 0.4rem;
+        }
+
+        .footer {
+            padding: 2rem 0 2.5rem;
+            color: var(--color-text-faint);
+            font-size: var(--text-xs);
+            border-top: 1px solid var(--color-divider);
+            margin-top: 2.5rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-inner a {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 3rem 0 2.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Mousa Cloud Consulting home">
+                <span class="brand-mark" aria-hidden="true">
+                    <!-- Simple shield icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3l7 3v5c0 4.6-2.9 8.8-7 10-4.1-1.2-7-5.4-7-10V6l7-3Z" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M9.5 12l1.8 1.8 3.7-4.1" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </span>
+                <span>Mousa Cloud Consulting</span>
+            </a>
+
+            <a href="cloud-security-audits-advisory.html" class="btn btn-primary">
+                Back to services
+            </a>
+        </div>
+    </header>
+
+    <header class="flex-center">
+        <div>
+            <a href="/">
+                <video autoplay muted>
+                    <source src="resized-logo.mp4" type='video/mp4'>
+                    Your browser does not support the video tag.
+                </video>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero / intro -->
+        <section class="hero">
+            <div class="container">
+                <div class="eyebrow">
+                    <span aria-hidden="true" style="display:inline-flex; align-items:center;">
+                        <!-- Leaf icon -->
+                        <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 20C5 20 5 13 11 7C15 3 19 4 19 4C19 4 20 8 16 12C10 18 5 20 5 20Z" fill="none"
+                                stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M10 14C10 14 11 12 13 10" fill="none" stroke="currentColor" stroke-width="1.4"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    <span>Green Cloud Optimization</span>
+                </div>
+
+                <h1>Reduce Cloud Emissions. Improve Financials.</h1>
+                <p>
+                    Modern data centers and cloud workloads are a growing source of global carbon emissions, and
+                    the way your company uses AWS directly influences that footprint. This page connects
+                    environmental impact, financial performance, and practical optimization steps.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#impact" class="btn btn-primary">See the impact</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1. Brief excerpt about data centers & emissions -->
+        <section id="impact" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <p>
+                    <h2>Data centers and your company’s carbon impact</h2>
+                    Peer‑reviewed and industry research shows that rapidly growing data centers and cloud services are a
+                    significant contributor to global electricity use and related CO₂ emissions, especially as AI and
+                    cloud adoption accelerate (International Energy Agency, 2024; de Vries‑Gao, 2025; US data‑centre
+                    environmental burden studies, 2024).
+                    </p>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-label">Why this matters</div>
+                    <p style="margin:0 0 1rem; font-size:var(--text-sm); color:var(--color-text-muted);">
+                        Studies highlight that data centers now account for a notable share of global energy demand
+                        and emissions, with growth driven by cloud computing and AI workloads. This means your
+                        company’s cloud decisions—regions, architectures, and utilization—have real environmental
+                        consequences.
+                        <br><br>
+                        <span style="font-size:var(--text-xs); color:var(--color-text-faint);">
+                            Sources: International Energy Agency (2024, <em>Energy and AI – Analysis</em>);
+                            Lawrence Berkeley National Laboratory (2024, <em>US Data Center Energy Usage Report</em>);
+                            recent peer‑reviewed data‑centre footprint studies.
+                        </span>
+                    </p>
+
+                    <!-- 2. Question to viewer -->
+                    <p style="margin:0; font-weight:600;">
+                        Is your company contributing more to data‑center carbon emissions than it needs to?
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Emissions reduction & financial performance -->
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Lower emissions, stronger financial performance</h2>
+                    <p style="margin:0 0 1rem; font-size:var(--text-sm); color:var(--color-text-muted);">
+                        Empirical evidence shows that companies which actively reduce their carbon emissions tend
+                        to report better financial outcomes—specifically higher ROA and ROE—especially when they
+                        start from carbon‑intensive operations (Ibishova, Misund &amp; Tveterås, 2024).
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. Illustrative calculator -->
+        <section class="section" id="calculator">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Get a feel for your cloud’s footprint</h2>
+                    <p>
+                        Use this illustrative calculator to connect your monthly cloud spend, typical regions, and
+                        optimization level to an approximate annual CO₂ figure. It is deliberately simplified and
+                        meant to help you feel the scale—not to provide audit‑grade numbers.
+                    </p>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-label">Illustrative cloud carbon snapshot</div>
+                    <p style="margin:0 0 1rem; color:var(--color-text-muted); font-size:var(--text-sm);">
+                        This calculator uses simplified assumptions: it treats spend as a proxy for energy use,
+                        applies rough grid carbon intensity bands, and models optimization as a potential reduction
+                        factor. It is <strong>not</strong> a formal ESG or regulatory reporting tool.
+                    </p>
+
+                    <form id="carbon-form">
+                        <div>
+                            <label for="cloud-spend">Monthly cloud spend (USD)</label>
+                            <input type="number" id="cloud-spend" name="cloud-spend" min="0" step="100"
+                                placeholder="e.g. 10,000" />
+                        </div>
+
+                        <div>
+                            <label for="carbon-intensity">Typical region carbon intensity</label>
+                            <select id="carbon-intensity" name="carbon-intensity">
+                                <option value="200">Low‑carbon grid (e.g. Nordics)</option>
+                                <option value="350">Mixed grid (e.g. parts of EU)</option>
+                                <option value="500" selected>Carbon‑intensive grid (e.g. coal‑heavy regions)</option>
+                            </select>
+                            <div style="font-size:var(--text-xs); color:var(--color-text-muted); margin-top:0.25rem;">
+                                Values expressed in kg CO₂ per MWh; ranges are simplified for this awareness tool.
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="optimization-level">How optimized is your cloud for efficiency?</label>
+                            <input type="range" id="optimization-level" name="optimization-level" min="0" max="100"
+                                step="10" value="30" />
+                            <div class="range-labels">
+                                <span>Minimal optimization</span>
+                                <span>Highly optimized</span>
+                            </div>
+                        </div>
+
+                        <button type="button" id="calculate-carbon" class="btn btn-primary">
+                            Calculate snapshot
+                        </button>
+                    </form>
+
+                    <div id="carbon-results" style="display:none;">
+                        <div class="results-meta">
+                            These numbers are <strong>approximate and purely illustrative</strong>. They are based
+                            on simplified assumptions about cloud usage, energy, and grid emissions so you can sense
+                            order of magnitude only. Do not use this output for regulatory reporting, formal ESG
+                            disclosures, or audit‑grade carbon accounting.
+                        </div>
+
+                        <div class="results-box">
+                            <div>
+                                <strong>Estimated annual cloud emissions</strong>
+                                <div id="annual-emissions" class="results-main"></div>
+                            </div>
+
+                            <div>
+                                <strong>Potential reduction with stronger optimization</strong>
+                                <div id="potential-reduction"></div>
+                            </div>
+
+                            <div>
+                                <strong>What this roughly means</strong>
+                                <div id="context-text"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Service reveal after calculation -->
+        <section class="section">
+            <div class="container">
+                <div id="service-offer" class="service-card" style="display:none;">
+                    <div class="service-header">
+                        <div class="service-title">
+                            <span aria-hidden="true" style="display:inline-flex; align-items:center; color:#0b6c73;">
+                                <!-- Leaf icon -->
+                                <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 20C5 20 5 13 11 7C15 3 19 4 19 4C19 4 20 8 16 12C10 18 5 20 5 20Z"
+                                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M10 14C10 14 11 12 13 10" fill="none" stroke="currentColor"
+                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                            <span>Green Cloud Optimization</span>
+                        </div>
+                        <div class="service-price">From USD 6,000</div>
+                    </div>
+
+                    <p class="service-body">
+                        A focused AWS cloud optimization engagement for teams that want to reduce their cloud‑driven
+                        carbon emissions and monthly spend together. You get practical guidance on where to change
+                        workloads, regions, and architectures so your cloud becomes leaner, more efficient, and better
+                        aligned with sustainability and financial goals.
+                    </p>
+
+                    <ul class="service-list">
+                        <li>Review of current AWS workloads, regions, and utilization patterns with emphasis on energy
+                            and emissions.</li>
+                        <li>Right‑sizing and elasticity recommendations that lower both AWS bills and estimated carbon
+                            footprint.</li>
+                        <li>Architecture guidance to use more efficient services, storage, and networking patterns for
+                            greener cloud operations.</li>
+                        <li>Prioritized action plan and leadership‑friendly summary linking optimization steps to cost
+                            and emission outcomes.</li>
+                    </ul>
+
+                    <div style="margin-top:1.25rem;">
+                        <a href="https://calendly.com/contact-mousa-cloud-consulting/30min" class="btn btn-primary"
+                            target="_blank" rel="noopener noreferrer">
+                            Book a 30‑minute meeting
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div style="
+  margin-top:1rem;
+  padding:0.6rem 0.9rem;
+  border-radius:0.75rem;
+  background:#f1efea;
+  font-size:var(--text-sm);
+  color:var(--color-text);
+">
+        <strong>You have questions?</strong>
+        <span style="display:block; margin-top:0.2rem; font-size:var(--text-xs); color:var(--color-text-muted);">
+            You have questions?
+            <a href="faq.html" target="_blank" rel="noopener noreferrer"
+                style="margin-left:0.25rem; font-weight:600; color:var(--color-primary); text-decoration:underline;">
+                Visit the FAQ page
+            </a>
+            or use the chat widget to get answers quickly (bottom-right, if not blocked by your browser).
+        </span>
+    </div>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div>
+                This page is an awareness and decision‑support tool, inspired by research on data‑center and
+                corporate emissions, but it is <strong>not</strong> a replacement for provider sustainability
+                tools, GHG Protocol accounting, or professional carbon assessments.
+            </div>
+            <div>
+                Need help making your AWS workloads cheaper and lower‑carbon?
+                <a href="cloud-security-audits-advisory.html#services">Explore Mousa Cloud Consulting services</a>.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            const spendInput = document.getElementById('cloud-spend');
+            const intensitySelect = document.getElementById('carbon-intensity');
+            const optimizationRange = document.getElementById('optimization-level');
+            const calculateButton = document.getElementById('calculate-carbon');
+
+            const resultsBox = document.getElementById('carbon-results');
+            const annualEmissionsEl = document.getElementById('annual-emissions');
+            const potentialReductionEl = document.getElementById('potential-reduction');
+            const contextTextEl = document.getElementById('context-text');
+
+            const serviceOffer = document.getElementById('service-offer');
+
+            function formatNumber(n) {
+                return n.toLocaleString(undefined, { maximumFractionDigits: 0 });
+            }
+
+            calculateButton.addEventListener('click', function () {
+                const monthlySpend = parseFloat(spendInput.value || '0');
+                const carbonIntensity = parseFloat(intensitySelect.value || '500');
+                const optimizationLevel = parseFloat(optimizationRange.value || '30');
+
+                if (!monthlySpend || monthlySpend <= 0) {
+                    resultsBox.style.display = 'block';
+                    annualEmissionsEl.textContent = 'Please enter a realistic monthly cloud spend.';
+                    potentialReductionEl.textContent = '';
+                    contextTextEl.textContent = '';
+                    serviceOffer.style.display = 'none';
+                    return;
+                }
+
+                // Very rough assumptions (awareness only, not scientific):
+                // - Each USD of annual spend maps to an abstract kWh value
+                // - Higher carbon intensity => more kg CO₂ per kWh
+                // - Higher optimization level proportionally reduces emissions
+                const annualSpend = monthlySpend * 12;
+                const baseEnergyKWh = annualSpend * 0.5; // abstract factor
+                const baseEmissionsKg = (baseEnergyKWh / 1000) * carbonIntensity;
+
+                const optimizationFactor = 1 - (optimizationLevel / 100) * 0.5; // up to ~50% reduction
+                const optimizedEmissionsKg = baseEmissionsKg * optimizationFactor;
+                const reductionKg = baseEmissionsKg - optimizedEmissionsKg;
+
+                annualEmissionsEl.textContent =
+                    formatNumber(optimizedEmissionsKg) + ' kg CO₂ per year (approx.).';
+
+                potentialReductionEl.textContent =
+                    'You could be avoiding roughly ' +
+                    formatNumber(reductionKg) +
+                    ' kg CO₂ annually compared to a minimally optimized cloud setup.';
+
+                const carKgPerYear = 4000; // rough single-car annual emissions
+                const carEquivalent = optimizedEmissionsKg / carKgPerYear;
+
+                contextTextEl.textContent =
+                    'That’s roughly similar to the annual emissions of about ' +
+                    formatNumber(carEquivalent) +
+                    ' passenger cars.';
+
+                resultsBox.style.display = 'block';
+                serviceOffer.style.display = 'block';
+                serviceOffer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        })();
+    </script>
+
+    <script src="common.js"></script>
+
+    <script src="cookie-consent.js"></script>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').outerHTML = data;
+            });
+    </script>
+
+    <div id="footer-placeholder"></div>
+    <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;
+            padding:1rem;z-index:9999;display:none;font-size:0.9rem;">
+        <div style="max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;
+              gap:0.75rem;align-items:center;">
+            <p style="flex:1;margin:0;">
+                Non-essential analytics & ads (Google & Reddit) only load if you consent below. See our
+                <a href="privacy-policy.html" style="color:#4ea3ff;">Privacy Policy</a>.
+            </p>
+            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+                <button id="cookie-reject" style="background:#444;color:#fff;border:none;padding:0.5rem 1rem;
+                     border-radius:4px;cursor:pointer;">
+                    Reject non‑essential
+                </button>
+                <button id="cookie-accept" style="background:#007bff;color:#fff;border:none;padding:0.5rem 1rem;
+                     border-radius:4px;cursor:pointer;">
+                    Accept all
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

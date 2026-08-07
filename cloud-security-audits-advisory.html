@@ -1,1019 +1,1023 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="light">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cloud Security Audits & Advisory | AWS Security - Mousa Cloud Consulting</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AWS Cloud Security Consulting | Audits & Advisory</title>
   <meta name="description"
-    content="Cloud security consultant services for AWS-focused teams, including cloud security audit, cloud security assessment services, cloud security advisory, AWS security audit, AWS security consulting, and cybersecurity audit services." />
+    content="Practical AWS cloud security audits, architecture reviews, remediation programmes and ongoing advisory for growing teams.">
+  <meta property="og:title" content="AWS Cloud Security Consulting | Audits & Advisory">
+  <meta property="og:description"
+    content="Practical AWS security audits, architecture reviews, remediation programmes and ongoing advisory.">
+  <meta property="og:url" content="https://www.mousa-cloud.com/cloud-security-audits-advisory.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.mousa-cloud.com/assets/images/cloud-security-consulting.webp">
+  <meta property="og:image:alt" content="AWS cloud security consulting and architecture review">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AWS Cloud Security Consulting | Audits & Advisory">
+  <meta name="twitter:description"
+    content="Practical AWS security audits, architecture reviews, remediation programmes and ongoing advisory.">
+  <meta name="twitter:image" content="https://www.mousa-cloud.com/assets/images/cloud-security-consulting.webp">
+  <link rel="canonical" href="https://www.mousa-cloud.com/cloud-security-audits-advisory.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Cloud Security Audit",
-  "description": "Focused AWS cloud security audit reviewing IAM, storage, logging, alerting, and threat detection controls, delivering prioritized findings, remediation recommendations, and stakeholder readout to mitigate risks before incidents or compliance issues arise.",
-  "url": "https://www.mousa-cloud.com/cloud-security-audits-advisory.html",
-  "provider": {
-    "@id": "https://www.mousa-cloud.com/#organization"
-  },
-  "areaServed": [
-    "United States", "US",
-    "Singapore", "SG", 
-    "Saudi Arabia", "SA",
-    "Hong Kong", "HK",
-    "Japan", "JP"
-  ],
-  "serviceType": "Cloud Security Audit"
-}
-</script>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "End-to-End Cloud Security Programme",
-  "description": "End-to-end AWS cloud security engagement combining initial assessment, hands-on remediation of key weaknesses, and a 90-day hardening roadmap with structured guidance for sustained threat management and compliance.",
-  "url": "https://www.mousa-cloud.com/cloud-security-audits-advisory.html",
-  "provider": {
-    "@id": "https://www.mousa-cloud.com/#organization"
-  },
-  "areaServed": [
-    "United States", "US",
-    "Singapore", "SG", 
-    "Saudi Arabia", "SA",
-    "Hong Kong", "HK",
-    "Japan", "JP"
-  ],
-  "serviceType": "End-to-End Cloud Security Program"
-}
-</script>
-
-  <!-- Cloud Architecture & Design Review -->
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Cloud Architecture & Design Review",
-  "description": "Comprehensive AWS architecture review assessing security, scalability, resiliency, and cost efficiency, with actionable recommendations and diagrams to ensure production-ready, compliant, and optimized cloud design.",
-  "url": "https://www.mousa-cloud.com/cloud-security-audits-advisory.html",
-  "provider": {
-    "@id": "https://www.mousa-cloud.com/#organization"
-  },
-  "areaServed": [
-    "United States", "US",
-    "Singapore", "SG", 
-    "Saudi Arabia", "SA",
-    "Hong Kong", "HK",
-    "Japan", "JP"
-  ],
-  "serviceType": "Cloud Architecture Review"
-}
-</script>
-
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Monthly Cloud Security Advisory Retainer",
-  "description": "Ongoing AWS cloud security advisory retainer providing up to 20 hours/month of expert guidance on security decisions, architecture risks, access controls, monitoring, incident response, and control maturity to support evolving environments without full-time hires.",
-  "url": "https://www.mousa-cloud.com/cloud-security-audits-advisory.html",
-  "provider": {
-    "@id": "https://www.mousa-cloud.com/#organization"
-  },
-  "areaServed": [
-    "United States", "US",
-    "Singapore", "SG", 
-    "Saudi Arabia", "SA",
-    "Hong Kong", "HK",
-    "Japan", "JP"
-  ],
-  "serviceType": "Ongoing Cloud Security Advisory"
-}
-</script>
-
-  <script src="book-call.js" defer></script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
   <style>
-    :root,
-    [data-theme="light"] {
-      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
-      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
-      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
-      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
-      --space-1: 0.25rem;
-      --space-2: 0.5rem;
-      --space-3: 0.75rem;
-      --space-4: 1rem;
-      --space-5: 1.25rem;
-      --space-6: 1.5rem;
-      --space-8: 2rem;
-      --space-10: 2.5rem;
-      --space-12: 3rem;
-      --space-16: 4rem;
-      --space-20: 5rem;
-      --space-24: 6rem;
-      --color-bg: #f7f6f2;
-      --color-surface: #fbfbf9;
-      --color-surface-2: #f1efea;
-      --color-border: #d7d3cc;
-      --color-divider: #dfdbd5;
-      --color-text: #22201b;
-      --color-text-muted: #6f6b65;
-      --color-text-faint: #9a958d;
-      --color-primary: #0b6c73;
-      --color-primary-hover: #0a555a;
-      --color-primary-highlight: #d9e8e5;
-      --radius-sm: 0.5rem;
-      --radius-md: 0.875rem;
-      --radius-lg: 1.25rem;
-      --radius-xl: 1.75rem;
-      --shadow-sm: 0 1px 2px rgba(22, 20, 15, 0.06);
-      --content-default: 1100px;
-      --font-body: 'Manrope', system-ui, sans-serif;
-      --font-display: 'Manrope', system-ui, sans-serif;
-      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    :root {
+      --bg: #f7f6f2;
+      --surface: #fff;
+      --alt: #edf5f3;
+      --text: #22201b;
+      --muted: #6f6b65;
+      --line: #d9d5ce;
+      --brand: #0b6c73;
+      --brand2: #09565b;
+      --soft: #d9e8e5;
+      --max: 1120px;
+      --r: 18px;
+      --shadow: 0 10px 30px rgba(25, 35, 31, .07)
     }
 
-    [data-theme="dark"] {
-      --color-bg: #171614;
-      --color-surface: #1d1c19;
-      --color-surface-2: #25231f;
-      --color-border: #3a3731;
-      --color-divider: #302e2a;
-      --color-text: #e9e5dd;
-      --color-text-muted: #b7b1a8;
-      --color-text-faint: #8d867d;
-      --color-primary: #67a9af;
-      --color-primary-hover: #8bc0c5;
-      --color-primary-highlight: #263435;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --color-bg: #171614;
-        --color-surface: #1d1c19;
-        --color-surface-2: #25231f;
-        --color-border: #3a3731;
-        --color-divider: #302e2a;
-        --color-text: #e9e5dd;
-        --color-text-muted: #b7b1a8;
-        --color-text-faint: #8d867d;
-        --color-primary: #67a9af;
-        --color-primary-hover: #8bc0c5;
-        --color-primary-highlight: #263435;
-      }
+    [data-theme=dark] {
+      --bg: #171614;
+      --surface: #1d1c19;
+      --alt: #263534;
+      --text: #e9e5dd;
+      --muted: #b7b1a8;
+      --line: #3a3731;
+      --brand: #67a9af;
+      --brand2: #8bc0c5;
+      --soft: #263435;
+      --shadow: 0 10px 30px rgba(0, 0, 0, .25)
     }
 
     *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
+    *:before,
+    *:after {
+      box-sizing: border-box
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 3px;
+      border-radius: 4px;
     }
 
     html {
-      scroll-behavior: smooth;
+      scroll-behavior: smooth
     }
 
     body {
       margin: 0;
-      min-height: 100vh;
-      font-family: var(--font-body);
-      font-size: var(--text-base);
-      line-height: 1.6;
-      color: var(--color-text);
-      background: radial-gradient(circle at top left, rgba(11, 108, 115, 0.08), transparent 28%), var(--color-bg);
+      background: radial-gradient(circle at 0 0, rgba(11, 108, 115, .08), transparent 28rem), var(--bg);
+      color: var(--text);
+      font: 16px/1.65 Manrope, system-ui, sans-serif
     }
 
     a {
       color: inherit;
-      text-decoration: none;
+      text-decoration: none
     }
 
     button {
-      font: inherit;
+      font: inherit
     }
 
-    :focus-visible {
-      outline: 2px solid var(--color-primary);
-      outline-offset: 3px;
-      border-radius: var(--radius-sm);
-    }
-
-    .skip-link {
+    .skip {
       position: absolute;
-      left: var(--space-4);
-      top: -3rem;
-      background: var(--color-primary);
-      color: white;
-      padding: var(--space-2) var(--space-4);
-      border-radius: var(--radius-sm);
-      z-index: 1000;
+      top: -4rem;
+      left: 1rem;
+      z-index: 20;
+      padding: .7rem 1rem;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 8px
     }
 
-    .skip-link:focus {
-      top: var(--space-4);
+    .skip:focus {
+      top: 1rem
     }
 
-    .container {
-      width: min(calc(100% - 2rem), var(--content-default));
-      margin: 0 auto;
+    .wrap {
+      width: min(calc(100% - 2rem), var(--max));
+      margin: auto
     }
 
-    .site-header {
+    header {
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 10;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
       backdrop-filter: blur(14px);
-      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
-      border-bottom: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      border-bottom: 1px solid color-mix(in srgb, var(--text) 10%, transparent)
     }
 
-    .header-inner {
+    .nav {
+      min-height: 4.4rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: var(--space-4);
-      min-height: 4.5rem;
+      gap: 1rem
     }
 
     .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-3);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-    }
-
-    .brand-mark {
-      width: 2.25rem;
-      height: 2.25rem;
-      border-radius: 0.8rem;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--color-primary-highlight), color-mix(in srgb, var(--color-primary) 14%, var(--color-surface)));
-      border: 1px solid color-mix(in srgb, var(--color-primary) 16%, var(--color-border));
-      color: var(--color-primary);
-    }
-
-    .header-actions {
       display: flex;
       align-items: center;
-      gap: var(--space-3);
+      gap: .65rem;
+      font-weight: 800;
+      letter-spacing: -.04em
     }
 
-    .theme-toggle,
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 11px;
+      background: var(--soft);
+      color: var(--brand);
+      border: 1px solid color-mix(in srgb, var(--brand) 25%, transparent)
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: .9rem
+    }
+
+    .nav-links a:hover {
+      color: var(--brand)
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 44px;
-      padding: 0.8rem 1rem;
+      min-height: 46px;
+      padding: .72rem 1.05rem;
+      border: 1px solid var(--brand);
       border-radius: 999px;
-      border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
-      transition: transform var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
-    }
-
-    .theme-toggle {
-      width: 44px;
-      padding: 0;
-      background: var(--color-surface);
-      color: var(--color-text);
-      cursor: pointer;
-    }
-
-    .theme-toggle:hover,
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: var(--color-primary);
-      border-color: var(--color-primary);
+      background: var(--brand);
       color: #fff;
-      font-weight: 700;
+      font-weight: 800;
+      cursor: pointer;
+      transition:
+        background-color .18s ease,
+        border-color .18s ease,
+        color .18s ease,
+        transform .18s ease;
     }
 
-    .btn-primary:hover {
-      background: var(--color-primary-hover);
+    .btn:hover {
+      background: var(--brand2);
+      transform: translateY(-1px)
     }
 
-    .btn-secondary {
-      background: var(--color-surface);
-      color: var(--color-text);
-      font-weight: 700;
+    .btn.alt {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--line)
     }
 
-    main {
-      padding: var(--space-12) 0 var(--space-20);
+    .btn.alt:hover {
+      color: var(--brand);
+      border-color: var(--brand)
+    }
+
+    .theme {
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--line)
     }
 
     .hero {
-      padding: clamp(var(--space-10), 8vw, var(--space-20)) 0 var(--space-12);
+      padding: clamp(3.5rem, 8vw, 7rem) 0 4rem
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: var(--space-8);
-      align-items: start;
+      grid-template-columns: minmax(0, 1.2fr) minmax(290px, .8fr);
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center
     }
 
-    .eyebrow {
+    .eyebrow,
+    .tag {
       display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      padding: 0.45rem 0.85rem;
+      padding: .4rem .75rem;
       border-radius: 999px;
-      background: var(--color-primary-highlight);
-      color: var(--color-primary);
-      font-size: var(--text-xs);
+      background: var(--soft);
+      color: var(--brand);
+      font-size: .73rem;
       font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      letter-spacing: .08em;
+      text-transform: uppercase
     }
 
     .hero h1 {
-      margin: var(--space-5) 0 var(--space-4);
-      font-family: var(--font-display);
-      font-size: var(--text-2xl);
+      max-width: 780px;
+      margin: 1rem 0;
+      font-size: clamp(2.4rem, 6vw, 5rem);
       line-height: 1.02;
-      letter-spacing: -0.05em;
-      max-width: 12ch;
+      letter-spacing: -.065em
     }
 
-    .hero p {
-      margin: 0;
-      max-width: 62ch;
-      color: var(--color-text-muted);
+    .hero h1 span {
+      color: var(--brand)
     }
 
-    .hero-actions,
-    .meta-list,
-    .deliverables,
-    .bullet-list {
+    .lead {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.25rem)
+    }
+
+    .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: var(--space-3);
+      gap: .75rem;
+      margin-top: 1.5rem
     }
 
-    .hero-actions {
-      margin-top: var(--space-6);
-    }
-
-    .meta-list {
-      margin-top: var(--space-6);
-      padding: 0;
-      list-style: none;
-    }
-
-    .meta-list li {
-      padding: 0.6rem 0.9rem;
-      border-radius: 999px;
-      background: var(--color-surface);
-      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
-      color: var(--color-text-muted);
-      font-size: var(--text-sm);
-    }
-
-    .hero-panel,
-    .service-card,
-    .process,
-    .cta-box {
-      background: var(--color-surface);
-      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .hero-panel {
-      padding: var(--space-8);
-    }
-
-    .panel-label {
-      font-size: var(--text-xs);
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-text-faint);
-      margin-bottom: var(--space-4);
-    }
-
-    .hero-panel h2 {
-      margin: 0 0 var(--space-3);
-      font-size: var(--text-lg);
-      letter-spacing: -0.03em;
-    }
-
-    .hero-panel p {
-      color: var(--color-text-muted);
-      margin-bottom: var(--space-5);
-    }
-
-    .section {
-      padding: var(--space-10) 0;
-      content-visibility: auto;
-      contain-intrinsic-size: 700px;
-    }
-
-    .section-heading {
+    .proof {
       display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: var(--space-4);
-      margin-bottom: var(--space-6);
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin-top: 1.4rem
     }
 
-    .section-heading h2 {
+    .proof span {
+      padding: .42rem .7rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: .82rem
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      box-shadow: var(--shadow)
+    }
+
+    .hero-card {
+      padding: clamp(1.3rem, 4vw, 2rem)
+    }
+
+    .label {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 800;
+      color: var(--brand)
+    }
+
+    .hero-card h2 {
+      margin: .6rem 0;
+      font-size: 1.45rem;
+      line-height: 1.2;
+      letter-spacing: -.04em
+    }
+
+    .hero-card p {
+      color: var(--muted)
+    }
+
+    .checks {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0 0
+    }
+
+    .checks li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin: .65rem 0
+    }
+
+    .checks li:before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--brand);
+      font-weight: 800
+    }
+
+    section {
+      padding: 4rem 0
+    }
+
+    .alt {
+      background: color-mix(in srgb, var(--alt) 65%, transparent)
+    }
+
+    .heading {
+      max-width: 720px;
+      margin-bottom: 2rem
+    }
+
+    .heading h2 {
+      margin: 0 0 .6rem;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -.055em
+    }
+
+    .heading p {
       margin: 0;
-      font-size: var(--text-xl);
-      letter-spacing: -0.04em;
+      color: var(--muted)
     }
 
-    .section-heading p {
-      margin: 0;
-      color: var(--color-text-muted);
-      max-width: 58ch;
-    }
-
-    .services-grid {
+    .services {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--space-5);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem
     }
 
-    .service-card {
-      padding: var(--space-6);
+    .service {
       display: flex;
       flex-direction: column;
-      gap: var(--space-5);
+      padding: clamp(1.25rem, 3vw, 1.75rem)
     }
 
-    .card-top {
+    .service.featured {
+      border: 2px solid var(--brand);
+      position: relative
+    }
+
+    .recommended {
+      position: absolute;
+      right: 1rem;
+      top: -.8rem;
+      padding: .25rem .65rem;
+      border-radius: 999px;
+      background: var(--brand);
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 800
+    }
+
+    .service-head {
       display: flex;
-      align-items: start;
       justify-content: space-between;
-      gap: var(--space-4);
+      align-items: flex-start;
+      gap: 1rem
     }
 
-    .service-card h3 {
+    .service h3 {
       margin: 0;
       font-size: 1.35rem;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
+      line-height: 1.2;
+      letter-spacing: -.04em
     }
 
     .price {
       white-space: nowrap;
-      color: var(--color-primary);
-      font-weight: 800;
-      font-size: var(--text-sm);
+      color: var(--brand);
+      font-size: .9rem;
+      font-weight: 800
     }
 
-    .service-card p {
-      margin: 0;
-      color: var(--color-text-muted);
+    .service>p {
+      color: var(--muted);
+      margin: .8rem 0
     }
 
-    .deliverables,
-    .bullet-list {
-      padding: 0;
+    .service ul {
       list-style: none;
-      gap: var(--space-2);
-      flex-direction: column;
+      padding: 0;
+      margin: .3rem 0 1.2rem
     }
 
-    .deliverables li,
-    .bullet-list li {
+    .service li {
       position: relative;
-      padding-left: 1.25rem;
-      color: var(--color-text);
-      font-size: var(--text-sm);
+      padding-left: 1.35rem;
+      margin: .5rem 0;
+      font-size: .92rem
     }
 
-    .deliverables li::before,
-    .bullet-list li::before {
-      content: "";
+    .service li:before {
+      content: '•';
       position: absolute;
-      left: 0;
-      top: 0.62rem;
-      width: 0.45rem;
-      height: 0.45rem;
-      border-radius: 999px;
-      background: var(--color-primary);
+      left: .15rem;
+      color: var(--brand);
+      font-weight: 900
     }
 
-    .card-note {
+    .best {
       margin-top: auto;
-      padding-top: var(--space-4);
-      border-top: 1px solid var(--color-divider);
-      color: var(--color-text-faint);
-      font-size: var(--text-sm);
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .86rem
+    }
+
+    .best strong {
+      color: var(--text)
+    }
+
+    .proof-grid,
+    .decision,
+    .terms {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem
+    }
+
+    .proof-card {
+      padding: 1.35rem
+    }
+
+    .proof-card h3 {
+      margin: .6rem 0 .35rem;
+      font-size: 1.1rem
+    }
+
+    .proof-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .92rem
+    }
+
+    .proof-card a {
+      display: inline-flex;
+      margin-top: 1rem;
+      color: var(--brand);
+      font-weight: 800
+    }
+
+    .decision article {
+      padding: 1.25rem
+    }
+
+    .decision h3 {
+      margin: .15rem 0 .35rem;
+      font-size: 1.05rem
+    }
+
+    .decision p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .92rem
     }
 
     .process {
-      padding: var(--space-8);
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: var(--space-5);
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem
     }
 
     .step {
-      padding-right: var(--space-4);
-      border-right: 1px solid var(--color-divider);
-    }
-
-    .step:last-child {
-      border-right: none;
-      padding-right: 0;
+      padding: 1.25rem;
+      border-top: 3px solid var(--brand);
+      border-radius: 0 0 12px 12px
     }
 
     .step-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 999px;
-      background: var(--color-primary-highlight);
-      color: var(--color-primary);
-      font-weight: 800;
-      margin-bottom: var(--space-4);
+      color: var(--brand);
+      font-weight: 800
     }
 
     .step h3 {
-      margin: 0 0 var(--space-2);
-      font-size: 1.05rem;
-      letter-spacing: -0.02em;
+      margin: .35rem 0;
+      font-size: 1.05rem
     }
 
     .step p {
       margin: 0;
-      color: var(--color-text-muted);
-      font-size: var(--text-sm);
+      color: var(--muted);
+      font-size: .9rem
     }
 
-    .cta-box {
-      padding: var(--space-8);
+    .terms {
+      grid-template-columns: repeat(2, 1fr)
+    }
+
+    .term {
+      display: flex;
+      gap: .8rem;
+      padding: 1.1rem
+    }
+
+    .term i {
+      color: var(--brand);
+      font-style: normal;
+      font-weight: 900
+    }
+
+    .term p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .9rem
+    }
+
+    .term strong {
+      display: block;
+      color: var(--text)
+    }
+
+    details {
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface)
+    }
+
+    details+details {
+      margin-top: .65rem
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800
+    }
+
+    details p {
+      margin: .7rem 0 0;
+      color: var(--muted)
+    }
+
+    .cta {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: var(--space-6);
-      background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary-highlight) 70%, var(--color-surface)), var(--color-surface));
+      gap: 2rem;
+      padding: 2rem
     }
 
-    .cta-box h2 {
-      margin: 0 0 var(--space-2);
-      font-size: var(--text-xl);
-      letter-spacing: -0.04em;
+    .cta h2 {
+      margin: 0 0 .4rem;
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      line-height: 1.1;
+      letter-spacing: -.05em
     }
 
-    .cta-box p {
+    .cta p {
+      max-width: 650px;
       margin: 0;
-      color: var(--color-text-muted);
-      max-width: 54ch;
+      color: var(--muted)
     }
 
-    .site-footer {
-      padding: var(--space-8) 0 var(--space-10);
-      color: var(--color-text-faint);
-      font-size: var(--text-sm);
+    footer {
+      padding: 2.5rem 0 5rem;
+      color: var(--muted);
+      font-size: .85rem
     }
 
-    .footer-inner {
+    .footer-row {
       display: flex;
       justify-content: space-between;
-      gap: var(--space-4);
-      border-top: 1px solid var(--color-divider);
-      padding-top: var(--space-6);
+      gap: 1rem;
+      border-top: 1px solid var(--line);
+      padding-top: 1.5rem
     }
 
-    @media (max-width: 980px) {
+    .mobile-cta {
+      display: none;
+      padding-bottom: calc(.65rem + env(safe-area-inset-bottom));
+    }
 
-      .hero-grid,
-      .services-grid,
-      .process,
-      .cta-box,
-      .footer-inner {
-        grid-template-columns: 1fr;
-        flex-direction: column;
+    @media(max-width:850px) {
+      .hero-grid {
+        grid-template-columns: 1fr
+      }
+
+      .services,
+      .proof-grid,
+      .decision {
+        grid-template-columns: 1fr 1fr
       }
 
       .process {
-        padding: var(--space-6);
+        grid-template-columns: 1fr 1fr
       }
 
-      .step {
-        border-right: none;
-        padding-right: 0;
-        padding-bottom: var(--space-4);
-        border-bottom: 1px solid var(--color-divider);
+      .cta {
+        align-items: flex-start;
+        flex-direction: column
       }
 
-      .step:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-      }
-
-      .section-heading {
-        align-items: start;
-        flex-direction: column;
-      }
-
-      .card-top {
-        flex-direction: column;
+      .nav-links a:not(.btn) {
+        display: none;
       }
     }
 
-    @media (max-width: 640px) {
-      .header-inner {
-        min-height: 4rem;
+    @media(max-width:560px) {
+      .wrap {
+        width: min(calc(100% - 1.25rem), var(--max))
       }
 
-      .header-actions {
-        gap: var(--space-2);
+      .nav {
+        min-height: 4rem
       }
 
-      .btn {
-        width: 100%;
+      .brand {
+        font-size: .9rem
       }
 
-      .hero-panel,
-      .service-card,
-      .cta-box {
-        padding: var(--space-6);
+      .nav .btn {
+        min-height: 40px;
+        padding: .55rem .7rem;
+        font-size: .78rem
+      }
+
+      .theme {
+        width: 38px;
+        height: 38px
+      }
+
+      .hero {
+        padding-top: 3rem
       }
 
       .hero h1 {
-        max-width: 14ch;
+        font-size: clamp(2.35rem, 13vw, 3.5rem)
       }
 
-      .hero-actions {
+      .actions,
+      .actions .btn {
+        width: 100%;
+        flex-direction: column
+      }
+
+      .hero-card {
+        padding: 1.2rem
+      }
+
+      section {
+        padding: 3rem 0
+      }
+
+      .services,
+      .proof-grid,
+      .decision,
+      .process,
+      .terms {
+        grid-template-columns: 1fr
+      }
+
+      .service-head {
+        flex-direction: column
+      }
+
+      .price {
+        white-space: normal
+      }
+
+      .cta {
+        padding: 1.35rem
+      }
+
+      .cta .btn {
+        width: 100%
+      }
+
+      .footer-row {
+        flex-direction: column
+      }
+
+      .mobile-cta {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 8;
+        padding: .65rem;
+        background: color-mix(in srgb, var(--surface) 92%, transparent);
+        backdrop-filter: blur(12px);
+        border-top: 1px solid var(--line);
+        padding-bottom: calc(.65rem + env(safe-area-inset-bottom));
+      }
+
+      .mobile-cta .btn {
+        width: 100%;
+        padding-bottom: calc(.65rem + env(safe-area-inset-bottom));
+      }
+
+      #cookie-banner {
+        padding-bottom: calc(1rem + env(safe-area-inset-bottom)) !important;
+      }
+
+      #cookie-banner>div {
+        align-items: stretch !important;
         flex-direction: column;
-        align-items: stretch;
+      }
+
+      #cookie-banner button {
+        min-height: 44px;
       }
     }
+
+    section,
+    #services,
+    #proof,
+    #process,
+    #faq,
+    #contact {
+      scroll-margin-top: 5.5rem;
+    }
   </style>
+  <script
+    type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Mousa Cloud Consulting","url":"https://www.mousa-cloud.com/cloud-security-audits-advisory.html","description":"AWS cloud security audits, architecture reviews, remediation programmes and ongoing advisory.","areaServed":["US","SG","SA","HK","JP"],"serviceType":["Cloud Security Audit","AWS Security Consulting","Cloud Architecture Review","Cloud Security Advisory"]}</script>
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <header class="flex-center">
-    <div>
-      <a href="/">
-        <video autoplay muted>
-          <source src="resized-logo.mp4" type='video/mp4'>
-          Your browser does not support the video tag.
-        </video>
-      </a>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <div class="wrap nav"><a class="brand" href="https://www.mousa-cloud.com/"
+        aria-label="Mousa Cloud Consulting home"><span class="mark" aria-hidden="true">◈</span>Mousa Cloud
+        Consulting</a>
+      <nav class="nav-links" aria-label="Primary navigation"><a href="#services">Services</a><a
+          href="#proof">Proof</a><a href="#faq">FAQ</a><a class="btn" href="#contact">Book a call</a><button
+          class="btn theme" id="theme" type="button" aria-label="Switch to dark theme">☾</button></nav>
     </div>
   </header>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Cloud Security Audits and Advisory home">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3l7 3v5c0 4.6-2.9 8.8-7 10-4.1-1.2-7-5.4-7-10V6l7-3Z"></path>
-            <path d="m9.5 12 1.8 1.8 3.7-4.1"></path>
-          </svg>
-        </span>
-        <span>Cloud Security Consulting</span>
-      </a>
-      <div class="header-actions">
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-        <a class="btn btn-primary" href="#services">View services</a>
-        <a class="btn btn-primary" href="new-clients-starter-offer.html">Starter offer</a>
-      </div>
-    </div>
-  </header>
-
-  <main id="main-content">
-    <section class="hero container" id="top">
-      <div class="hero-grid">
-        <div>
-          <span class="eyebrow">AWS · security consulting · audits</span>
-          <h1>Cloud Security Audits &amp; Advisory for AWS teams that need real security decisions.</h1>
-          <p style="margin-top: var(--space-5); color: var(--color-text); font-weight: 700; max-width: 62ch;">Delivered
-            by a CCSP-certified cloud security consultant and AWS Solutions Architect Associate focused on AWS security
-            assessment, cloud security audit work, and pragmatic risk reduction for growing teams.</p>
-          <p>This cloud security audit delivers <strong>SaaS security assessment</strong> and <strong>software security
-              audit</strong> coverage for AWS‑hosted applications and third‑party SaaS tools.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#services">Explore offerings</a>
-            <a class="btn btn-secondary" href="#process">See delivery process</a>
-          </div>
-          <ul class="meta-list" role="list">
-            <li>Cloud security consulting offers</li>
-            <li>AWS security consulting focus</li>
-            <li>CCSP and AWS SAA aligned delivery</li>
-          </ul>
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div><span class="eyebrow">AWS cloud security consulting</span>
+          <h1>Know what puts your AWS environment at risk—and <span>what to fix first.</span></h1>
+          <p class="lead">Independent AWS security audits, architecture reviews, remediation programmes and ongoing
+            advisory for growing teams that need practical decisions—not a generic checklist.</p>
+          <div class="actions"><a class="btn" href="#services">Choose a service</a><a class="btn alt"
+              href="#process">See how it works</a></div>
+          <div class="proof"><span>CCSP certified</span><span>AWS SAA</span><span>Remote
+              delivery</span><span>US-friendly time zones</span></div>
         </div>
-        <aside class="hero-panel" aria-label="Service summary">
-          <div class="panel-label">Included across engagements</div>
-          <h2>Built for leaders who want a cloud security assessment, AWS security audit, or trusted cloud security
-            advisory input before risk grows.</h2>
-          <p>Every package is scoped to produce usable outputs: identified gaps, clearly explained trade-offs, and
-            concrete actions that help engineering and leadership move from security concerns to prioritized execution.
-          </p>
-          <ul class="bullet-list" role="list">
-            <li>Security decisions tied to business priorities and grounded in CCSP and AWS Solutions Architect
-              Associate training.</li>
-            <li>Plain-language findings for technical and non-technical stakeholders, supported by hands-on AWS security
-              experience.</li>
-            <li>Actionable next steps for remediation, control improvement, monitoring, and hardening that stay
-              realistic for engineering teams.</li>
+        <aside class="card hero-card">
+          <div class="label">What you receive</div>
+          <h2>A security view your engineering and leadership teams can use.</h2>
+          <p>Every engagement is scoped around your environment, business priorities and delivery capacity.</p>
+          <ul class="checks">
+            <li>Prioritised risks in plain language</li>
+            <li>Practical remediation recommendations</li>
+            <li>Written deliverables and stakeholder readout</li>
+            <li>No production changes without approval</li>
           </ul>
         </aside>
       </div>
     </section>
-
-    <section class="section container" id="services">
-      <div class="section-heading">
-        <div>
-          <h2>Service offerings</h2>
+    <section class="alt">
+      <div class="wrap">
+        <div class="heading">
+          <h2>Choose the right level of help</h2>
+          <p>Prices are starting prices for the stated scope. The final quote confirms accounts, workloads,
+            deliverables, assumptions, exclusions and timeline before work begins.</p>
         </div>
-      </div>
-
-      <div class="services-grid">
-        <article class="service-card">
-          <div class="card-top">
-            <div>
+        <div class="services" id="services">
+          <article class="card service featured"><span class="recommended">Best starting point</span>
+            <div class="service-head" id="csa">
               <h3>Cloud Security Audit</h3>
+              <div class="price">From USD 5,000</div>
             </div>
-            <div class="price">From USD 5,000</div>
-          </div>
-          <p>A focused cloud security audit for teams that want an independent review of AWS controls before incidents,
-            compliance pressure, or scale issues create expensive problems. This cloud security assessment is suited to
-            buyers looking for a cloud security consultant, aws security consultant, AWS security specialist, or
-            cybersecurity consultant who can review real risk instead of delivering a generic checklist.</p>
-          <ul class="deliverables" role="list">
-            <li>Review of IAM, storage configurations, logging coverage, alerting, and threat detection posture across
-              the agreed AWS scope.</li>
-            <li>Security-focused findings report highlighting priority gaps, exposure paths, and practical remediation
-              recommendations.</li>
-            <li>Assessment framing that supports cloud security assessment services, AWS security assessment, and
-              cybersecurity audit services discussions with internal stakeholders.</li>
-            <li>Clear readout session to explain findings, impact, and next steps in business and engineering terms.
-            </li>
-          </ul>
-          <div class="card-note">Best for organizations that want a cloud security audit or AWS security audit before
-            committing to larger remediation or compliance work.</div>
-        </article>
-
-        <article class="service-card">
-          <div class="card-top">
-            <a href="environment-cloud-calculator.html">
-              <div>
-                <h3>
-                  <span aria-hidden="true" style="margin-right:0.4rem; display:inline-flex; align-items:center;">
-                    <!-- Simple leaf icon -->
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5 20C5 20 5 13 11 7C15 3 19 4 19 4C19 4 20 8 16 12C10 18 5 20 5 20Z"
-                        stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M10 14C10 14 11 12 13 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    </svg>
-                  </span>
-                  Green Cloud Optimization
-                </h3>
-              </div>
+            <p>For teams that need an independent view of AWS control gaps before an incident, compliance pressure,
+              enterprise review or rapid growth.</p>
+            <ul>
+              <li>IAM, storage, logging, alerting and threat-detection review</li>
+              <li>Prioritised findings with exposure paths and business impact</li>
+              <li>Practical remediation recommendations</li>
+              <li>Readout for technical and non-technical stakeholders</li>
+            </ul>
+            <div class="best"><strong>Best for:</strong> A clear baseline before remediation or a larger programme.
+            </div>
+          </article>
+          <article class="card service">
+            <div class="service-head">
+              <h3>Green Cloud Optimization</h3>
               <div class="price">From USD 6,000</div>
-            </a>
-          </div>
-
-
-          <p>
-            A carbon‑aware AWS cloud optimization engagement for teams that want to reduce
-            emissions and cloud spend together. This offer focuses on practical changes to
-            workloads, regions, and utilization so you cut cost without sacrificing reliability
-            or performance.
-          </p>
-
-          <ul class="deliverables" role="list">
-            <li>
-              Review of current AWS workloads, regions, and utilization patterns with a focus
-              on energy use and carbon emissions.
-            </li>
-            <li>
-              Right‑sizing and elasticity recommendations that lower both monthly cloud
-              spend and estimated emissions.
-            </li>
-            <li>
-              Architectural guidance on using more efficient services, storage, and
-              networking patterns for greener cloud operations.
-            </li>
-            <li>
-              Prioritized action plan and leadership‑friendly summary explaining expected
-              cost savings and sustainability benefits.
-            </li>
-          </ul>
-
-          <div class="card-note">
-            Best for organizations that care about environmental sustainability and want
-            to turn cloud optimization into measurable reductions in AWS spend and
-            carbon emissions.
-          </div>
-        </article>
-
-        <article class="service-card">
-          <div class="card-top">
-            <div>
-              <h3>Cloud Architecture &amp; Design Review</h3>
             </div>
-            <div class="price">From USD 7,000</div>
-          </div>
-
-          <p>
-            Review and design of secure, scalable AWS architecture for teams that want a stronger foundation before
-            growth, migration, or reliability issues create expensive problems. This engagement focuses on practical
-            cloud architecture improvements rather than generic advice.
-          </p>
-
-          <ul class="deliverables" role="list">
-            <li>Review of networking, IAM, data flows, resiliency, logging, and cost optimization across the agreed AWS
-              scope.</li>
-            <li>Architecture diagrams and design recommendations that make the target state easier to understand and
-              implement.</li>
-            <li>Practical implementation guidance with prioritized next steps for engineering and leadership
-              stakeholders.</li>
-            <li>Clear findings and trade-off discussion to support cloud architecture review, redesign, or migration
-              planning.</li>
-          </ul>
-
-          <div class="card-note">
-            Best for teams that need a secure AWS architecture review before scaling, modernizing, or launching new
-            workloads.
-          </div>
-        </article>
-
-        <article class="service-card">
-          <div class="card-top">
-            <div>
-              <h3>End-to-End Cloud Security Programme</h3>
+            <p>Reduce AWS spend and estimated emissions together without sacrificing reliability or performance.</p>
+            <ul>
+              <li>Workload, region and utilisation review</li>
+              <li>Rightsizing and elasticity recommendations</li>
+              <li>Efficient service, storage and networking guidance</li>
+              <li>Prioritised action plan with leadership summary</li>
+            </ul>
+            <div class="best"><strong>Best for:</strong> Measurable cloud cost and sustainability improvements.</div>
+          </article>
+          <article class="card service">
+            <div class="service-head" id="architectureReview">
+              <h3>Cloud Architecture Review</h3>
+              <div class="price">From USD 7,000</div>
             </div>
-            <div class="price">From USD 15,000</div>
-          </div>
-          <p>An end-to-end engagement for teams that need more than a point-in-time assessment. This offer combines
-            cloud security consulting, audit insight, prioritized fixes, and a 90-day hardening roadmap, making it
-            suitable for buyers searching for cloud security advisory, aws security consulting, cyber security
-            consulting, or data security consultants who can help convert findings into action.</p>
-          <ul class="deliverables" role="list">
-            <li>Initial cloud security assessment and audit baseline across core AWS identity, data, monitoring, and
-              threat management controls.</li>
-            <li>Hands-on remediation support or guided fixes for the most important security weaknesses identified
-              during the review.</li>
-            <li>Structured 90-day hardening roadmap covering quick wins, sequencing, ownership, and monitoring
-              improvements.</li>
-            <li>Programme-style guidance that aligns cloud security consulting with cyber threat consulting and broader
-              information security audit services needs.</li>
-          </ul>
-          <div class="card-note">Best for teams that need a cloud security consultant to assess, improve, and harden AWS
-            security in one coordinated engagement.</div>
-        </article>
-
-        <article class="service-card">
-          <div class="card-top">
-            <div>
-              <h3>Monthly Cloud Security Advisory Retainer</h3>
+            <p>Strengthen AWS security, scalability, resiliency and cost efficiency before growth, migration or a major
+              launch.</p>
+            <ul>
+              <li>Networking, IAM, data-flow, resiliency, logging and cost review</li>
+              <li>Architecture diagrams and target-state recommendations</li>
+              <li>Prioritised implementation guidance</li>
+              <li>Trade-off discussion for engineering and leadership</li>
+            </ul>
+            <div class="best"><strong>Best for:</strong> Teams scaling, modernising or launching production workloads.
             </div>
-            <div class="price">From USD 3,000/month</div>
-          </div>
-          <p>An ongoing cloud security advisory retainer for organizations that want continued access to an AWS security
-            consultant without hiring full-time senior security leadership. This offer supports recurring cloud security
-            consulting, AWS security consulting, cyber security consultants support, and targeted cyber threat
-            consulting for up to 20 hours each month.</p>
-          <ul class="deliverables" role="list">
-            <li>Ongoing advisory on AWS security decisions, architecture risk, access control changes, monitoring
-              priorities, and incident-related questions.</li>
-            <li>Monthly review support for findings, backlog prioritization, threat trends, and control maturity
-              improvements.</li>
-            <li>Flexible support for cloud security assessment follow-up, AWS security assessment refinement, and
-              security leadership guidance.</li>
-            <li>Regular expert input that gives growing teams practical access to a cybersecurity consultant and data
-              security consultants perspective without large-firm overhead.</li>
-          </ul>
-          <div class="card-note">Best for companies that want ongoing cloud security advisory and AWS security
-            consulting support as environments and risks evolve.</div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section container" id="process">
-      <div class="section-heading">
-        <div>
-          <h2>Delivery approach</h2>
-        </div>
-      </div>
-
-      <div class="process">
-        <div class="step">
-          <div class="step-number">01</div>
-          <h3>Scope</h3>
-          <p>Confirm environment boundaries, business risks, stakeholders, and review objectives so the cloud security
-            assessment stays focused and useful.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">02</div>
-          <h3>Assess</h3>
-          <p>Review controls, configurations, access patterns, storage posture, monitoring, and threat detection to
-            support a meaningful cloud security audit.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">03</div>
-          <h3>Document</h3>
-          <p>Produce written findings, priority rankings, and practical recommendations that work for engineering,
-            leadership, and audit-facing conversations.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">04</div>
-          <h3>Advise</h3>
-          <p>Walk through remediation options, answer questions, and turn the review into an actionable cloud security
-            advisory plan.</p>
+          </article>
+          <article class="card service">
+            <div class="service-head">
+              <h3>End-to-End Security Programme</h3>
+              <div class="price">From USD 15,000</div>
+            </div>
+            <p>Turn assessment findings into coordinated improvement with remediation support and a 90-day hardening
+              roadmap.</p>
+            <ul>
+              <li>AWS identity, data, monitoring and threat baseline</li>
+              <li>Hands-on or guided remediation for priority weaknesses</li>
+              <li>90-day roadmap with sequencing and ownership</li>
+              <li>Advisory aligned with security and compliance needs</li>
+            </ul>
+            <div class="best"><strong>Best for:</strong> Teams needing assessment, improvement and hardening together.
+            </div>
+          </article>
+          <article class="card service">
+            <div class="service-head">
+              <h3>Monthly Security Advisory</h3>
+              <div class="price">From USD 3,000/mo</div>
+            </div>
+            <p>Ongoing AWS security guidance without hiring full-time senior security leadership. Up to 20 hours per
+              month.</p>
+            <ul>
+              <li>Architecture, access-control, monitoring and incident advice</li>
+              <li>Monthly findings, backlog and control-maturity review</li>
+              <li>Follow-up support for security improvements</li>
+              <li>Flexible access to an experienced AWS security consultant</li>
+            </ul>
+            <div class="best"><strong>Best for:</strong> Teams whose environment and risks change continuously.</div>
+          </article>
         </div>
       </div>
     </section>
-
-    <section class="section container">
-      <div class="cta-box">
-        <p><strong>Ready for professional cloud security audit?</strong></p>
-        <!-- Calendly link widget begin -->
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-        <a class="btn btn-primary book-call" href=""
-          onclick="Calendly.initPopupWidget({url: 'https://calendly.com/contact-mousa-cloud-consulting/30min'});return false;">
-          Click here to book a quick meeting!
-        </a>
-        <!-- Calendly link widget end -->
-        <hr>
-        <a class="btn btn-primary" href="#top">Back to top</a>
+    <section id="proof">
+      <div class="wrap">
+        <div class="heading">
+          <h2>See the work before you book</h2>
+          <p>There are no testimonials yet, so explore the available case studies and live demonstrations to evaluate
+            the work directly.</p>
+        </div>
+        <div class="proof-grid">
+          <article class="card proof-card"><span class="tag">Evidence</span>
+            <h3>Case studies</h3>
+            <p>Review examples of the problems addressed, decisions made and outcomes delivered.</p><a
+              href="https://blog.mousa-cloud.com/case-studies/" target="_blank" rel="noopener">Read case studies →</a>
+          </article>
+          <article class="card proof-card"><span class="tag">Interactive</span>
+            <h3>Live architecture demos</h3>
+            <p>Explore working cloud architecture demonstrations and see the technical approach directly.</p><a
+              href="https://architecture.mousa-cloud.com/" target="_blank" rel="noopener">Explore live demos →</a>
+          </article>
+          <article class="card proof-card"><span class="tag">Credentials</span>
+            <h3>Relevant expertise</h3>
+            <p>Delivery is informed by CCSP and AWS Solutions Architect Associate training plus hands-on AWS
+              implementation experience.</p><a href="#contact">Discuss your environment →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="alt">
+      <div class="wrap">
+        <div class="heading">
+          <h2>Not sure where to start?</h2>
+          <p>Choose based on the decision you need to make next.</p>
+        </div>
+        <div class="decision">
+          <article class="card">
+            <h3>“What is exposed?”</h3>
+            <p>Choose the Cloud Security Audit for an independent baseline and prioritised findings.</p>
+          </article>
+          <article class="card">
+            <h3>“How should we build this?”</h3>
+            <p>Choose the Cloud Architecture Review before scaling, migrating or launching.</p>
+          </article>
+          <article class="card">
+            <h3>“Who can help us execute?”</h3>
+            <p>Choose the End-to-End Security Programme or Monthly Security Advisory for continued guidance.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section id="process">
+      <div class="wrap">
+        <div class="heading">
+          <h2>A focused, low-disruption process</h2>
+          <p>Scope, access, deliverables, timing and approvals are agreed before work begins.</p>
+        </div>
+        <div class="process">
+          <div class="card step">
+            <div class="step-number">01</div>
+            <h3>Scope</h3>
+            <p>Confirm accounts, workloads, objectives, stakeholders and success criteria.</p>
+          </div>
+          <div class="card step">
+            <div class="step-number">02</div>
+            <h3>Assess</h3>
+            <p>Review agreed controls, configurations, access patterns, monitoring and threat posture.</p>
+          </div>
+          <div class="card step">
+            <div class="step-number">03</div>
+            <h3>Explain</h3>
+            <p>Deliver findings with severity, business impact, evidence and practical options.</p>
+          </div>
+          <div class="card step">
+            <div class="step-number">04</div>
+            <h3>Act</h3>
+            <p>Run a readout and agree self-remediation, guided fixes or ongoing support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="alt">
+      <div class="wrap">
+        <div class="heading">
+          <h2>Clear expectations from day one</h2>
+        </div>
+        <div class="terms">
+          <div class="card term"><i>✓</i>
+            <p><strong>Read-only by default</strong>Assessments use least-privilege access. Changes require explicit
+              approval.</p>
+          </div>
+          <div class="card term"><i>✓</i>
+            <p><strong>Defined scope</strong>The quote identifies accounts, regions, workloads, deliverables and
+              exclusions.</p>
+          </div>
+          <div class="card term"><i>✓</i>
+            <p><strong>Secure handling</strong>Access and client information are used only for the agreed engagement.
+            </p>
+          </div>
+          <div class="card term"><i>✓</i>
+            <p><strong>Action over alarm</strong>Findings are prioritised by exposure, impact, effort and engineering
+              context.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="faq">
+      <div class="wrap">
+        <div class="heading">
+          <h2>Questions clients usually ask</h2>
+          <p>The important details are answered here without sending you to another page.</p>
+        </div>
+        <details>
+          <summary>How long does an engagement take?</summary>
+          <p>Timing depends on accounts, workloads, regions and stakeholder availability. The proposed timeline is
+            included in the written scope.</p>
+        </details>
+        <details>
+          <summary>Do you need administrator access?</summary>
+          <p>No. Read-only, least-privilege access is the default for assessment work. Write access is discussed and
+            approved separately.</p>
+        </details>
+        <details>
+          <summary>Does the price include remediation?</summary>
+          <p>The audit includes findings, recommendations and a readout. Hands-on remediation is available through the
+            Security Programme or a separately scoped follow-on.</p>
+        </details>
+        <details>
+          <summary>Can you work with a US-based team?</summary>
+          <p>Yes. Delivery is remote and can be organised around suitable US and European time-zone overlap.</p>
+        </details>
+        <details>
+          <summary>Are AWS charges or third-party tools included?</summary>
+          <p>No. AWS, software, testing or third-party service charges are separate unless explicitly included in the
+            written scope.</p>
+        </details>
+        <details>
+          <summary>What happens after I book a call?</summary>
+          <p>We discuss your environment and decision. If there is a fit, you receive written scope, assumptions,
+            deliverables, timeline and price before work begins.</p>
+        </details>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="wrap">
+        <div class="card cta">
+          <div>
+            <h2>Find the right next step for your AWS environment.</h2>
+            <p>Book a short, no-obligation conversation. Bring your main concern, number of AWS accounts and target
+              timeline.</p>
+          </div><a class="btn" href="https://calendly.com/contact-mousa-cloud-consulting/30min" target="_blank"
+            rel="noopener noreferrer">Book
+            a 30-minute call</a>
+        </div>
       </div>
     </section>
   </main>
-
-  <section class="section">
-    <div class="container">
-      <h2>Frequently Asked Questions</h2>
-      <h3>Does this cover SaaS security assessment or software security audit?</h3>
-      <p>Yes; our cloud security audit includes <strong>SaaS security assessment</strong> for integrations and
-        <strong>software security audit</strong> for your AWS application stack.
-      </p>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>Cloud security audit and advisory services.</div>
-    </div>
-  </footer>
-
-  <script>
-    (function () {
-      const root = document.documentElement;
-      const button = document.querySelector('[data-theme-toggle]');
-      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      root.setAttribute('data-theme', theme);
-      function renderIcon(mode) {
-        button.innerHTML = mode === 'dark'
-          ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>'
-          : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
-        button.setAttribute('aria-label', mode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-      }
-      renderIcon(theme);
-      button.addEventListener('click', function () {
-        theme = theme === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', theme);
-        renderIcon(theme);
-      });
-    })();
-  </script>
-
-  <script src="common.js"></script>
-
-  <script src="cookie-consent.js"></script>
-
-  <script>
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer-placeholder').outerHTML = data;
-      });
-  </script>
-
   <div id="footer-placeholder"></div>
+  <div class="mobile-cta"><a class="btn" href="#contact">Book a 30-minute call</a></div>
+  <script>
+    const root = document.documentElement, toggle = document.getElementById('theme'), saved = localStorage.getItem('mousa-theme'); if (saved) root.dataset.theme = saved; function themeLabel() { let dark = root.dataset.theme === 'dark'; toggle.textContent = dark ? '☀' : '☾'; toggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme') } themeLabel(); toggle.onclick = () => { root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark'; localStorage.setItem('mousa-theme', root.dataset.theme); themeLabel() };
+    fetch('footer.html').then(r => r.text()).then(html => { document.getElementById('footer-placeholder').outerHTML = html }).catch(() => { document.getElementById('footer-placeholder').innerHTML = '<footer><div class="wrap footer-row"><span>AWS cloud security audits and advisory by Mousa Cloud Consulting.</span><a href="https://www.mousa-cloud.com/">mousa-cloud.com</a></div></footer>' });
+  </script>
+
+  <script src="common.js" defer></script>
+
+  <script src="cookie-consent.js" defer></script>
 
   <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;
             padding:1rem;z-index:9999;display:none;font-size:0.9rem;">
